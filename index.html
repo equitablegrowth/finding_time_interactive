@@ -1,0 +1,206 @@
+<!-- finding_time_interactive.html -->
+
+<html>
+
+<head>
+	<title>Finding Time Interactive</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="lib/TweenMax.min.js"></script>
+	<script src="lib/animation.gsap.js"></script>
+	<style>
+		@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+		/*body{margin-top:70px;margin-bottom:70px;}*/
+		h1{font-family:sans-serif;width:700px;margin-left:auto;margin-right:auto;}
+		h2{font-family:sans-serif;width:700px;margin-left:auto;margin-right:auto;font-size:1.2em;}
+		p{width:700px;margin-left:auto;margin-right:auto;}
+
+		.hed{font-family:'Lato';font-size:22px;font-weight:700;}
+		.dek{font-family:'Lato';font-size:17px;margin-bottom:20px;}
+		.note{font-family:'Lato';font-size:11px;margin-top:20px;line-height:1.1;}
+		.constraint{position:relative;}
+		.scrollcontainer{overflow-y:scroll;overflow-x:hidden;width:100%;height:100%;margin:auto;}
+		.icon{position:absolute;width:64;height:64;top:20%;left:50%;}
+
+		#pininside{position:relative;}
+		#stop1text{font-family:Lato;position:relative;top:200;left:150;width:200px;height:0;opacity:0;}
+		#stop2text{font-family:Lato;position:absolute;top:70%;left:60%;width:200px;height:0;opacity:0;}
+	</style>
+</head>
+<body>
+
+<div class='scrollcontainer' id='examplewrapper'>
+<h1>Header</h1>
+
+<p>Austin raw denim art party tattooed. Vinyl williamsburg microdosing thundercats vegan. Banh mi poutine truffaut, migas before they sold out waistcoat photo booth paleo vice sartorial banjo. Chicharrones DIY pinterest, tacos blue bottle kitsch banjo vinyl ethical kale chips blog salvia pitchfork. Man bun godard pop-up twee, heirloom listicle master cleanse artisan 90's flexitarian tilde. Organic lumbersexual chia tote bag small batch, pabst mlkshk street art food truck paleo ramps. Jean shorts heirloom polaroid direct trade viral.</p>
+
+<p>Health goth meditation 90's church-key put a bird on it. Kogi keytar williamsburg chillwave ethical, dreamcatcher small batch iPhone. Green juice 3 wolf moon +1, pug plaid roof party truffaut stumptown williamsburg tattooed fashion axe mixtape mlkshk dreamcatcher. You probably haven't heard of them flannel cardigan lo-fi, mumblecore before they sold out meditation migas kombucha. Disrupt tumblr pickled butcher. Kale chips cronut scenester literally, sartorial 3 wolf moon taxidermy quinoa lumbersexual bicycle rights. Tattooed brunch yuccie, semiotics taxidermy heirloom tote bag keffiyeh health goth.</p>
+
+<p>Shoreditch jean shorts intelligentsia, swag authentic helvetica green juice selvage hammock migas master cleanse bespoke portland gentrify. Ugh hammock YOLO pour-over four loko listicle etsy marfa seitan, humblebrag ethical vegan vinyl. Knausgaard direct trade synth, church-key drinking vinegar crucifix banh mi neutra letterpress mustache. Tote bag chambray deep v put a bird on it, gastropub marfa mumblecore gentrify. Crucifix literally vegan synth squid sustainable occupy, freegan yuccie. Health goth four dollar toast pitchfork, microdosing sriracha leggings man bun. Seitan truffaut chia food truck, lo-fi quinoa chicharrones thundercats butcher lomo next level.</p>
+
+<h2>Subheader 1</h2>
+
+<p>Slow-carb roof party bushwick, seitan locavore portland letterpress vice kickstarter flexitarian hella. IPhone slow-carb banjo, truffaut direct trade cold-pressed umami swag. Intelligentsia cornhole cronut swag drinking vinegar tofu. 90's polaroid swag food truck freegan pug, humblebrag tilde. Roof party health goth pop-up, pabst thundercats lumbersexual stumptown VHS try-hard street art. Leggings squid literally, messenger bag marfa bitters kogi synth slow-carb food truck. Bitters semiotics marfa ennui.</p>
+
+<p>Butcher skateboard put a bird on it sriracha letterpress man braid. Shabby chic taxidermy slow-carb, +1 3 wolf moon whatever neutra viral scenester single-origin coffee. Vegan pop-up gochujang, keytar man braid schlitz seitan mustache twee raw denim narwhal poutine pour-over meditation slow-carb. Freegan banh mi kinfolk intelligentsia plaid jean shorts, kitsch squid skateboard hella pickled butcher hammock. Cred waistcoat celiac pop-up chia, readymade blue bottle typewriter tote bag distillery brooklyn tattooed. Single-origin coffee bitters yuccie photo booth, godard jean shorts pitchfork. Paleo actually chicharrones, cardigan 90's normcore pinterest wolf taxidermy knausgaard.</p>
+
+<p>Listicle church-key green juice pork belly, post-ironic gluten-free kombucha disrupt hella mumblecore distillery blog waistcoat sustainable. Typewriter art party marfa chambray swag selvage. Authentic chicharrones chia next level, quinoa church-key tacos 3 wolf moon before they sold out. Waistcoat cardigan blue bottle disrupt food truck fashion axe hella truffaut, whatever church-key slow-carb. Bitters gentrify helvetica post-ironic, chambray beard tofu wayfarers kinfolk kitsch kogi stumptown. Vegan selfies umami cray craft beer, shabby chic banjo etsy kale chips photo booth fap schlitz butcher artisan. Dreamcatcher meggings pug normcore, locavore lomo cred photo booth.</p>
+
+<p>Forage ugh YOLO umami kogi, church-key intelligentsia art party. Meditation tumblr actually man braid dreamcatcher next level, paleo etsy semiotics. Farm-to-table cray four dollar toast before they sold out franzen lo-fi. Mixtape pabst direct trade, cred messenger bag cold-pressed fashion axe ugh. Bitters fixie synth hammock, poutine selfies fingerstache. Taxidermy echo park sartorial, humblebrag gluten-free you probably haven't heard of them organic iPhone church-key YOLO tumblr +1 irony. Irony bushwick actually, waistcoat mlkshk cronut shoreditch seitan church-key humblebrag XOXO farm-to-table migas.</p>
+
+<h2>Subheader 2</h2>
+
+<p>Whatever microdosing sartorial, leggings lo-fi crucifix tattooed messenger bag yuccie viral cardigan. Microdosing chillwave +1 fingerstache, tacos deep v artisan. Lumbersexual cold-pressed kombucha tousled letterpress, dreamcatcher tumblr celiac. Quinoa mlkshk cred deep v pinterest. Banjo umami tote bag gastropub, ramps leggings four loko lomo quinoa humblebrag lumbersexual. Authentic cliche street art man bun freegan swag. Vegan shoreditch mlkshk authentic green juice heirloom, meggings VHS.</p>
+
+<p>Viral vice four dollar toast umami, chia raw denim gluten-free biodiesel williamsburg ethical. Seitan whatever ennui helvetica brooklyn pug, meh franzen four dollar toast humblebrag chicharrones cornhole. Slow-carb offal keytar street art, williamsburg chia authentic synth banjo gentrify kombucha artisan cliche kale chips lo-fi. Chambray skateboard typewriter ethical. Roof party freegan franzen ethical tilde artisan. Try-hard helvetica VHS, twee readymade cliche banjo cronut typewriter shoreditch migas pickled yr before they sold out. Keffiyeh four dollar toast sartorial affogato kinfolk.</p>
+
+<p>Truffaut slow-carb authentic roof party, readymade tofu iPhone plaid migas umami intelligentsia yr squid leggings put a bird on it. Aesthetic next level readymade health goth. Retro listicle organic yr raw denim, ennui single-origin coffee shabby chic vinyl bitters artisan. Bitters fap hashtag, retro tattooed 3 wolf moon pug pickled cliche leggings. Food truck kale chips cornhole, paleo chillwave gluten-free swag chicharrones trust fund disrupt godard pop-up pour-over master cleanse tofu. Portland try-hard locavore pop-up lo-fi pug, bicycle rights pickled. PBR&B portland narwhal, pork belly gluten-free yr raw denim.</p>
+
+<p>Bitters cold-pressed beard fixie roof party paleo tote bag, portland flexitarian truffaut trust fund man bun tattooed fanny pack. Sustainable ennui organic church-key, offal retro hoodie venmo XOXO direct trade migas deep v tote bag wayfarers cold-pressed. Jean shorts fashion axe blue bottle biodiesel austin, kitsch you probably haven't heard of them. Banh mi sustainable slow-carb tousled hashtag, affogato tattooed beard listicle next level neutra iPhone vinyl tofu. XOXO gochujang chartreuse, cold-pressed pabst kombucha schlitz bespoke lumbersexual raw denim tote bag before they sold out man bun church-key. Yr four loko fanny pack craft beer. Pork belly tumblr asymmetrical, lumbersexual wayfarers vegan swag banh mi bicycle rights literally 90's.</p>
+
+<p>Everyday carry meggings tattooed gastropub, fingerstache pinterest messenger bag paleo kinfolk gochujang cronut craft beer. Craft beer kogi mustache, locavore small batch dreamcatcher waistcoat occupy. YOLO sriracha beard, tumblr you probably haven't heard of them cliche 3 wolf moon. Post-ironic pinterest leggings, austin try-hard affogato authentic cray. Truffaut meggings gluten-free mumblecore brooklyn. Sustainable typewriter food truck tattooed 8-bit readymade. Four loko echo park retro VHS, art party salvia tofu chia.</p>
+
+<div id='trigger'></div>
+<div id='pin'>
+	<div class='constraint' id='inner'>
+		<div id='stop1text'>This is the first stop. This text will fade in and then fade out.</div>
+		<div id='stop2text'>Here's another stop. This would be the 2nd part of the story.</div>
+<!-- 		<img id='icon1' class='icon' src='person.png' />
+		<img id='icon2' class='icon' src='person.png' /> -->
+		<svg id='graph1'></svg>
+	</div>
+</div>
+
+
+<p>Austin raw denim art party tattooed. Vinyl williamsburg microdosing thundercats vegan. Banh mi poutine truffaut, migas before they sold out waistcoat photo booth paleo vice sartorial banjo. Chicharrones DIY pinterest, tacos blue bottle kitsch banjo vinyl ethical kale chips blog salvia pitchfork. Man bun godard pop-up twee, heirloom listicle master cleanse artisan 90's flexitarian tilde. Organic lumbersexual chia tote bag small batch, pabst mlkshk street art food truck paleo ramps. Jean shorts heirloom polaroid direct trade viral.</p>
+
+<h2>Subheader 3</h2>
+
+<p>Health goth meditation 90's church-key put a bird on it. Kogi keytar williamsburg chillwave ethical, dreamcatcher small batch iPhone. Green juice 3 wolf moon +1, pug plaid roof party truffaut stumptown williamsburg tattooed fashion axe mixtape mlkshk dreamcatcher. You probably haven't heard of them flannel cardigan lo-fi, mumblecore before they sold out meditation migas kombucha. Disrupt tumblr pickled butcher. Kale chips cronut scenester literally, sartorial 3 wolf moon taxidermy quinoa lumbersexual bicycle rights. Tattooed brunch yuccie, semiotics taxidermy heirloom tote bag keffiyeh health goth.</p>
+
+<p>Shoreditch jean shorts intelligentsia, swag authentic helvetica green juice selvage hammock migas master cleanse bespoke portland gentrify. Ugh hammock YOLO pour-over four loko listicle etsy marfa seitan, humblebrag ethical vegan vinyl. Knausgaard direct trade synth, church-key drinking vinegar crucifix banh mi neutra letterpress mustache. Tote bag chambray deep v put a bird on it, gastropub marfa mumblecore gentrify. Crucifix literally vegan synth squid sustainable occupy, freegan yuccie. Health goth four dollar toast pitchfork, microdosing sriracha leggings man bun. Seitan truffaut chia food truck, lo-fi quinoa chicharrones thundercats butcher lomo next level.</p>
+
+<p>Slow-carb roof party bushwick, seitan locavore portland letterpress vice kickstarter flexitarian hella. IPhone slow-carb banjo, truffaut direct trade cold-pressed umami swag. Intelligentsia cornhole cronut swag drinking vinegar tofu. 90's polaroid swag food truck freegan pug, humblebrag tilde. Roof party health goth pop-up, pabst thundercats lumbersexual stumptown VHS try-hard street art. Leggings squid literally, messenger bag marfa bitters kogi synth slow-carb food truck. Bitters semiotics marfa ennui.</p>
+
+<p>Butcher skateboard put a bird on it sriracha letterpress man braid. Shabby chic taxidermy slow-carb, +1 3 wolf moon whatever neutra viral scenester single-origin coffee. Vegan pop-up gochujang, keytar man braid schlitz seitan mustache twee raw denim narwhal poutine pour-over meditation slow-carb. Freegan banh mi kinfolk intelligentsia plaid jean shorts, kitsch squid skateboard hella pickled butcher hammock. Cred waistcoat celiac pop-up chia, readymade blue bottle typewriter tote bag distillery brooklyn tattooed. Single-origin coffee bitters yuccie photo booth, godard jean shorts pitchfork. Paleo actually chicharrones, cardigan 90's normcore pinterest wolf taxidermy knausgaard.</p>
+
+<p>Listicle church-key green juice pork belly, post-ironic gluten-free kombucha disrupt hella mumblecore distillery blog waistcoat sustainable. Typewriter art party marfa chambray swag selvage. Authentic chicharrones chia next level, quinoa church-key tacos 3 wolf moon before they sold out. Waistcoat cardigan blue bottle disrupt food truck fashion axe hella truffaut, whatever church-key slow-carb. Bitters gentrify helvetica post-ironic, chambray beard tofu wayfarers kinfolk kitsch kogi stumptown. Vegan selfies umami cray craft beer, shabby chic banjo etsy kale chips photo booth fap schlitz butcher artisan. Dreamcatcher meggings pug normcore, locavore lomo cred photo booth.</p>
+
+<h2>Subheader 4</h2>
+
+<p>Forage ugh YOLO umami kogi, church-key intelligentsia art party. Meditation tumblr actually man braid dreamcatcher next level, paleo etsy semiotics. Farm-to-table cray four dollar toast before they sold out franzen lo-fi. Mixtape pabst direct trade, cred messenger bag cold-pressed fashion axe ugh. Bitters fixie synth hammock, poutine selfies fingerstache. Taxidermy echo park sartorial, humblebrag gluten-free you probably haven't heard of them organic iPhone church-key YOLO tumblr +1 irony. Irony bushwick actually, waistcoat mlkshk cronut shoreditch seitan church-key humblebrag XOXO farm-to-table migas.</p>
+
+<p>Whatever microdosing sartorial, leggings lo-fi crucifix tattooed messenger bag yuccie viral cardigan. Microdosing chillwave +1 fingerstache, tacos deep v artisan. Lumbersexual cold-pressed kombucha tousled letterpress, dreamcatcher tumblr celiac. Quinoa mlkshk cred deep v pinterest. Banjo umami tote bag gastropub, ramps leggings four loko lomo quinoa humblebrag lumbersexual. Authentic cliche street art man bun freegan swag. Vegan shoreditch mlkshk authentic green juice heirloom, meggings VHS.</p>
+
+<p>Viral vice four dollar toast umami, chia raw denim gluten-free biodiesel williamsburg ethical. Seitan whatever ennui helvetica brooklyn pug, meh franzen four dollar toast humblebrag chicharrones cornhole. Slow-carb offal keytar street art, williamsburg chia authentic synth banjo gentrify kombucha artisan cliche kale chips lo-fi. Chambray skateboard typewriter ethical. Roof party freegan franzen ethical tilde artisan. Try-hard helvetica VHS, twee readymade cliche banjo cronut typewriter shoreditch migas pickled yr before they sold out. Keffiyeh four dollar toast sartorial affogato kinfolk.</p>
+
+<p>Truffaut slow-carb authentic roof party, readymade tofu iPhone plaid migas umami intelligentsia yr squid leggings put a bird on it. Aesthetic next level readymade health goth. Retro listicle organic yr raw denim, ennui single-origin coffee shabby chic vinyl bitters artisan. Bitters fap hashtag, retro tattooed 3 wolf moon pug pickled cliche leggings. Food truck kale chips cornhole, paleo chillwave gluten-free swag chicharrones trust fund disrupt godard pop-up pour-over master cleanse tofu. Portland try-hard locavore pop-up lo-fi pug, bicycle rights pickled. PBR&B portland narwhal, pork belly gluten-free yr raw denim.</p>
+
+<p>Bitters cold-pressed beard fixie roof party paleo tote bag, portland flexitarian truffaut trust fund man bun tattooed fanny pack. Sustainable ennui organic church-key, offal retro hoodie venmo XOXO direct trade migas deep v tote bag wayfarers cold-pressed. Jean shorts fashion axe blue bottle biodiesel austin, kitsch you probably haven't heard of them. Banh mi sustainable slow-carb tousled hashtag, affogato tattooed beard listicle next level neutra iPhone vinyl tofu. XOXO gochujang chartreuse, cold-pressed pabst kombucha schlitz bespoke lumbersexual raw denim tote bag before they sold out man bun church-key. Yr four loko fanny pack craft beer. Pork belly tumblr asymmetrical, lumbersexual wayfarers vegan swag banh mi bicycle rights literally 90's.</p>
+
+<p>Everyday carry meggings tattooed gastropub, fingerstache pinterest messenger bag paleo kinfolk gochujang cronut craft beer. Craft beer kogi mustache, locavore small batch dreamcatcher waistcoat occupy. YOLO sriracha beard, tumblr you probably haven't heard of them cliche 3 wolf moon. Post-ironic pinterest leggings, austin try-hard affogato authentic cray. Truffaut meggings gluten-free mumblecore brooklyn. Sustainable typewriter food truck tattooed 8-bit readymade. Four loko echo park retro VHS, art party salvia tofu chia.</p>
+</div>
+</div>
+</body>
+<script>
+	var data={1964: {'lf_female': 0.44380442981553864, 'mm_income': 43166.0, 'mhh_income': 49660.0, 'mf_income': 1268.24, 'lf_male': 0.9695652173913043}, 1965: {'lf_female': 0.45395833333333335, 'mm_income': 45120.0, 'mhh_income': 51888.0, 'mf_income': 1504.0, 'lf_male': 0.9664549116826774}, 1966: {'lf_female': 0.4584459693629999, 'mm_income': 45260.0, 'mhh_income': 52574.599999999999, 'mf_income': 1752.0, 'lf_male': 0.9643393537952016}, 1967: {'lf_female': 0.468327796234773, 'mm_income': 48138.0, 'mhh_income': 56317.199999999997, 'mf_income': 2130.0, 'lf_male': 0.9660849114989479}, 1968: {'lf_female': 0.4854674282409081, 'mm_income': 47670.0, 'mhh_income': 55910.099999999999, 'mf_income': 3983.8499999999999, 'lf_male': 0.964219443323921}, 1969: {'lf_female': 0.49146537842190013, 'mm_income': 48895.739999999998, 'mhh_income': 58269.199999999997, 'mf_income': 5038.8000000000002, 'lf_male': 0.9616742709779805}, 1970: {'lf_female': 0.5030081973377454, 'mm_income': 50630.0, 'mhh_income': 61000.0, 'mf_income': 5490.0, 'lf_male': 0.9603898538048232}, 1971: {'lf_female': 0.5032294194511854, 'mm_income': 51012.0, 'mhh_income': 60254.999999999993, 'mf_income': 5972.8499999999995, 'lf_male': 0.9555953969312875}, 1972: {'lf_female': 0.5167173252279635, 'mm_income': 51597.0, 'mhh_income': 60782.400000000001, 'mf_income': 6696.2699999999995, 'lf_male': 0.9538267195191009}, 1973: {'lf_female': 0.5231972060165893, 'mm_income': 53300.0, 'mhh_income': 62424.959999999999, 'mf_income': 7339.4099999999999, 'lf_male': 0.9493754109138725}, 1974: {'lf_female': 0.5357200712781468, 'mm_income': 51332.319999999992, 'mhh_income': 60389.549999999996, 'mf_income': 8176.9999999999991, 'lf_male': 0.9464884438285127}, 1975: {'lf_female': 0.5516241062308478, 'mm_income': 49280.000000000007, 'mhh_income': 58960.000000000007, 'mf_income': 9099.2000000000007, 'lf_male': 0.9447025598979685}, 1976: {'lf_female': 0.5598905394839718, 'mm_income': 49920.0, 'mhh_income': 59646.080000000002, 'mf_income': 10400.0, 'lf_male': 0.9391564178070327}, 1977: {'lf_female': 0.580948595654478, 'mm_income': 50439.0, 'mhh_income': 60315.660000000003, 'mf_income': 11260.800000000001, 'lf_male': 0.9415926647895458}, 1978: {'lf_female': 0.5992160043254934, 'mm_income': 50780.07, 'mhh_income': 60040.199999999997, 'mf_income': 11862.84, 'lf_male': 0.9415835388522841}, 1979: {'lf_female': 0.6178438161831445, 'mm_income': 49050.0, 'mhh_income': 59088.900000000001, 'mf_income': 12916.5, 'lf_male': 0.9433398502342395}, 1980: {'lf_female': 0.6406915346618974, 'mm_income': 46782.720000000001, 'mhh_income': 57600.0, 'mf_income': 14169.6, 'lf_male': 0.9413871904144278}, 1981: {'lf_female': 0.6531660491748064, 'mm_income': 44735.400000000001, 'mhh_income': 55018.799999999996, 'mf_income': 14247.99, 'lf_male': 0.9410530795889828}, 1982: {'lf_female': 0.6610985889400068, 'mm_income': 44649.0, 'mhh_income': 55596.0, 'mf_income': 14897.76, 'lf_male': 0.9401145166722802}, 1983: {'lf_female': 0.6664227344798146, 'mm_income': 44030.0, 'mhh_income': 55815.759999999995, 'mf_income': 15355.76, 'lf_male': 0.9380925638399789}, 1984: {'lf_female': 0.6806027164685908, 'mm_income': 43775.999999999993, 'mhh_income': 55916.999999999993, 'mf_income': 16274.639999999999, 'lf_male': 0.9369870267407996}, 1985: {'lf_female': 0.6968447472212262, 'mm_income': 44875.600000000006, 'mhh_income': 57310.000000000007, 'mf_income': 17600.0, 'lf_male': 0.9375962262914797}, 1986: {'lf_female': 0.7040108975329197, 'mm_income': 46008.0, 'mhh_income': 59400.000000000007, 'mf_income': 18308.16, 'lf_male': 0.9354232594936709}, 1987: {'lf_female': 0.7187651331719128, 'mm_income': 46502.5, 'mhh_income': 60714.499999999993, 'mf_income': 19039.899999999998, 'lf_male': 0.9365676567656765}, 1988: {'lf_female': 0.7241884816753926, 'mm_income': 46260, 'mhh_income': 60792, 'mf_income': 20050, 'lf_male': 0.9341171106624112}, 1989: {'lf_female': 0.7357331274528727, 'mm_income': 46485.579999999994, 'mhh_income': 60527.899999999994, 'mf_income': 20628.0, 'lf_male': 0.9350540926009671}, 1990: {'lf_female': 0.7382591269495513, 'mm_income': 45250.0, 'mhh_income': 60363.5, 'mf_income': 21406.869999999999, 'lf_male': 0.9346852529330137}, 1991: {'lf_female': 0.7377799527894525, 'mm_income': 43585.260000000002, 'mhh_income': 59327.040000000001, 'mf_income': 21163.619999999999, 'lf_male': 0.9312676056338028}, 1992: {'lf_female': 0.7440510737086478, 'mm_income': 42588.0, 'mhh_income': 59126.339999999997, 'mf_income': 21376.809999999998, 'lf_male': 0.9293543307086615}, 1993: {'lf_female': 0.7429713019132058, 'mm_income': 42535.040000000001, 'mhh_income': 58733.32, 'mf_income': 21529.919999999998, 'lf_male': 0.9252023267577137}, 1994: {'lf_female': 0.751189727933914, 'mm_income': 41600.0, 'mhh_income': 57600.0, 'mf_income': 21760.0, 'lf_male': 0.9193690893026605}, 1995: {'lf_female': 0.7527462632811093, 'mm_income': 42120.0, 'mhh_income': 58500.0, 'mf_income': 22198.799999999999, 'lf_male': 0.9187287247970672}, 1996: {'lf_female': 0.7547921676399862, 'mm_income': 42280.0, 'mhh_income': 58890.0, 'mf_income': 22681.709999999999, 'lf_male': 0.9183588893493576}, 1997: {'lf_female': 0.7647479077362727, 'mm_income': 43554.919999999998, 'mhh_income': 59501.919999999998, 'mf_income': 23680.0, 'lf_male': 0.9188940092165898}, 1998: {'lf_female': 0.7661164323075877, 'mm_income': 43572.5, 'mhh_income': 60905.799999999996, 'mf_income': 24650.0, 'lf_male': 0.9210148924434639}, 1999: {'lf_female': 0.7657998850302641, 'mm_income': 45440.0, 'mhh_income': 63048.0, 'mf_income': 25560.0, 'lf_male': 0.9171418128654971}, 2000: {'lf_female': 0.7737734706238644, 'mm_income': 46928.279999999999, 'mhh_income': 63617.999999999993, 'mf_income': 25775.639999999999, 'lf_male': 0.9180957164382578}, 2001: {'lf_female': 0.7740084353962203, 'mm_income': 46900.0, 'mhh_income': 64896.200000000004, 'mf_income': 26800.0, 'lf_male': 0.9216959258032461}, 2002: {'lf_female': 0.7679775166486773, 'mm_income': 46200.0, 'mhh_income': 64838.400000000001, 'mf_income': 26402.640000000003, 'lf_male': 0.9203416498089458}, 2003: {'lf_female': 0.7626439144736842, 'mm_income': 45150.0, 'mhh_income': 63222.900000000001, 'mf_income': 25851.600000000002, 'lf_male': 0.913946587537092}, 2004: {'lf_female': 0.7583266999036407, 'mm_income': 43750.0, 'mhh_income': 61875.0, 'mf_income': 25500.0, 'lf_male': 0.9111074865437938}, 2005: {'lf_female': 0.7575647646280569, 'mm_income': 42448.010000000002, 'mhh_income': 60500.0, 'mf_income': 25177.68, 'lf_male': 0.9121458066353411}, 2006: {'lf_female': 0.7559557387719679, 'mm_income': 42480.0, 'mhh_income': 60770.0, 'mf_income': 25016.0, 'lf_male': 0.9141787462801191}, 2007: {'lf_female': 0.7608461656744943, 'mm_income': 43319.999999999993, 'mhh_income': 60724.379999999997, 'mf_income': 25198.559999999998, 'lf_male': 0.9160277562111802}, 2008: {'lf_female': 0.7629016553067186, 'mm_income': 42900.0, 'mhh_income': 60500.000000000007, 'mf_income': 26400.000000000004, 'lf_male': 0.9137833933250079}, 2009: {'lf_female': 0.7631116191146086, 'mm_income': 42033.200000000004, 'mhh_income': 60500.000000000007, 'mf_income': 25524.400000000001, 'lf_male': 0.9068050581097873}, 2010: {'lf_female': 0.7610362785383111, 'mm_income': 40428.100000000006, 'mhh_income': 57770.000000000007, 'mf_income': 25071.09, 'lf_male': 0.9043555812664208}, 2011: {'lf_female': 0.7530429284375494, 'mm_income': 38325.0, 'mhh_income': 55104.0, 'mf_income': 23730.0, 'lf_male': 0.8989727735115189}, 2012: {'lf_female': 0.7508687392855488, 'mm_income': 38563.200000000004, 'mhh_income': 55341.900000000001, 'mf_income': 23566.400000000001, 'lf_male': 0.8973919275165724}, 2013: {'lf_female': 0.7445063267541304, 'mm_income': 38760.0, 'mhh_income': 56100.0, 'mf_income': 23485.5, 'lf_male': 0.8950508231559003}, 2014: {'lf_female': 0.7471300031026994, 'mm_income': 40000, 'mhh_income': 56987, 'mf_income': 24000, 'lf_male': 0.8913677571935357}, 2015: {'lf_female': 0.7385232899101091, 'mm_income': 40000, 'mhh_income': 57550, 'mf_income': 24017, 'lf_male': 0.8916968470387729}}
+	var g=Snap('#graph1')
+	var gheight=document.documentElement.clientHeight
+	var gwidth=document.documentElement.clientWidth
+	var $lineseg=g.path('M0,570L'+gwidth+',570').attr({'stroke-width':3,fill:'none',stroke:'black',id:'lineseg'})
+	document.getElementById('graph1').setAttribute('width',gwidth)
+	document.getElementById('graph1').setAttribute('height',gheight)
+	var num=1
+
+	// var x=parseInt(Math.random()*400-200)
+	// var y=parseInt(Math.random()*400-200)
+	// document.getElementById('icon2').style.marginTop=y
+	// document.getElementById('icon2').style.marginLeft=x
+
+	// boring ol' graph drawing stuff
+	function setup(){
+		gxbounds1=[100,gwidth-50]
+		gybounds1=[30,parseInt(30+(gheight-160)/2)]
+		gxbounds2=[100,gwidth-50]
+		gybounds2=[parseInt(70+(gheight-160)/2),parseInt((70+(gheight-160)/2)+(gheight-160)/2)]
+
+		var yaxis1=g.line(gxbounds1[0],gybounds1[0],gxbounds1[0],gybounds1[1]).attr({stroke:'black','stroke-width':1,'shape-rendering':'crispEdges'})
+		var xaxis1=g.line(gxbounds1[0],gybounds1[1],gxbounds1[1],gybounds1[1]).attr({stroke:'black','stroke-width':1,'shape-rendering':'crispEdges'})
+		var yaxis2=g.line(gxbounds2[0],gybounds2[0],gxbounds2[0],gybounds2[1]).attr({stroke:'black','stroke-width':1,'shape-rendering':'crispEdges'})
+		var xaxis2=g.line(gxbounds2[0],gybounds2[1],gxbounds2[1],gybounds2[1]).attr({stroke:'black','stroke-width':1,'shape-rendering':'crispEdges'})
+
+		var title1=g.text((gxbounds1[1]+gxbounds1[0])/2,gybounds1[0]+20,'% participation in labor force').attr({'font-family':'Lato','text-anchor':'middle','font-size':'1.3em'})
+		var title1=g.text((gxbounds2[1]+gxbounds2[0])/2,gybounds2[0]+20,'Income in 2015 $').attr({'font-family':'Lato','text-anchor':'middle','font-size':'1.3em'})
+	}
+
+	setup()
+
+	// exciting scrolling animation stuff
+	function pathPrepare ($el) {
+		var lineLength = $el[0].getTotalLength();
+		$el.css("stroke-dasharray", lineLength);
+		$el.css("stroke-dashoffset", lineLength);
+	}
+
+	for(var i=0;i<100;i++){
+		var x=parseInt(Math.random()*400-200)
+		var y=parseInt(Math.random()*400-200)
+
+		while (Math.pow(x,2)+Math.pow(y,2)>Math.pow(200,2)){
+			var x=parseInt(Math.random()*400-200)
+			var y=parseInt(Math.random()*400-200)
+		}
+
+		document.getElementById('inner').insertAdjacentHTML('beforeend',"<img id='icon"+i+"' class='icon' src='person.png' style='margin-top:"+y+";margin-left:"+x+"' />")
+	}
+
+	var $lineseg=$("path#lineseg");
+	pathPrepare($lineseg);
+
+	var tween = new TimelineMax()
+		.add(TweenMax.to($lineseg, 1, {strokeDashoffset: 0, ease:Linear.easeNone}),0) // draw word for 0.9
+		.add(TweenMax.to($("#stop1text"), .2, {opacity: 1, ease:Linear.easeNone}),0) // draw word for 0.9
+		.add(TweenMax.to($("#stop1text"), .2, {opacity: 0, ease:Linear.easeNone}),.6) // draw word for 0.9
+		.add(TweenMax.to($("#stop2text"), .2, {opacity: 1, ease:Linear.easeNone}),.6) // draw word for 0.9
+		// .add(TweenMax.from($("#icon1"), .2, {scale:0, ease:Elastic.easeOut}),.4)
+		// .add(TweenMax.from($("#icon2"), .2, {scale:0, ease:Elastic.easeOut}),.7)
+
+	for(var i=0;i<100;i++){
+		tween.add(TweenMax.from($("#icon"+i+""), .2, {scale:0, ease:Elastic.easeOut}),i*.01)
+	}
+
+	var controller=new ScrollMagic.Controller({container:'#examplewrapper'})
+
+	new ScrollMagic.Scene({
+		offset:document.getElementById('trigger').offsetTop,
+		duration:5800,
+	})
+		.setPin('#pin')
+		.setTween(tween)
+		.addTo(controller)
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
