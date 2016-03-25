@@ -63,7 +63,7 @@ def summarize_data(data):
 	# labor force participation by gender by year (so for labforce, 1=not in force, 2=in LF. %age for each gender by year)
 	# RESTRICT ALL TO PRIME AGE: 25-54
 
-	data=data[(data['age']>=25) & (data['age']<=54)]
+	# data=data[(data['age']>=25) & (data['age']<=54)]
 	final_data=[]
 
 	for year in range(1964,2016,1):
@@ -89,8 +89,8 @@ def summarize_data(data):
 		cutoff=temp2.hwtsupp.sum()/2
 		median_hh_income=temp2.ftotval[cumsum>=cutoff].iloc[0]*dollars_2016[year]
 
-		lf_male=len(temp_m[temp_m['labforce']==2])/len(temp_m[temp_m['labforce']>0])
-		lf_female=len(temp_f[temp_f['labforce']==2])/len(temp_f[temp_f['labforce']>0])
+		lf_male=sum(temp_m[temp_m['labforce']==2]['wtsupp'])/sum(temp_m[temp_m['labforce']>0]['wtsupp'])
+		lf_female=sum(temp_f[temp_f['labforce']==2]['wtsupp'])/sum(temp_f[temp_f['labforce']>0]['wtsupp'])
 
 		row=[year,median_female_income,median_male_income,median_hh_income,lf_male,lf_female]
 		final_data.append(row)
@@ -100,7 +100,7 @@ def summarize_data(data):
 		final_json[row[0]]={'mf_income':row[1],'mm_income':row[2],'mhh_income':row[3],'lf_male':row[4],'lf_female':row[5]}
 
 	for row in final_data:
-		print row
+		print row[0],row[1],row[2],row[3],row[4],row[5]
 
 	return final_json
 
