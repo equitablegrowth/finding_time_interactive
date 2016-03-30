@@ -11,38 +11,42 @@ same user made the venus symbol
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/plugins/TextPlugin.min.js"></script>
 	<script src="lib/TweenMax.min.js"></script>
 	<script src="lib/animation.gsap.js"></script>
 	<style>
 		@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-		/*body{margin-top:70px;margin-bottom:70px;}*/
+		@-webkit-keyframes dash{to{stroke-dashoffset:-1000;}}
+
 		h1{font-family:sans-serif;width:700px;margin-left:auto;margin-right:auto;}
 		h2{font-family:sans-serif;width:700px;margin-left:auto;margin-right:auto;font-size:1.2em;}
 		p{width:700px;margin-left:auto;margin-right:auto;}
 
-		.hed{font-family:'Lato';font-size:22px;font-weight:700;}
-		.dek{font-family:'Lato';font-size:17px;margin-bottom:20px;}
-		.note{font-family:'Lato';font-size:11px;margin-top:20px;line-height:1.1;}
+		.ants{-webkit-animation: dash 30s linear infinite}
 		.constraint{position:relative;margin-left:auto;margin-right:auto;}
 		.scrollcontainer{overflow-y:scroll;overflow-x:hidden;width:100%;height:100%;margin:auto;}
 		.icon{position:absolute;width:32px;height:32px}
-		.stopline{position:absolute;width:1px;height:900px;background:black;opacity:.3;}
-		.headlinetext0{font-family:'Lato';font-size:2em;color:#e18942;font-weight:700;position:absolute;}
-		.headlinetext1{font-family:'Lato';font-size:2em;color:#b95835;font-weight:700;position:absolute;}
-		.headlinetext2{font-family:'Lato';font-size:1.5em;color:#999;font-weight:700;height:0;position:absolute;line-height:90%;}
+		.headlinetext0{font-family:'Lato';font-size:2em;color:#999;font-weight:700;position:absolute;}
+		.headlinetext2{font-family:'Lato';font-size:3.5em;color:#3d3242;font-weight:700;position:absolute;line-height:100%;}
+		.headlinetext4{font-family:'Lato';font-size:2.5em;color:#3d3242;font-weight:700;position:absolute;line-height:100%;}
 		.headlinetext3{font-family:'Lato';font-size:1.4em;color:#999;font-weight:700;height:0;position:absolute;line-height:90%;}
-		.stoptext{padding:10px;font-family:'Lato';font-size:1.5em;color:#fff;font-weight:700;position:absolute;line-height:90%;opacity:0;background-color:rgba(102,102,102,.9);border-radius:4px;}
-		.pin{max-width:1045px}
+		.stoptext{font-family:'Lato';font-size:1.5em;color:#3d3242;font-weight:400;position:absolute;line-height:90%;opacity:0;margin:0;padding:0;}
+		.stoptext2{text-align:center;font-size:2em;}
+		.lftext{font-family:'Lato';font-size:1.3em;color:#3d3242;font-weight:400;position:absolute;line-height:90%;margin:0;padding:0;}
+		.pin{max-width:1045px;overflow:hidden;}
 		.timeicons{padding-left:35px;}
 		.hoursrow{position:relative;font-family:'Lato';font-size:1.5em;color:#666;font-weight:700;line-height:90%;padding:13px;}
 		.hoursrow:not(:first-child){padding-top:2px;}
 		.hourstable{position:absolute;background-color:rgba(255,255,255,.9);border-radius:4px;opacity:0;}
 		.buffer{margin-left:35px;}
+		.lfbox{position:absolute;border:.5px solid black;background:#dddddd;padding:3px;font-family:'Lato';opacity:.8;}
+		.male{color:#fc8d62;}
+		.female{color:#67c2a5}
 
 		#pininside{position:relative;}
 		#venus{position:absolute;}
 		#ares{position:absolute;}
-		#yearmarker{text-align:center;}
+		#inners{opacity:0;}
 	</style>
 </head>
 <body>
@@ -55,41 +59,48 @@ same user made the venus symbol
 <div id='trigger'></div>
 <div id='pin'>
 	<div class='constraint' id='inner'>
-		<div id='ares'><svg viewbox='0 0 400 402' xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:version="0.32" inkscape:version="0.46" version="1.0" sodipodi:docname="Male black symbol.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape"><metadata id="metadata7"><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs id="defs5"><inkscape:perspective sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 526.18109 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="744.09448 : 526.18109 : 1" inkscape:persp3d-origin="372.04724 : 350.78739 : 1" id="perspective9" /><inkscape:perspective id="perspective11" inkscape:persp3d-origin="105 : 70 : 1" inkscape:vp_z="210 : 105 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_x="0 : 105 : 1" sodipodi:type="inkscape:persp3d" /></defs><sodipodi:namedview inkscape:window-height="712" inkscape:window-width="1024" inkscape:pageshadow="2" inkscape:pageopacity="0.0" guidetolerance="10.0" gridtolerance="10.0" objecttolerance="10.0" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff" id="base" showgrid="false" inkscape:zoom="1.155" inkscape:cx="200" inkscape:cy="200" inkscape:window-x="-4" inkscape:window-y="-4" inkscape:current-layer="svg2" /><path style="fill:#e18942;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" id="path4" stroke-miterlimit="4" d="M 313.08211,1.8287384e-06 L 296.52632,28.972622 L 337.91579,28.972622 L 261.34529,105.54314 C 192.66194,54.224462 96.00127,64.683002 39.884171,129.5049 C -16.232929,194.32679 -12.740749,291.48886 47.885186,352.11481 C 108.51112,412.74073 205.67319,416.23294 270.49511,360.11583 C 335.31699,303.99873 345.77552,207.33806 294.45685,138.65472 L 371.02735,62.084202 L 371.02735,103.47367 L 400,86.917881 L 400,1.8287384e-06 L 313.08211,1.8287384e-06 z M 164.08003,117.95998 C 229.22753,117.95998 282.04002,170.77246 282.04002,235.91997 C 282.04002,301.06747 229.22753,353.87996 164.08003,353.87996 C 98.93253,353.87996 46.120045,301.06747 46.120045,235.91997 C 46.120045,170.77246 98.93253,117.95998 164.08003,117.95998 L 164.08003,117.95998 z" /></svg></div>
-		<div id='venus'><svg viewbox='0 0 268 400' xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><metadata><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:title>Female black symbol</dc:title><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/></cc:Work></rdf:RDF></metadata><ellipse fill="none" stroke-width="34.5396" stroke="#b95835" cx="133" cy="130.785" rx="115.7302" ry="113.5152"/><path d="M109.47,257V303.505H56.2729V345.722H109.47V400H156.53V345.722H207.681V303.505H156.53V257Z" fill="#b95835"/></svg></div>
-		<div id='lf1' class='headlinetext0'>more than 90% of prime age males join the labor force</div>
-		<div id='lf2' class='headlinetext1'>but in 1964, only about 40% of prime age females did</div>
-		<div id='yearmarker' class='headlinetext2'>Avg. Income in 1964</div>
-		<div id='mhhmarker' class='headlinetext3' style='color:#3d3242'>Households $50k</div>
-		<div id='mmmarker' class='headlinetext3' style='color:#e18942'>Males $43k</div>
-		<div id='mfmarker' class='headlinetext3' style='color:#b95835'>Females $1k</div>
+		<div id='ares'><svg id='ares_svg' viewbox='0 0 400 402' xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:version="0.32" inkscape:version="0.46" version="1.0" sodipodi:docname="Male black symbol.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape"><metadata id="metadata7"><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs id="defs5"><inkscape:perspective sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 526.18109 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="744.09448 : 526.18109 : 1" inkscape:persp3d-origin="372.04724 : 350.78739 : 1" id="perspective9" /><inkscape:perspective id="perspective11" inkscape:persp3d-origin="105 : 70 : 1" inkscape:vp_z="210 : 105 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_x="0 : 105 : 1" sodipodi:type="inkscape:persp3d" /></defs><sodipodi:namedview inkscape:window-height="712" inkscape:window-width="1024" inkscape:pageshadow="2" inkscape:pageopacity="0.0" guidetolerance="10.0" gridtolerance="10.0" objecttolerance="10.0" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff" id="base" showgrid="false" inkscape:zoom="1.155" inkscape:cx="200" inkscape:cy="200" inkscape:window-x="-4" inkscape:window-y="-4" inkscape:current-layer="svg2" /><path style="fill:#fc8d62;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" id="path4" stroke-miterlimit="4" d="M 313.08211,1.8287384e-06 L 296.52632,28.972622 L 337.91579,28.972622 L 261.34529,105.54314 C 192.66194,54.224462 96.00127,64.683002 39.884171,129.5049 C -16.232929,194.32679 -12.740749,291.48886 47.885186,352.11481 C 108.51112,412.74073 205.67319,416.23294 270.49511,360.11583 C 335.31699,303.99873 345.77552,207.33806 294.45685,138.65472 L 371.02735,62.084202 L 371.02735,103.47367 L 400,86.917881 L 400,1.8287384e-06 L 313.08211,1.8287384e-06 z M 164.08003,117.95998 C 229.22753,117.95998 282.04002,170.77246 282.04002,235.91997 C 282.04002,301.06747 229.22753,353.87996 164.08003,353.87996 C 98.93253,353.87996 46.120045,301.06747 46.120045,235.91997 C 46.120045,170.77246 98.93253,117.95998 164.08003,117.95998 L 164.08003,117.95998 z" /></svg></div>
+		<div id='venus'><svg viewbox='0 0 268 400' xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><metadata><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:title>Female black symbol</dc:title><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/></cc:Work></rdf:RDF></metadata><ellipse fill="none" stroke-width="34.5396" stroke="#67c2a5" cx="133" cy="130.785" rx="115.7302" ry="113.5152"/><path d="M109.47,257V303.505H56.2729V345.722H109.47V400H156.53V345.722H207.681V303.505H156.53V257Z" fill="#67c2a5"/></svg></div>
+		<div id='yearmarker' class='headlinetext2'>1948</div>
+		<div id='mhhmarker' class='headlinetext3' style='color:#3d3242'>Families $27k</div>
+		<div id='mmmarker' class='headlinetext3' style='color:#fc8d62'>Males $21k</div>
+		<div id='mfmarker' class='headlinetext3' style='color:#67c2a5'>Females $9k</div>
+		<div id='male_lf_text' class='lfbox'>87%</div>
+		<div id='female_lf_text' class='lfbox'>33%</div>
+		<div id='graphlabel' class='headlinetext4'>Median Incomes, 2014 $</div>
 
-		<div id='stopline' class='stopline'></div>
+		<div id='lf1' class='lftext' style='opacity:100%'>Male labor force participation</div>
+		<div id='lf2' class='lftext' style='opacity:100%'>Female labor force participation</div>
+
+		<div id='stop0text' class='stoptext'>Scroll down to see how labor force participation and income has changed for <span class='male'>males</span> and <span class='female'>females</span> since 1948.</div>
+		<div id='stop1text' class='stoptext'>From 1948 to the 1990s, <span class='female'>female</span> participation in the labor force and <span class='female'>female</span> pay rose, and family income rose with it.</div>
+		<div id='stop2text1' class='stoptext'>But <span class='female'>female</span> labor force participation leveled off in the 90s.</div>
+		<div id='stop2text12' class='stoptext'><span class='male'>Male</span> labor force participation declined, and <span class='male'>male</span> median income has been stagnant since 1979.</div>
+		<div id='stop2text2' class='stoptext'>Family incomes grew quickly before 1979, but have risen slowly since.</div>
+		<div id='stop2text3' class='stoptext'>But it's not just that incomes are stagnant.</div>
+		<svg id='graph1'></svg>
+	</div>
+
+	<div class='constraint' id='inner2'>
+		<div id='stop2text32' class='stoptext stoptext2'>Unlike in 1964, both parents (or a single parent) work. So we spend more time making less money.</div>
+		<div id='stop2text4' class='stoptext stoptext2'>This isn't just a problem for families. It's a problem for our economy.</div>
+		<div id='stop2text5' class='stoptext stoptext2'>With less time, workers are less productive, and worker turnover is higher.</div>
 
 		<div class='hourstable' id='hourstable1'>
 			<div class='hoursrow' style='text-align:center'>1965</div>
-			<div class='hoursrow' id='1965workicon'><img id='mworkicon' class='icon' src='icons/workicon.png' /><span class='buffer'>35 hours work</span></div>
-			<div class='hoursrow' id='1965homeicon'><img id='mhomeicon' class='icon' src='icons/homeicon.png' /><span class='buffer'>20 hours housework</span></div>
-			<div class='hoursrow' id='1965careicon'><img id='mcareicon' class='icon' src='icons/careicon.png' /><span class='buffer'>12 hours childcare</span></div>
+			<div class='hoursrow' id='1965workicon'><span class='buffer'>35 hours work</span></div>
+			<div class='hoursrow' id='1965homeicon'><span class='buffer'>20 hours housework</span></div>
+			<div class='hoursrow' id='1965careicon'><span class='buffer'>12 hours childcare</span></div>
 			<div class='hoursrow' id='1965careicon'><span class='buffer'>67 hours/week</span></div>
 		</div>
 
 		<div class='hourstable' id='hourstable2'>
 			<div class='hoursrow' style='text-align:center'>2012</div>
-			<div class='hoursrow' id='1965workicon'><img id='mworkicon' class='icon' src='icons/workicon.png' /><span class='buffer'>40 hours work</span></div>
-			<div class='hoursrow' id='1965homeicon'><img id='mhomeicon' class='icon' src='icons/homeicon.png' /><span class='buffer'>15 hours housework</span></div>
-			<div class='hoursrow' id='1965careicon'><img id='mcareicon' class='icon' src='icons/careicon.png' /><span class='buffer'>25 hours childcare</span></div>
+			<div class='hoursrow' id='1965workicon'><span class='buffer'>40 hours work</span></div>
+			<div class='hoursrow' id='1965homeicon'><span class='buffer'>15 hours housework</span></div>
+			<div class='hoursrow' id='1965careicon'><span class='buffer'>25 hours childcare</span></div>
 			<div class='hoursrow' id='1965careicon'><span class='buffer'>80 hours/week</span></div>
 		</div>
-
-		<div id='stop1text' class='stoptext' style='width:200px'>In the 60s and 70s, female participation in the labor force and female pay rose, and household income rose with it.</div>
-		<div id='stop2text1' class='stoptext' style='width:230px'>Eventually female participation in the labor force levelled off, and you might notice that income for males and male participation in the labor force declined significantly after the 70s.</div>
-		<div id='stop2text2' class='stoptext' style='width:200px'>Household income has stagnated or even fallen for certain kinds of families.</div>
-		<div id='stop2text3' class='stoptext' style='width:230px'>But now both parents (or sometimes a single parent) work. So we spend more time making less money.</div>
-		<div id='stop2text4' class='stoptext' style='width:230px'>This isn't just a problem for families. It's a problem for our economy.</div>
-		<div id='stop2text5' class='stoptext' style='width:230px'>Stagnant wages mean stagnant demand. Workers bleary-eyed from a busy night are less productive. Employers have to spend time and money hiring and training workers to replace those who have left the labor force to care for a family member.</div>
-
-		<svg id='graph1'></svg>
 	</div>
 </div>
 
@@ -100,30 +111,30 @@ same user made the venus symbol
 
 </body>
 <script>
-	// data for prime age only
-	// var data={1964: {'lf_female': 0.44380442981553864, 'mm_income': 43166.0, 'mhh_income': 49660.0, 'mf_income': 1268.24, 'lf_male': 0.9695652173913043}, 1965: {'lf_female': 0.45395833333333335, 'mm_income': 45120.0, 'mhh_income': 51888.0, 'mf_income': 1504.0, 'lf_male': 0.9664549116826774}, 1966: {'lf_female': 0.4584459693629999, 'mm_income': 45260.0, 'mhh_income': 52574.599999999999, 'mf_income': 1752.0, 'lf_male': 0.9643393537952016}, 1967: {'lf_female': 0.468327796234773, 'mm_income': 48138.0, 'mhh_income': 56317.199999999997, 'mf_income': 2130.0, 'lf_male': 0.9660849114989479}, 1968: {'lf_female': 0.4854674282409081, 'mm_income': 47670.0, 'mhh_income': 55910.099999999999, 'mf_income': 3983.8499999999999, 'lf_male': 0.964219443323921}, 1969: {'lf_female': 0.49146537842190013, 'mm_income': 48895.739999999998, 'mhh_income': 58269.199999999997, 'mf_income': 5038.8000000000002, 'lf_male': 0.9616742709779805}, 1970: {'lf_female': 0.5030081973377454, 'mm_income': 50630.0, 'mhh_income': 61000.0, 'mf_income': 5490.0, 'lf_male': 0.9603898538048232}, 1971: {'lf_female': 0.5032294194511854, 'mm_income': 51012.0, 'mhh_income': 60254.999999999993, 'mf_income': 5972.8499999999995, 'lf_male': 0.9555953969312875}, 1972: {'lf_female': 0.5167173252279635, 'mm_income': 51597.0, 'mhh_income': 60782.400000000001, 'mf_income': 6696.2699999999995, 'lf_male': 0.9538267195191009}, 1973: {'lf_female': 0.5231972060165893, 'mm_income': 53300.0, 'mhh_income': 62424.959999999999, 'mf_income': 7339.4099999999999, 'lf_male': 0.9493754109138725}, 1974: {'lf_female': 0.5357200712781468, 'mm_income': 51332.319999999992, 'mhh_income': 60389.549999999996, 'mf_income': 8176.9999999999991, 'lf_male': 0.9464884438285127}, 1975: {'lf_female': 0.5516241062308478, 'mm_income': 49280.000000000007, 'mhh_income': 58960.000000000007, 'mf_income': 9099.2000000000007, 'lf_male': 0.9447025598979685}, 1976: {'lf_female': 0.5598905394839718, 'mm_income': 49920.0, 'mhh_income': 59646.080000000002, 'mf_income': 10400.0, 'lf_male': 0.9391564178070327}, 1977: {'lf_female': 0.580948595654478, 'mm_income': 50439.0, 'mhh_income': 60315.660000000003, 'mf_income': 11260.800000000001, 'lf_male': 0.9415926647895458}, 1978: {'lf_female': 0.5992160043254934, 'mm_income': 50780.07, 'mhh_income': 60040.199999999997, 'mf_income': 11862.84, 'lf_male': 0.9415835388522841}, 1979: {'lf_female': 0.6178438161831445, 'mm_income': 49050.0, 'mhh_income': 59088.900000000001, 'mf_income': 12916.5, 'lf_male': 0.9433398502342395}, 1980: {'lf_female': 0.6406915346618974, 'mm_income': 46782.720000000001, 'mhh_income': 57600.0, 'mf_income': 14169.6, 'lf_male': 0.9413871904144278}, 1981: {'lf_female': 0.6531660491748064, 'mm_income': 44735.400000000001, 'mhh_income': 55018.799999999996, 'mf_income': 14247.99, 'lf_male': 0.9410530795889828}, 1982: {'lf_female': 0.6610985889400068, 'mm_income': 44649.0, 'mhh_income': 55596.0, 'mf_income': 14897.76, 'lf_male': 0.9401145166722802}, 1983: {'lf_female': 0.6664227344798146, 'mm_income': 44030.0, 'mhh_income': 55815.759999999995, 'mf_income': 15355.76, 'lf_male': 0.9380925638399789}, 1984: {'lf_female': 0.6806027164685908, 'mm_income': 43775.999999999993, 'mhh_income': 55916.999999999993, 'mf_income': 16274.639999999999, 'lf_male': 0.9369870267407996}, 1985: {'lf_female': 0.6968447472212262, 'mm_income': 44875.600000000006, 'mhh_income': 57310.000000000007, 'mf_income': 17600.0, 'lf_male': 0.9375962262914797}, 1986: {'lf_female': 0.7040108975329197, 'mm_income': 46008.0, 'mhh_income': 59400.000000000007, 'mf_income': 18308.16, 'lf_male': 0.9354232594936709}, 1987: {'lf_female': 0.7187651331719128, 'mm_income': 46502.5, 'mhh_income': 60714.499999999993, 'mf_income': 19039.899999999998, 'lf_male': 0.9365676567656765}, 1988: {'lf_female': 0.7241884816753926, 'mm_income': 46260, 'mhh_income': 60792, 'mf_income': 20050, 'lf_male': 0.9341171106624112}, 1989: {'lf_female': 0.7357331274528727, 'mm_income': 46485.579999999994, 'mhh_income': 60527.899999999994, 'mf_income': 20628.0, 'lf_male': 0.9350540926009671}, 1990: {'lf_female': 0.7382591269495513, 'mm_income': 45250.0, 'mhh_income': 60363.5, 'mf_income': 21406.869999999999, 'lf_male': 0.9346852529330137}, 1991: {'lf_female': 0.7377799527894525, 'mm_income': 43585.260000000002, 'mhh_income': 59327.040000000001, 'mf_income': 21163.619999999999, 'lf_male': 0.9312676056338028}, 1992: {'lf_female': 0.7440510737086478, 'mm_income': 42588.0, 'mhh_income': 59126.339999999997, 'mf_income': 21376.809999999998, 'lf_male': 0.9293543307086615}, 1993: {'lf_female': 0.7429713019132058, 'mm_income': 42535.040000000001, 'mhh_income': 58733.32, 'mf_income': 21529.919999999998, 'lf_male': 0.9252023267577137}, 1994: {'lf_female': 0.751189727933914, 'mm_income': 41600.0, 'mhh_income': 57600.0, 'mf_income': 21760.0, 'lf_male': 0.9193690893026605}, 1995: {'lf_female': 0.7527462632811093, 'mm_income': 42120.0, 'mhh_income': 58500.0, 'mf_income': 22198.799999999999, 'lf_male': 0.9187287247970672}, 1996: {'lf_female': 0.7547921676399862, 'mm_income': 42280.0, 'mhh_income': 58890.0, 'mf_income': 22681.709999999999, 'lf_male': 0.9183588893493576}, 1997: {'lf_female': 0.7647479077362727, 'mm_income': 43554.919999999998, 'mhh_income': 59501.919999999998, 'mf_income': 23680.0, 'lf_male': 0.9188940092165898}, 1998: {'lf_female': 0.7661164323075877, 'mm_income': 43572.5, 'mhh_income': 60905.799999999996, 'mf_income': 24650.0, 'lf_male': 0.9210148924434639}, 1999: {'lf_female': 0.7657998850302641, 'mm_income': 45440.0, 'mhh_income': 63048.0, 'mf_income': 25560.0, 'lf_male': 0.9171418128654971}, 2000: {'lf_female': 0.7737734706238644, 'mm_income': 46928.279999999999, 'mhh_income': 63617.999999999993, 'mf_income': 25775.639999999999, 'lf_male': 0.9180957164382578}, 2001: {'lf_female': 0.7740084353962203, 'mm_income': 46900.0, 'mhh_income': 64896.200000000004, 'mf_income': 26800.0, 'lf_male': 0.9216959258032461}, 2002: {'lf_female': 0.7679775166486773, 'mm_income': 46200.0, 'mhh_income': 64838.400000000001, 'mf_income': 26402.640000000003, 'lf_male': 0.9203416498089458}, 2003: {'lf_female': 0.7626439144736842, 'mm_income': 45150.0, 'mhh_income': 63222.900000000001, 'mf_income': 25851.600000000002, 'lf_male': 0.913946587537092}, 2004: {'lf_female': 0.7583266999036407, 'mm_income': 43750.0, 'mhh_income': 61875.0, 'mf_income': 25500.0, 'lf_male': 0.9111074865437938}, 2005: {'lf_female': 0.7575647646280569, 'mm_income': 42448.010000000002, 'mhh_income': 60500.0, 'mf_income': 25177.68, 'lf_male': 0.9121458066353411}, 2006: {'lf_female': 0.7559557387719679, 'mm_income': 42480.0, 'mhh_income': 60770.0, 'mf_income': 25016.0, 'lf_male': 0.9141787462801191}, 2007: {'lf_female': 0.7608461656744943, 'mm_income': 43319.999999999993, 'mhh_income': 60724.379999999997, 'mf_income': 25198.559999999998, 'lf_male': 0.9160277562111802}, 2008: {'lf_female': 0.7629016553067186, 'mm_income': 42900.0, 'mhh_income': 60500.000000000007, 'mf_income': 26400.000000000004, 'lf_male': 0.9137833933250079}, 2009: {'lf_female': 0.7631116191146086, 'mm_income': 42033.200000000004, 'mhh_income': 60500.000000000007, 'mf_income': 25524.400000000001, 'lf_male': 0.9068050581097873}, 2010: {'lf_female': 0.7610362785383111, 'mm_income': 40428.100000000006, 'mhh_income': 57770.000000000007, 'mf_income': 25071.09, 'lf_male': 0.9043555812664208}, 2011: {'lf_female': 0.7530429284375494, 'mm_income': 38325.0, 'mhh_income': 55104.0, 'mf_income': 23730.0, 'lf_male': 0.8989727735115189}, 2012: {'lf_female': 0.7508687392855488, 'mm_income': 38563.200000000004, 'mhh_income': 55341.900000000001, 'mf_income': 23566.400000000001, 'lf_male': 0.8973919275165724}, 2013: {'lf_female': 0.7445063267541304, 'mm_income': 38760.0, 'mhh_income': 56100.0, 'mf_income': 23485.5, 'lf_male': 0.8950508231559003}, 2014: {'lf_female': 0.7471300031026994, 'mm_income': 40000, 'mhh_income': 56987, 'mf_income': 24000, 'lf_male': 0.8913677571935357}, 2015: {'lf_female': 0.7385232899101091, 'mm_income': 40000, 'mhh_income': 57550, 'mf_income': 24017, 'lf_male': 0.8916968470387729}}
-	// data for all workers
-	var data={1964: {'lf_female': 0.3678964853995454, 'mm_income': 30560.0, 'mhh_income': 42020.0, 'mf_income': 1986.3999999999999, 'lf_male': 0.7585032682296763}, 1965: {'lf_female': 0.36968853314772926, 'mm_income': 30268.0, 'mhh_income': 43255.040000000001, 'mf_income': 2256.0, 'lf_male': 0.7556359916591258}, 1966: {'lf_female': 0.3805122379427863, 'mm_income': 32076.200000000001, 'mhh_income': 43800.0, 'mf_income': 2555.0, 'lf_male': 0.7562347427009081}, 1967: {'lf_female': 0.38865314669899703, 'mm_income': 34080.0, 'mhh_income': 48074.099999999999, 'mf_income': 2811.5999999999999, 'lf_male': 0.7580226041764503}, 1968: {'lf_female': 0.40156802081319104, 'mm_income': 34050.0, 'mhh_income': 47670.0, 'mf_income': 3813.5999999999999, 'lf_male': 0.752771219336508}, 1969: {'lf_female': 0.40903492184653817, 'mm_income': 34238.0, 'mhh_income': 48514.599999999999, 'mf_income': 4470.3199999999997, 'lf_male': 0.7522998899197987}, 1970: {'lf_female': 0.41563860339938224, 'mm_income': 35483.699999999997, 'mhh_income': 49800.399999999994, 'mf_income': 4825.0999999999995, 'lf_male': 0.7515138989356206}, 1971: {'lf_female': 0.41434453871002097, 'mm_income': 35100.0, 'mhh_income': 49754.25, 'mf_income': 5165.5499999999993, 'lf_male': 0.7421191865748501}, 1972: {'lf_female': 0.42049521851654703, 'mm_income': 34303.5, 'mhh_income': 49896.0, 'mf_income': 5471.5500000000002, 'lf_male': 0.743721200547968}, 1973: {'lf_female': 0.4276357648115573, 'mm_income': 35178.0, 'mhh_income': 50517.739999999998, 'mf_income': 5863.0, 'lf_male': 0.7445609575256859}, 1974: {'lf_female': 0.43279691749773347, 'mm_income': 34632.0, 'mhh_income': 48580.999999999993, 'mf_income': 6252.9999999999991, 'lf_male': 0.7377856114180082}, 1975: {'lf_female': 0.4450756121900668, 'mm_income': 33000.0, 'mhh_income': 47379.200000000004, 'mf_income': 7040.0000000000009, 'lf_male': 0.7341947089018558}, 1976: {'lf_female': 0.45016249353718885, 'mm_income': 33096.959999999999, 'mhh_income': 47561.279999999999, 'mf_income': 7795.8400000000001, 'lf_male': 0.7259866906625372}, 1977: {'lf_female': 0.4654195717131474, 'mm_income': 32679.780000000002, 'mhh_income': 47956.150000000001, 'mf_income': 8023.3200000000006, 'lf_male': 0.7326212541668848}, 1978: {'lf_female': 0.47499920531485423, 'mm_income': 32670.0, 'mhh_income': 47454.989999999998, 'mf_income': 8617.619999999999, 'lf_male': 0.735542050578318}, 1979: {'lf_female': 0.4891787255648642, 'mm_income': 32700.0, 'mhh_income': 47153.400000000001, 'mf_income': 9365.2800000000007, 'lf_male': 0.7396526304433816}, 1980: {'lf_female': 0.5048810460765226, 'mm_income': 31798.079999999998, 'mhh_income': 45550.080000000002, 'mf_income': 10114.559999999999, 'lf_male': 0.7539547978658868}, 1981: {'lf_female': 0.5134497599735143, 'mm_income': 31317.389999999999, 'mhh_income': 44370.0, 'mf_income': 10440.0, 'lf_male': 0.7526626668527046}, 1982: {'lf_female': 0.514272143656059, 'mm_income': 30656.52, 'mhh_income': 44890.080000000002, 'mf_income': 11070.0, 'lf_male': 0.7444363937480593}, 1983: {'lf_female': 0.516031328397479, 'mm_income': 30226.0, 'mhh_income': 45838.799999999996, 'mf_income': 11509.68, 'lf_male': 0.7391580756013746}, 1984: {'lf_female': 0.5249853931547711, 'mm_income': 30095.999999999996, 'mhh_income': 45599.999999999993, 'mf_income': 11627.999999999998, 'lf_male': 0.7412970827821486}, 1985: {'lf_female': 0.5354508321648479, 'mm_income': 31350.000000000004, 'mhh_income': 47016.200000000004, 'mf_income': 12592.800000000001, 'lf_male': 0.7413790108229245}, 1986: {'lf_female': 0.537265674996488, 'mm_income': 32400.000000000004, 'mhh_income': 48587.040000000001, 'mf_income': 12962.160000000002, 'lf_male': 0.7401396623353664}, 1987: {'lf_female': 0.5470598455293542, 'mm_income': 33149.489999999998, 'mhh_income': 49614.509999999995, 'mf_income': 13273.589999999998, 'lf_male': 0.7410320731051783}, 1988: {'lf_female': 0.5514633915322199, 'mm_income': 33142, 'mhh_income': 49900, 'mf_income': 14100, 'lf_male': 0.7361862717174594}, 1989: {'lf_female': 0.5579622602984465, 'mm_income': 33673.299999999996, 'mhh_income': 49509.110000000001, 'mf_income': 14325.0, 'lf_male': 0.7419157088122605}, 1990: {'lf_female': 0.5633813826959757, 'mm_income': 33304.0, 'mhh_income': 49413.0, 'mf_income': 14751.5, 'lf_male': 0.7435938105812273}, 1991: {'lf_female': 0.5601362223298393, 'mm_income': 33060.0, 'mhh_income': 49068.0, 'mf_income': 15077.1, 'lf_male': 0.7388540655071952}, 1992: {'lf_female': 0.5633348174532502, 'mm_income': 32110.0, 'mhh_income': 47894.599999999999, 'mf_income': 15210.0, 'lf_male': 0.7351414968169904}, 1993: {'lf_female': 0.5597783561950083, 'mm_income': 31159.999999999996, 'mhh_income': 47735.479999999996, 'mf_income': 15088.0, 'lf_male': 0.7320105058645751}, 1994: {'lf_female': 0.5708115032765615, 'mm_income': 30560.0, 'mhh_income': 47264.0, 'mf_income': 15145.6, 'lf_male': 0.7261228607727375}, 1995: {'lf_female': 0.5738752006354144, 'mm_income': 31200.0, 'mhh_income': 47408.400000000001, 'mf_income': 15503.280000000001, 'lf_male': 0.7290094207105801}, 1996: {'lf_female': 0.5750308086074509, 'mm_income': 31288.709999999999, 'mhh_income': 48341.139999999999, 'mf_income': 15620.950000000001, 'lf_male': 0.7289434043468904}, 1997: {'lf_female': 0.5843100542969482, 'mm_income': 32264.0, 'mhh_income': 48951.0, 'mf_income': 16280.0, 'lf_male': 0.7292890034219086}, 1998: {'lf_female': 0.5913033640066375, 'mm_income': 33350.0, 'mhh_income': 50750.0, 'mf_income': 17104.200000000001, 'lf_male': 0.7302291360100904}, 1999: {'lf_female': 0.5911426107173661, 'mm_income': 34435.0, 'mhh_income': 51513.339999999997, 'mf_income': 17182.0, 'lf_male': 0.7300306499030462}, 2000: {'lf_female': 0.5966558290757084, 'mm_income': 34500.0, 'mhh_income': 52467.599999999999, 'mf_income': 17800.619999999999, 'lf_male': 0.7328964292276597}, 2001: {'lf_female': 0.6167656155568986, 'mm_income': 34341.520000000004, 'mhh_income': 52641.900000000001, 'mf_income': 18008.260000000002, 'lf_male': 0.7465478725488915}, 2002: {'lf_female': 0.6106523436575728, 'mm_income': 34320.0, 'mhh_income': 52538.639999999999, 'mf_income': 18321.600000000002, 'lf_male': 0.7393107975057434}, 2003: {'lf_female': 0.6062842632365855, 'mm_income': 33085.919999999998, 'mhh_income': 51600.0, 'mf_income': 17863.920000000002, 'lf_male': 0.731713390739066}, 2004: {'lf_female': 0.6027174433068606, 'mm_income': 32500.0, 'mhh_income': 50332.5, 'mf_income': 17500.0, 'lf_male': 0.7283875167731736}, 2005: {'lf_female': 0.6018383955820374, 'mm_income': 31931.899999999998, 'mhh_income': 49610.0, 'mf_income': 17144.489999999998, 'lf_male': 0.7275973633690881}, 2006: {'lf_female': 0.5988831165671042, 'mm_income': 32521.98, 'mhh_income': 50740.0, 'mf_income': 17700.0, 'lf_male': 0.7294306356823206}, 2007: {'lf_female': 0.6039641629847815, 'mm_income': 33518.279999999999, 'mhh_income': 51299.999999999993, 'mf_income': 17685.959999999999, 'lf_male': 0.7284044268046543}, 2008: {'lf_female': 0.6031312490854996, 'mm_income': 33000.0, 'mhh_income': 50824.400000000001, 'mf_income': 17869.5, 'lf_male': 0.7255530748934443}, 2009: {'lf_female': 0.6011520820979512, 'mm_income': 33000.0, 'mhh_income': 50989.400000000001, 'mf_income': 17999.300000000003, 'lf_male': 0.7183270185961201}, 2010: {'lf_female': 0.5978186365877416, 'mm_income': 30520.000000000004, 'mhh_income': 49488.18, 'mf_income': 17490.140000000003, 'lf_male': 0.7124405705229794}, 2011: {'lf_female': 0.5909612800781727, 'mm_income': 29118.600000000002, 'mhh_income': 47303.550000000003, 'mf_income': 16800.0, 'lf_male': 0.70388813372273}, 2012: {'lf_female': 0.5883584382122684, 'mm_income': 29344.700000000001, 'mhh_income': 47304.809999999998, 'mf_income': 16482.060000000001, 'lf_male': 0.7007782632441288}, 2013: {'lf_female': 0.5821355489263085, 'mm_income': 29581.02, 'mhh_income': 48051.18, 'mf_income': 17098.260000000002, 'lf_male': 0.6963298411625549}, 2014: {'lf_female': 0.5795758775698258, 'mm_income': 30000, 'mhh_income': 49114, 'mf_income': 17459, 'lf_male': 0.6923003164253524}, 2015: {'lf_female': 0.5716547013660385, 'mm_income': 30252, 'mhh_income': 50000, 'mf_income': 17883, 'lf_male': 0.6867027471398233}}
+	// census data from tables p2 and f7 and participation data from FRED
+	var data={1948: {'lf_female': 32.7, 'mm_income': 20576, 'mhh_income': 27369, 'mf_income': 8665, 'lf_male': 86.6}, 1949: {'lf_female': 33.2, 'mm_income': 20398, 'mhh_income': 27015, 'mf_income': 8347, 'lf_male': 86.6}, 1950: {'lf_female': 33.8, 'mm_income': 22070, 'mhh_income': 28502, 'mf_income': 8184, 'lf_male': 86.3}, 1951: {'lf_female': 34.6, 'mm_income': 23494, 'mhh_income': 29519, 'mf_income': 8317, 'lf_male': 86.5}, 1952: {'lf_female': 34.7, 'mm_income': 24268, 'mhh_income': 30403, 'mf_income': 8965, 'lf_male': 86.3}, 1953: {'lf_female': 34.5, 'mm_income': 25006, 'mhh_income': 32932, 'mf_income': 9052, 'lf_male': 86.0}, 1954: {'lf_female': 34.6, 'mm_income': 24569, 'mhh_income': 32064, 'mf_income': 8926, 'lf_male': 85.6}, 1955: {'lf_female': 35.6, 'mm_income': 25954, 'mhh_income': 34146, 'mf_income': 8656, 'lf_male': 85.3}, 1956: {'lf_female': 36.8, 'mm_income': 27405, 'mhh_income': 36378, 'mf_income': 8744, 'lf_male': 85.5}, 1957: {'lf_female': 36.9, 'mm_income': 27095, 'mhh_income': 36593, 'mf_income': 8842, 'lf_male': 84.8}, 1958: {'lf_female': 37.1, 'mm_income': 26842, 'mhh_income': 36480, 'mf_income': 8433, 'lf_male': 84.3}, 1959: {'lf_female': 37.1, 'mm_income': 28429, 'mhh_income': 38528, 'mf_income': 8699, 'lf_male': 83.7}, 1960: {'lf_female': 37.8, 'mm_income': 28552, 'mhh_income': 39329, 'mf_income': 8824, 'lf_male': 83.4}, 1961: {'lf_female': 38.1, 'mm_income': 29023, 'mhh_income': 39734, 'mf_income': 8861, 'lf_male': 82.9}, 1962: {'lf_female': 37.9, 'mm_income': 29992, 'mhh_income': 40858, 'mf_income': 9206, 'lf_male': 82.0}, 1963: {'lf_female': 38.3, 'mm_income': 30524, 'mhh_income': 42284, 'mf_income': 9284, 'lf_male': 81.3}, 1964: {'lf_female': 38.7, 'mm_income': 31022, 'mhh_income': 43852, 'mf_income': 9673, 'lf_male': 81.0}, 1965: {'lf_female': 39.2, 'mm_income': 33025, 'mhh_income': 45740, 'mf_income': 10000, 'lf_male': 80.7}, 1966: {'lf_female': 40.3, 'mm_income': 33923, 'mhh_income': 48155, 'mf_income': 10472, 'lf_male': 80.4}, 1967: {'lf_female': 41.1, 'mm_income': 34427, 'mhh_income': 49182, 'mf_income': 11166, 'lf_male': 80.4}, 1968: {'lf_female': 41.6, 'mm_income': 35675, 'mhh_income': 51496, 'mf_income': 12045, 'lf_male': 80.1}, 1969: {'lf_female': 42.7, 'mm_income': 36716, 'mhh_income': 53872, 'mf_income': 12176, 'lf_male': 79.8}, 1970: {'lf_female': 43.4, 'mm_income': 36304, 'mhh_income': 53705, 'mf_income': 12176, 'lf_male': 79.7}, 1971: {'lf_female': 43.4, 'mm_income': 35995, 'mhh_income': 53630, 'mf_income': 12556, 'lf_male': 79.1}, 1972: {'lf_female': 43.9, 'mm_income': 37716, 'mhh_income': 56276, 'mf_income': 13158, 'lf_male': 78.9}, 1973: {'lf_female': 44.7, 'mm_income': 38382, 'mhh_income': 57416, 'mf_income': 13321, 'lf_male': 78.8}, 1974: {'lf_female': 45.7, 'mm_income': 36608, 'mhh_income': 55882, 'mf_income': 13349, 'lf_male': 78.7}, 1975: {'lf_female': 46.4, 'mm_income': 35432, 'mhh_income': 54908, 'mf_income': 13548, 'lf_male': 77.9}, 1976: {'lf_female': 47.3, 'mm_income': 35673, 'mhh_income': 56609, 'mf_income': 13534, 'lf_male': 77.5}, 1977: {'lf_female': 48.4, 'mm_income': 36037, 'mhh_income': 56990, 'mf_income': 14029, 'lf_male': 77.6}, 1978: {'lf_female': 50.0, 'mm_income': 36429, 'mhh_income': 58766, 'mf_income': 13552, 'lf_male': 77.8}, 1979: {'lf_female': 50.9, 'mm_income': 35842, 'mhh_income': 59601, 'mf_income': 13243, 'lf_male': 77.8}, 1980: {'lf_female': 51.5, 'mm_income': 34287, 'mhh_income': 57528, 'mf_income': 13463, 'lf_male': 77.5}, 1981: {'lf_female': 52.1, 'mm_income': 33663, 'mhh_income': 55938, 'mf_income': 13637, 'lf_male': 77.0}, 1982: {'lf_female': 52.6, 'mm_income': 32871, 'mhh_income': 55217, 'mf_income': 13872, 'lf_male': 76.7}, 1983: {'lf_female': 52.9, 'mm_income': 33086, 'mhh_income': 55585, 'mf_income': 14290, 'lf_male': 76.3}, 1984: {'lf_female': 53.6, 'mm_income': 33868, 'mhh_income': 57387, 'mf_income': 14911, 'lf_male': 76.3}, 1985: {'lf_female': 54.5, 'mm_income': 34236, 'mhh_income': 58215, 'mf_income': 15148, 'lf_male': 76.3}, 1986: {'lf_female': 55.3, 'mm_income': 35283, 'mhh_income': 60732, 'mf_income': 15689, 'lf_male': 76.2}, 1987: {'lf_female': 56.0, 'mm_income': 35470, 'mhh_income': 61762, 'mf_income': 16542, 'lf_male': 76.2}, 1988: {'lf_female': 56.6, 'mm_income': 36373, 'mhh_income': 61925, 'mf_income': 17090, 'lf_male': 76.2}, 1989: {'lf_female': 57.4, 'mm_income': 36685, 'mhh_income': 63093, 'mf_income': 17748, 'lf_male': 76.4}, 1990: {'lf_female': 57.5, 'mm_income': 35664, 'mhh_income': 62131, 'mf_income': 17698, 'lf_male': 76.4}, 1991: {'lf_female': 57.4, 'mm_income': 34710, 'mhh_income': 60944, 'mf_income': 17765, 'lf_male': 75.8}, 1992: {'lf_female': 57.8, 'mm_income': 33829, 'mhh_income': 60485, 'mf_income': 17719, 'lf_male': 75.8}, 1993: {'lf_female': 57.9, 'mm_income': 34057, 'mhh_income': 59649, 'mf_income': 17827, 'lf_male': 75.4}, 1994: {'lf_female': 58.8, 'mm_income': 34337, 'mhh_income': 61311, 'mf_income': 18127, 'lf_male': 75.0}, 1995: {'lf_female': 59.0, 'mm_income': 34829, 'mhh_income': 62692, 'mf_income': 18725, 'lf_male': 75.0}, 1996: {'lf_female': 59.3, 'mm_income': 35823, 'mhh_income': 63578, 'mf_income': 19261, 'lf_male': 74.9}, 1997: {'lf_female': 59.8, 'mm_income': 37093, 'mhh_income': 65570, 'mf_income': 20160, 'lf_male': 75.0}, 1998: {'lf_female': 59.9, 'mm_income': 38455, 'mhh_income': 67843, 'mf_income': 20946, 'lf_male': 74.9}, 1999: {'lf_female': 60.0, 'mm_income': 38792, 'mhh_income': 69405, 'mf_income': 21752, 'lf_male': 74.7}, 2000: {'lf_female': 59.9, 'mm_income': 38963, 'mhh_income': 69741, 'mf_income': 22082, 'lf_male': 74.8}, 2001: {'lf_female': 59.8, 'mm_income': 38913, 'mhh_income': 68740, 'mf_income': 22216, 'lf_male': 74.5}, 2002: {'lf_female': 59.6, 'mm_income': 38475, 'mhh_income': 68007, 'mf_income': 22123, 'lf_male': 74.1}, 2003: {'lf_female': 59.5, 'mm_income': 38527, 'mhh_income': 67809, 'mf_income': 22216, 'lf_male': 73.5}, 2004: {'lf_female': 59.2, 'mm_income': 38247, 'mhh_income': 67756, 'mf_income': 22143, 'lf_male': 73.3}, 2005: {'lf_female': 59.2, 'mm_income': 37914, 'mhh_income': 68122, 'mf_income': 22519, 'lf_male': 73.3}, 2006: {'lf_female': 59.4, 'mm_income': 37886, 'mhh_income': 68582, 'mf_income': 23501, 'lf_male': 73.5}, 2007: {'lf_female': 59.3, 'mm_income': 37904, 'mhh_income': 70057, 'mf_income': 23889, 'lf_male': 73.2}, 2008: {'lf_female': 59.5, 'mm_income': 36463, 'mhh_income': 67648, 'mf_income': 22945, 'lf_male': 73.0}, 2009: {'lf_female': 59.2, 'mm_income': 35513, 'mhh_income': 66303, 'mf_income': 23125, 'lf_male': 72.0}, 2010: {'lf_female': 58.6, 'mm_income': 34970, 'mhh_income': 65408, 'mf_income': 22559, 'lf_male': 71.2}, 2011: {'lf_female': 58.1, 'mm_income': 34723, 'mhh_income': 64185, 'mf_income': 22213, 'lf_male': 70.5}, 2012: {'lf_female': 57.7, 'mm_income': 34959, 'mhh_income': 64179, 'mf_income': 22190, 'lf_male': 70.2}, 2013: {'lf_female': 57.2, 'mm_income': 36213, 'mhh_income': 66542, 'mf_income': 22488, 'lf_male': 69.7}, 2014: {'lf_female': 57.0, 'mm_income': 36302, 'mhh_income': 66632, 'mf_income': 22240, 'lf_male': 69.2}}
+
 	var g=Snap('#graph1')
 	var gwidth=document.documentElement.clientWidth
 	var gheight=document.documentElement.clientHeight
 	if(gwidth>1045){gwidth=1045}
 	if(gheight>gwidth*1.3){gheight=gwidth*1.3}
-		console.log(gwidth,gheight)
 	var gcenter1=[gwidth/4,gheight/4]
 	var gcenter2=[3*gwidth/4,3*gheight/4]
-	var gxbounds2=[gwidth/16,gwidth-70]
+	var gxbounds2=[gwidth/16+10,gwidth-70]
 	var gybounds2=[parseInt(70+(gheight-160)/2),gheight-30]
 	var gxdomain=gxbounds2[1]-gxbounds2[0]
 	var gydomain=gybounds2[1]-gybounds2[0]
 	var gxmiddle=gwidth/2
 	var gymiddle=gheight/2
-	var ymax=70000
-	var yearinterval=(gxbounds2[1]-gxbounds2[0])/51
+	var ymax=90000
+	var yearinterval=(gxbounds2[1]-gxbounds2[0])/66
 	var year=1964
 
 	document.getElementById('graph1').setAttribute('width',gwidth)
 	document.getElementById('graph1').setAttribute('height',gheight)
+	document.getElementById('trigger').setAttribute('width',gwidth)
+	document.getElementById('trigger').setAttribute('height',gheight)
 	var num=1
 
 	var controller=new ScrollMagic.Controller({container:'#examplewrapper'})
@@ -133,58 +144,139 @@ same user made the venus symbol
 		timeseries(function(){
 			setup()
 
-			var $mm_income_path=$("path#mm_income_path")
-			var $mhh_income_path=$("path#mhh_income_path")
-			var $mf_income_path=$("path#mf_income_path")
-			var $mask=$("rect#mask")
-
-			var tween = new TimelineMax()
+			tween = new TimelineMax()
 				// animate up until the first stop
-				.add(TweenMax.to($("#stopline"), 15, {marginLeft:gxbounds2[0]+(gxdomain/51)*15, ease:Linear.easeNone}),0)
-				.add(TweenMax.to($("#yearmarker"), 15, {marginLeft:gxbounds2[0]+(gxdomain/51)*15-55, ease:Linear.easeNone}),0)
-				.add(TweenMax.to($("#mhhmarker"), 15, {marginLeft:gxbounds2[0]+(gxdomain/51)*15+4, ease:Linear.easeNone}),0)
-				.add(TweenMax.to($("#mmmarker"), 15, {marginLeft:gxbounds2[0]+(gxdomain/51)*15+4, ease:Linear.easeNone}),0)
-				.add(TweenMax.to($("#mfmarker"), 15, {marginLeft:gxbounds2[0]+(gxdomain/51)*15+4, ease:Linear.easeNone}),0)
-				.add(TweenMax.to($("#mask"), 15, {attr:{width:(gxdomain/51)*15}, ease:Linear.easeNone}),0)
+				.add(TweenMax.from($("#stop0text"), 21, {opacity:1, ease:Linear.easeNone}),5)
+				.add(TweenMax.to($("#graphlabel"), 10, {opacity:0, ease:Linear.easeNone}),8)
+				.add(TweenMax.to($("#mhhmarker"), 31, {marginLeft:gxbounds2[0]+(yearinterval)*31+4, ease:Linear.easeNone}),0)
+				.add(TweenMax.to($("#mmmarker"), 31, {marginLeft:gxbounds2[0]+(yearinterval)*31+4, ease:Linear.easeNone}),0)
+				.add(TweenMax.to($("#mfmarker"), 31, {marginLeft:gxbounds2[0]+(yearinterval)*31+4, ease:Linear.easeNone}),0)
+				.add(TweenMax.to($("rect#mask"), 31, {attr:{width:(yearinterval)*31}, ease:Linear.easeNone}),0)
 
 				// first stop
-				.add(TweenMax.to($("#stop1text"), 5, {opacity:1, ease:Linear.easeNone}),12)
-				.add(TweenMax.to($("#stop1text"), 5, {opacity:0, ease:Linear.easeNone}),33)
+				tween.to($("line#familytrend1"), 0, {opacity:1, ease:Linear.easeNone},31)
+				tween.to($("line#familytrend1"), 0, {opacity:0, ease:Linear.easeNone},46)
+				tween.to($("path#mhh_income_path"), 0, {opacity:0, ease:Linear.easeNone},31)
+				tween.to($("path#mhh_income_path"), 0, {opacity:1, ease:Linear.easeNone},46)
+				tween.to($("path#mhh_income_path2"), 0, {opacity:0, ease:Linear.easeNone},31)
+				tween.to($("path#mhh_income_path2"), 0, {opacity:1, ease:Linear.easeNone},46)
+				.add(TweenMax.to($("#stop1text"), 5, {opacity:1, ease:Linear.easeNone}),26)
+				.add(TweenMax.to($("#stop1text"), 5, {opacity:0, ease:Linear.easeNone}),46)
 
 				// continue after the first stop
-				.add(TweenMax.to($("#stopline"), 26, {marginLeft:gxbounds2[1], ease:Linear.easeNone}),34)
-				.add(TweenMax.to($("#yearmarker"), 21, {marginLeft:gxbounds2[0]+(gxdomain/51)*44-55, ease:Linear.easeNone}),34)
-				.add(TweenMax.to($("#mhhmarker"), 26, {marginLeft:gxbounds2[1]+4, ease:Linear.easeNone}),34)
-				.add(TweenMax.to($("#mmmarker"), 26, {marginLeft:gxbounds2[1]+4, ease:Linear.easeNone}),34)
-				.add(TweenMax.to($("#mfmarker"), 26, {marginLeft:gxbounds2[1]+4, ease:Linear.easeNone}),34)
-				.add(TweenMax.to($("#mask"), 26, {attr:{width:(gxdomain)}, ease:Linear.easeNone}),34)
+				.add(TweenMax.to($("#stop2text1"), 5, {opacity:1, ease:Linear.easeNone}),51)
+				.add(TweenMax.to($("#stop2text1"), 5, {opacity:0, ease:Linear.easeNone}),66)
+				.add(TweenMax.to($("#stop2text12"), 5, {opacity:1, ease:Linear.easeNone}),71)
+				.add(TweenMax.to($("#stop2text12"), 5, {opacity:0, ease:Linear.easeNone}),96)
+				tween.to($("line#maletrend"), 0, {opacity:1, ease:Linear.easeNone},81)
+				tween.to($("line#maletrend"), 0, {opacity:0, ease:Linear.easeNone},96)
+				tween.to($("path#mm_income_path2"), 0, {opacity:0, ease:Linear.easeNone},81)
+				tween.to($("path#mm_income_path2"), 0, {opacity:1, ease:Linear.easeNone},96)
+				tween.to($("line#familytrend2"), 0, {opacity:1, ease:Linear.easeNone},101)
+				tween.to($("line#familytrend2"), 0, {opacity:0, ease:Linear.easeNone},116)
+				tween.to($("path#mhh_income_path2"), 0, {opacity:0, ease:Linear.easeNone},101)
+				tween.to($("path#mhh_income_path2"), 0, {opacity:1, ease:Linear.easeNone},116)
+				.add(TweenMax.to($("#mhhmarker"), 35, {marginLeft:gxbounds2[1]+4, ease:Linear.easeNone}),46)
+				.add(TweenMax.to($("#mmmarker"), 35, {marginLeft:gxbounds2[1]+4, ease:Linear.easeNone}),46)
+				.add(TweenMax.to($("#mfmarker"), 35, {marginLeft:gxbounds2[1]+4, ease:Linear.easeNone}),46)
+				.add(TweenMax.to($("rect#mask"), 35, {attr:{width:gxdomain}, ease:Linear.easeNone}),46)
 
 				// fade out income markers as they draw close to end
-				.add(TweenMax.to($("#mhhmarker"),5,{opacity:0}),55)
-				.add(TweenMax.to($("#mmmarker"),5,{opacity:0}),55)
-				.add(TweenMax.to($("#mfmarker"),5,{opacity:0}),55)
-				.add(TweenMax.to($("#yearmarker"),5,{marginLeft:gxbounds2[1]-110}),55)
+				.add(TweenMax.to($("#mhhmarker"),5,{opacity:0}),75)
+				.add(TweenMax.to($("#mmmarker"),5,{opacity:0}),75)
+				.add(TweenMax.to($("#mfmarker"),5,{opacity:0}),75)
 
 				// second stop
-				.add(TweenMax.to($("#stop2text1"), 5, {opacity:1, ease:Linear.easeNone}),53)
-				.add(TweenMax.to($("#stop2text1"), 5, {opacity:0, ease:Linear.easeNone}),74)
-				.add(TweenMax.to($("#stop2text2"), 5, {opacity:1, ease:Linear.easeNone}),79)
-				.add(TweenMax.to($("#stop2text2"), 5, {opacity:0, ease:Linear.easeNone}),100)
-				.add(TweenMax.to($("#stop2text3"), 5, {opacity:1, ease:Linear.easeNone}),105)
+				.add(TweenMax.to($("#stop2text2"), 5, {opacity:1, ease:Linear.easeNone}),101)
+				.add(TweenMax.to($("#stop2text2"), 5, {opacity:0, ease:Linear.easeNone}),116)
+				.add(TweenMax.to($("#stop2text3"), 5, {opacity:1, ease:Linear.easeNone}),121)
 
-				.add(TweenMax.to($("#ares"), 5, {opacity:0, ease:Linear.easeNone}),105)
-				.add(TweenMax.to($("#venus"), 5, {opacity:0, ease:Linear.easeNone}),105)
-				.add(TweenMax.to($("#lf1"), 5, {opacity:0, ease:Linear.easeNone}),105)
-				.add(TweenMax.to($("#lf2"), 5, {opacity:0, ease:Linear.easeNone}),105)
+				// stoptext done, scroll up everrrrything
+				.add(TweenMax.to($("#inner"), 15, {marginTop:-gheight, ease:Linear.easeNone}),131)
+				.add(TweenMax.to($("#inner2"), 0, {opacity:1, ease:Linear.easeNone}),131)
+				.add(TweenMax.to($("#inner2"), 15, {marginTop:0, ease:Linear.easeNone}),131)
 
-				.add(TweenMax.to($("#hourstable1"), 5, {opacity:1, ease:Linear.easeNone}),110)
-				.add(TweenMax.to($("#hourstable2"), 5, {opacity:1, ease:Linear.easeNone}),110)
+				// continue with story
+				.add(TweenMax.to($("#stop2text32"), 5, {opacity:1, ease:Linear.easeNone}),128)
+				.add(TweenMax.to($("#stop2text32"), 5, {opacity:0, ease:Linear.easeNone}),143)
+				.add(TweenMax.to($("#stop2text4"), 5, {opacity:1, ease:Linear.easeNone}),148)
+				.add(TweenMax.to($("#stop2text4"), 5, {opacity:0, ease:Linear.easeNone}),163)
+				.add(TweenMax.to($("#stop2text5"), 5, {opacity:1, ease:Linear.easeNone}),168)
+				.add(TweenMax.to($("#hourstable1"), 5, {opacity:1, ease:Linear.easeNone}),123)
+				.add(TweenMax.to($("#hourstable2"), 5, {opacity:1, ease:Linear.easeNone}),123)
 
-				.add(TweenMax.to($("#stop2text3"), 5, {opacity:0, ease:Linear.easeNone}),90)
+			// yearmarker updates
+			for(var i=0;i<83;i++){
+				if(i<32){
+					tween.set($("#yearmarker"), {text:String(1948+i)},0+i)
+				} else if(i>46){
+					tween.set($("#yearmarker"), {text:String(1948+i-15)},i)
+				}
+			}
 
-			// labor force people animations
-			for(var i=0;i<100;i++){
-				tween.add(TweenMax.from($("#icon"+i+""), .1, {scale:0, ease:Elastic.easeOut}),i*.01)
+			// people popping in and out
+			for(var i=0;i<82;i++){
+
+				if(i<32){var cyear=1948+i} else if(i>46){var cyear=1948+i-15}
+
+				if(i<32 | i>46){
+					var current_female=Math.round(data[cyear]['lf_female'])
+					var current_male=Math.round(data[cyear]['lf_male'])
+					
+					try{
+						var next_female=Math.round(data[cyear+1]['lf_female'])
+						var next_male=Math.round(data[cyear+1]['lf_male'])
+						timing=i+1
+
+						if(current_female<next_female){
+							for(j=current_female+1;j<next_female+1;j++){
+								tween.to($("#ficon"+j), .9, {scale:1,ease:Elastic.easeOut},timing)
+								tween.to($('#female_lf_text'),1, {marginLeft:parseInt($('#ficon'+j).css('margin-left'))+2*personwidth,marginTop:parseInt($('#ficon'+j).css('margin-top'))-8+$('#female_lf_text').height()/2,ease:Linear.easeNone},timing)
+								tween.set($('#female_lf_text'),{text:j+'%'},timing)
+							}
+						} else if(current_female>next_female){
+							for(j=current_female;j>next_female;j--){
+								tween.to($("#ficon"+j), .9, {scale:0,ease:Elastic.easeIn},timing)
+								tween.to($('#female_lf_text'),1, {marginLeft:parseInt($('#ficon'+(j-1)).css('margin-left'))+2*personwidth,marginTop:parseInt($('#ficon'+(j-1)).css('margin-top'))-8+$('#female_lf_text').height()/2,ease:Linear.easeNone},timing)
+								tween.set($('#female_lf_text'),{text:(j-1)+'%'},timing)
+							}
+						}
+
+						if(current_male<next_male){
+							for(j=current_male+1;j<next_male+1;j++){
+								tween.to($("#micon"+j), .9, {scale:1,ease:Elastic.easeOut},timing)
+								tween.to($('#male_lf_text'),1, {marginLeft:parseInt($('#micon'+j).css('margin-left'))+2*personwidth,marginTop:parseInt($('#micon'+j).css('margin-top'))-8+$('#male_lf_text').height()/2,ease:Linear.easeNone},timing)
+								tween.set($('#male_lf_text'),{text:j+'%'},timing)
+							}
+						} else if(current_male>next_male){
+							for(j=current_male;j>next_male;j--){
+								tween.to($("#micon"+j), .9, {scale:0,ease:Elastic.easeIn},timing)
+								tween.to($('#male_lf_text'),1, {marginLeft:parseInt($('#micon'+(j-1)).css('margin-left'))+2*personwidth,marginTop:parseInt($('#micon'+(j-1)).css('margin-top'))-8+$('#male_lf_text').height()/2,ease:Linear.easeNone},timing)
+								tween.set($('#male_lf_text'),{text:(j-1)+'%'},timing)
+							}
+						}
+					} catch(err){}
+				}
+			}
+
+			// income tags
+			for (var i=0;i<82;i++){
+				if(i<32){var cyear=1948+i} else if(i>46){var cyear=1948+i-15}
+
+				if(i<32 | i>46){
+					timing=i+1
+					var female=data[cyear]['mf_income']
+					var male=data[cyear]['mm_income']
+					var family=data[cyear]['mhh_income']
+
+					tween.to($("#mhhmarker"), .5, {marginTop:get_value(family)-20,ease:Linear.easeNone},timing-1)
+					tween.to($("#mmmarker"), 1, {marginTop:get_value(male)-20,ease:Linear.easeNone},timing-1)
+					tween.to($("#mfmarker"), 1, {marginTop:get_value(female)-20,ease:Linear.easeNone},timing-1)
+
+					tween.set($("#mhhmarker"), {text:'Families $'+Math.round(family/1000)+'k'},timing-1)
+					tween.set($("#mfmarker"), {text:'Females $'+Math.round(female/1000)+'k'},timing-1)
+					tween.set($("#mmmarker"), {text:'Males $'+Math.round(male/1000)+'k'},timing-1)
+				}
 			}
 
 			new ScrollMagic.Scene({offset:document.getElementById('trigger').offsetTop,duration:10000,})
@@ -192,137 +284,109 @@ same user made the venus symbol
 				.setTween(tween)
 				.addTo(controller)
 		})
-	})	
-
-
-	// poll for changes to the year. This is not ideal but as far as I can tell there is no way to trigger on a change to
-	// the position of an element, which is what I would need.
-	setInterval(function(){
-		var yearnew=parseInt(1964+(parseFloat(document.getElementById("stopline").style.marginLeft)-gxbounds2[0])/yearinterval)
-		if(yearnew!=year){
-			prevyear=year
-			year=yearnew
-
-			// take care of people
-			as
-
-			// take care of income markers
-			$("#yearmarker").text('Avg. Income in '+year)
-			$("#mhhmarker").text('Households $'+parseInt(data[year]['mhh_income']/1000)+'k')
-			$("#mmmarker").text('Males $'+parseInt(data[year]['mm_income']/1000)+'k')
-			$("#mfmarker").text('Females $'+parseInt(data[year]['mf_income']/1000)+'k')
-			TweenMax.to($("#mhhmarker"), .2, {marginTop:get_value(data[year]['mhh_income'])-15,ease:Linear.easeNone})
-			TweenMax.to($("#mmmarker"), .2, {marginTop:get_value(data[year]['mm_income'])-15,ease:Linear.easeNone})
-			TweenMax.to($("#mfmarker"), .2, {marginTop:get_value(data[year]['mf_income'])-15,ease:Linear.easeNone})
-		}
-	},100)
+	})
 
 
 	function setup(){
 		// use this function to position everything
-
-		// stopline setup
-		document.getElementById("stopline").style.marginTop=gybounds2[0]+30;
-		document.getElementById("stopline").style.marginLeft=gwidth/16
-		document.getElementById("stopline").style.height=gybounds2[1]-gybounds2[0]-30;
-
 		// yearmarker setup
-		document.getElementById("yearmarker").style.marginTop=gybounds2[0]-20;
-		document.getElementById("yearmarker").style.marginLeft=gwidth/16-50
+		document.getElementById("yearmarker").style.marginTop=gybounds2[0];
+		document.getElementById("yearmarker").style.marginLeft=gxbounds2[0]
 		document.getElementById("yearmarker").style.width=140
+
+		var yearmarker_line=g.line(gxbounds2[0]+$('#yearmarker').width()+10,gybounds2[0],gxbounds2[0]+$('#yearmarker').width()+10,gybounds2[0]+$('#yearmarker').height()).attr({stroke:'#3d3242','stroke-width':1,'shape-rendering':'crispEdges'})
+
+		// graph label setup
+		document.getElementById("graphlabel").style.marginTop=gybounds2[0]+(gybounds2[1]-gybounds2[0])/2
+		document.getElementById("graphlabel").style.marginLeft=gxbounds2[0]+(gxbounds2[1]-gxbounds2[0])/3;
+		document.getElementById("graphlabel").style.width=480
 
 		// linemarkers
 		document.getElementById("mhhmarker").style.width=40
-		document.getElementById("mhhmarker").style.marginTop=get_value(49660)-20
-		document.getElementById("mhhmarker").style.marginLeft=gwidth/16+4
+		document.getElementById("mhhmarker").style.marginTop=get_value(27369)-20
+		document.getElementById("mhhmarker").style.marginLeft=gwidth/16+14
 
 		document.getElementById("mmmarker").style.width=40
-		document.getElementById("mmmarker").style.marginTop=get_value(43166)-20
-		document.getElementById("mmmarker").style.marginLeft=gwidth/16+4
+		document.getElementById("mmmarker").style.marginTop=get_value(20576)-20
+		document.getElementById("mmmarker").style.marginLeft=gwidth/16+14
 
 		document.getElementById("mfmarker").style.width=40
-		document.getElementById("mfmarker").style.marginTop=get_value(1268)-20
-		document.getElementById("mfmarker").style.marginLeft=gwidth/16+4
+		document.getElementById("mfmarker").style.marginTop=get_value(8665)-20
+		document.getElementById("mfmarker").style.marginLeft=gwidth/16+14
 
 		// stoptext positions
-		document.getElementById("stop1text").style.left=gxbounds2[0]+yearinterval*25
-		document.getElementById("stop1text").style.top=gybounds2[0]+(gybounds2[1]-gybounds2[0])/2-$('#stop1text').offset()['top']/2
+		$('.stoptext').css({width:gxbounds2[1]-(gxbounds2[0]+$('#yearmarker').width()+30),left:gxbounds2[0]+$('#yearmarker').width()+30,top:gybounds2[0]-4})
+		a=$('.stoptext')
+		for(var i=0;i<a.length;i++){
+			$(a[i]).css({top:gybounds2[0]+$('#yearmarker').height()/2-$(a[i]).height()/2})
+		}
 
-		document.getElementById("stop2text1").style.left=gxbounds2[0]+((gxbounds2[1]-gxbounds2[0])/2)-$('#stop2text1').width()/2
-		document.getElementById("stop2text1").style.top=gybounds2[0]+(gybounds2[1]-gybounds2[0])/2-$('#stop2text1').offset()['top']/2
-
-		document.getElementById("stop2text2").style.left=gxbounds2[0]+((gxbounds2[1]-gxbounds2[0])/2)-$('#stop2text2').width()/2
-		document.getElementById("stop2text2").style.top=gybounds2[0]+(gybounds2[1]-gybounds2[0])/2-$('#stop2text2').offset()['top']/2
-
-		document.getElementById("stop2text3").style.left=gxbounds2[0]+((gxbounds2[1]-gxbounds2[0])/2)-$('#stop2text3').width()/2
-		document.getElementById("stop2text3").style.top=gybounds2[0]+(gybounds2[1]-gybounds2[0])/2-$('#stop2text3').offset()['top']/2
-
-		// set up time icons and text
-		document.getElementById("hourstable1").style.left=gcenter1[0]-$('#hourstable1').width()/2
-		document.getElementById("hourstable1").style.top=((gybounds2[0]-30)/2)-$('#hourstable2').offset()['top']/2
-
-		document.getElementById("hourstable2").style.left=gcenter2[0]-$('#hourstable2').width()/2
-		document.getElementById("hourstable2").style.top=((gybounds2[0]-30)/2)-$('#hourstable2').offset()['top']/2
+		// stoptext2 positions
+		$('.stoptext2').css({width:6*gwidth/8,left:gwidth/2,top:gheight/8})
+		a=$('.stoptext2')
+		for(var i=0;i<a.length;i++){
+			$(a[i]).css({left:parseInt($(a[i]).css('left'))-$(a[i]).width()/2,top:gybounds2[0]+$('#yearmarker').height()/2-$(a[i]).height()/2})
+		}	
 
 		// axes and graph title
-		var yaxis2=g.line(gxbounds2[0],gybounds2[0]+30,gxbounds2[0],gybounds2[1]).attr({stroke:'#bbb','stroke-width':1,'shape-rendering':'crispEdges'})
-		var yaxis3=g.line(gxbounds2[0],get_value(60000),gxbounds2[1],get_value(60000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
-		var yaxis4=g.line(gxbounds2[0],get_value(40000),gxbounds2[1],get_value(40000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
-		var yaxis5=g.line(gxbounds2[0],get_value(20000),gxbounds2[1],get_value(20000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
-		var yamarker1=g.text(gxbounds2[0]-5,get_value(60000),'$60k').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
+		var yaxis2=g.line(gxbounds2[0]-10,get_value(75000),gxbounds2[1],get_value(75000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
+		var yaxis3=g.line(gxbounds2[0]-10,get_value(60000),gxbounds2[1],get_value(60000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
+		var yaxis4=g.line(gxbounds2[0]-10,get_value(45000),gxbounds2[1],get_value(45000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
+		var yaxis5=g.line(gxbounds2[0]-10,get_value(30000),gxbounds2[1],get_value(30000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
+		var yaxis6=g.line(gxbounds2[0]-10,get_value(15000),gxbounds2[1],get_value(15000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
+
+		var yamarker1=g.text(gxbounds2[0]-15,get_value(75000),'$75k').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
 		ya1=yamarker1.getBBox()
 		yamarker1.attr({y:ya1.y+ya1.height})
-		var yamarker2=g.text(gxbounds2[0]-5,get_value(40000)+2,'40').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
+		var yamarker1=g.text(gxbounds2[0]-15,get_value(60000),'60').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
+		ya1=yamarker1.getBBox()
+		yamarker1.attr({y:ya1.y+ya1.height})
+		var yamarker2=g.text(gxbounds2[0]-15,get_value(45000)+2,'45').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
 		ya2=yamarker2.getBBox()
 		yamarker2.attr({y:ya2.y+ya2.height})
-		var yamarker3=g.text(gxbounds2[0]-5,get_value(20000)+2,'20').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
+		var yamarker3=g.text(gxbounds2[0]-15,get_value(30000)+2,'30').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
 		ya3=yamarker3.getBBox()
 		yamarker3.attr({y:ya3.y+ya3.height})
-		var yamarker4=g.text(gxbounds2[0]-5,get_value(0),'0').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
+		var yamarker32=g.text(gxbounds2[0]-15,get_value(15000)+2,'15').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
+		ya32=yamarker32.getBBox()
+		yamarker32.attr({y:ya32.y+ya32.height})
+		var yamarker4=g.text(gxbounds2[0]-15,get_value(0),'0').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
 		ya4=yamarker4.getBBox()
 		yamarker4.attr({y:ya4.y+ya4.height})
 
 		// recessions text
-		var rectext=g.text(gxbounds2[0]+yearinterval*9.917+yearinterval*(1.33)/2,gybounds2[1]+15,'recessions').attr({'font-family':'Lato',fill:'#bbb','font-weight':700,'text-anchor':'middle'})
+		var rectext=g.text(gxbounds2[0]+yearinterval*5.583+yearinterval*(1.33)/2,gybounds2[1]+15,'recessions').attr({'font-family':'Lato',fill:'#ccc','font-weight':400,'text-anchor':'middle'})
 		linegroup.append(rectext)
 
 		// pull paths to front
 		g.append(linegroup)
-	}
 
+		// add crawling ants arrows
+		var arrowhead=g.path('M0,6L3,3L0,0').attr({'stroke-width':1.4,fill:'none','stroke-linecap':'round'})
+		var arrowhead2=g.path('M0,6L3,3L0,0').attr({'stroke-width':1.4,fill:'none','stroke-linecap':'round'})
+		var amarker_male=arrowhead2.marker(0,0,6,6,0,3).attr({stroke:'#fc8d62'})
+		var amarker_family=arrowhead.marker(0,0,6,6,0,3).attr({stroke:'#3d3242'})
 
-	// exciting scrolling animation stuff
-	function pathPrepare ($el) {
-		var lineLength = $el[0].getTotalLength();
-		$el.css("stroke-dasharray", lineLength);
-		$el.css("stroke-dashoffset", lineLength);
+		var earlyfamilytrend=g.line(gxbounds2[0],get_value(27369),gxbounds2[0]+yearinterval*31-15,get_value(59601)).attr({class:'ants','stroke-width':4,'stroke-dasharray':[12,12],stroke:'#3d3242','marker-end':amarker_family,opacity:0,id:'familytrend1'})
+		var postvolcanofamilytrend=g.line(gxbounds2[0]+yearinterval*32,get_value(59601),gxbounds2[0]+yearinterval*66,get_value(66632)).attr({class:'ants','stroke-width':4,'stroke-dasharray':[12,12],stroke:'#3d3242','marker-end':amarker_family,opacity:0,id:'familytrend2'})
+		var postvolcanomaletrend=g.line(gxbounds2[0]+yearinterval*31,get_value(35842),gxbounds2[0]+yearinterval*66,get_value(36302)).attr({class:'ants','stroke-width':4,'stroke-dasharray':[12,12],stroke:'#fc8d62','marker-end':amarker_male,opacity:0,id:'maletrend'})
 	}
 
 	// setup for the labor force people
 	function drawpeopleicons(callback){
 
-		// text above labor force section
-		document.getElementById("lf1").style.width=16*gwidth/32-gydomain/5-gwidth/32-20
-		document.getElementById("lf1").style.marginLeft=gydomain/5+gwidth/32+10
-		document.getElementById("lf1").style.marginTop=gheight/32-15
-
-		document.getElementById("lf2").style.width=16*gwidth/32-gydomain/5-gwidth/32-40
-		document.getElementById("lf2").style.marginLeft=gydomain/6+16*gwidth/32+10
-		document.getElementById("lf2").style.marginTop=gheight/32-15
-
 		// ares and venus setup
-		// document.getElementById("ares").style.height=gydomain/5
 		document.getElementById("ares").style.width=gydomain/5
+		var aheight=$('#ares').height()
 		document.getElementById("ares").style.marginLeft=gwidth/32
 		document.getElementById("ares").style.marginTop=gheight/32
 
-		// document.getElementById("venus").style.height=gydomain/6
-		document.getElementById("venus").style.width=gydomain/6
+		document.getElementById("venus").style.width=aheight*.75
 		document.getElementById("venus").style.marginLeft=16*gwidth/32
-		document.getElementById("venus").style.marginTop=gheight/32-10
+		document.getElementById("venus").style.marginTop=gheight/32-5
 
 		// change this based on the width of the person icon
-		var personwidth=19
+		personwidth=17
 		// change this to have more/fewer columns, can control how 'vertical' this part of the graphic is
 		var maxcolumns=20
 		var columns=Math.floor((15*gwidth/32)/personwidth)
@@ -332,43 +396,61 @@ same user made the venus symbol
 
 		var aresheight=((gydomain/5)/400)*400
 		var venusheight=((gydomain/5)/266)*400
-		var lf1height=gheight/32-15+$('#lf1').height()
-		var lf2height=gheight/32-15+$('#lf2').height()
+		var starty=Math.max(aresheight,venusheight)
+		var startx=gwidth/32
 
-		var starty=Math.max(aresheight,venusheight,lf1height,lf2height)+10
+		var maxmales=87
+		var maxfemales=60
+
+		var startmales=87
+		var startfemales=33
 
 		// males
-		var lrow=0
-		for(var i=0;i<100;i++){
-			var x=(gwidth/32)+(i % columns*(personwidth))
-			var y=starty+lrow*27
-
-			if(i % columns==columns-1){
-				lrow=lrow+1
+		var lrow=Math.ceil(maxmales/columns)-1
+		for(var i=maxmales;i>0;i--){
+			var x=startx+((i-1) % columns*(personwidth))
+			var y=starty+lrow*27-((i-1) % columns)*4
+			if((i-1) % columns==0){
+				lrow=lrow-1
 			}
-
 			document.getElementById('inner').insertAdjacentHTML('afterbegin',"<img id='micon"+i+"' class='icon' src='icons/maleperson.png' style='margin-top:"+y+";margin-left:"+x+"' />")
 		}
 
 		// females
-		var lrow=0
-		for(var i=0;i<100;i++){
-			var x=gxmiddle+(i % columns*(personwidth))
-			var y=starty+lrow*27
-
-			if(i % columns==columns-1){
-				lrow=lrow+1
+		var lrow=Math.ceil(maxfemales/columns)-1
+		for(var i=maxfemales;i>0;i--){
+			var x=gxmiddle+((i-1) % columns*(personwidth))
+			var y=starty+lrow*27-((i-1) % columns)*4
+			if((i-1) % columns==0){
+				lrow=lrow-1
 			}
-
-			document.getElementById('inner').insertAdjacentHTML('afterbegin',"<img id='ficon"+i+"' class='icon' src='icons/person.png' style='margin-top:"+y+";margin-left:"+x+"' />")
+			if(i<startfemales+1){
+				document.getElementById('inner').insertAdjacentHTML('afterbegin',"<img id='ficon"+i+"' class='icon' src='icons/person.png' style='margin-top:"+y+";margin-left:"+x+"' />")
+			} else{
+				document.getElementById('inner').insertAdjacentHTML('afterbegin',"<img id='ficon"+i+"' class='icon' src='icons/person.png' style='margin-top:"+y+";margin-left:"+x+";transform: scale(0,0)' />")
+			}
 		}
 
-		// 76, 37
-		var remainder=76-(Math.floor(76/columns)*columns)
-		var m1964=g.path('M'+parseInt(gwidth/32)+' '+starty+'L'+parseInt(gwidth/32+personwidth*columns)+' '+starty+'L'+parseInt(gwidth/32+personwidth*columns)+' '+parseInt(starty+Math.floor(76/columns)*27)+'L'+parseInt(gwidth/32+personwidth*remainder)+' '+parseInt(starty+Math.floor(76/columns)*27)+'L'+parseInt(gwidth/32+personwidth*remainder)+' '+parseInt((starty+Math.ceil(76/columns)*27))+'L'+parseInt(gwidth/32)+' '+parseInt((starty+Math.ceil(76/columns)*27))+'L'+parseInt(gwidth/32)+' '+starty).attr({'stroke-width':3,'stroke':'#e18942','fill':'none','shape-rendering':'crispEdges'})
-		// var m1964text=g.text(parseInt(gwidth/32)+15,starty+30,'1964').attr({'font-family':'Lato',fill:'#e18942','font-weight':700,'font-size':20,opacity:.9})
+		// labor force participation markers
+		document.getElementById('male_lf_text').style.marginLeft=startx+((startmales+1) % columns*(personwidth))
+		var lrow=Math.ceil(startmales/columns)-1
+		document.getElementById('male_lf_text').style.marginTop=starty+lrow*27-((startmales+1) % columns)*4+$('#male_lf_text').height()/2
 
-		gybounds2[0]=(gheight/32)+starty+lrow*27
+		document.getElementById('female_lf_text').style.marginLeft=gxmiddle+((startfemales+1) % columns*(personwidth))
+		var lrow=Math.ceil(startfemales/columns)-1
+		document.getElementById('female_lf_text').style.marginTop=starty+lrow*27-((startfemales+1) % columns)*4+$('#female_lf_text').height()/2
+
+		// lf1 and lf2
+		document.getElementById("lf1").style.width=startx+columns*personwidth-$('#ares').width()-40
+		document.getElementById("lf1").style.marginLeft=startx+$('#ares').width()+10
+		document.getElementById("lf1").style.marginTop=gheight/32
+
+		document.getElementById("lf2").style.width=startx+columns*personwidth-$('#venus').width()-40
+		document.getElementById("lf2").style.marginLeft=gxmiddle+$('#venus').width()+10
+		document.getElementById("lf2").style.marginTop=gheight/32
+
+		// update to the bounds for next part of graph to draw from
+		gybounds2[0]=(gheight/32)+starty+(Math.ceil(maxmales/columns))*27
 		callback()
 	}
 
@@ -378,14 +460,14 @@ same user made the venus symbol
 		var mhh_path=''
 		var mf_path=''
 
-		for(var i=1964;i<2016;i++){
+		for(var i=1948;i<1980;i++){
 			var y_mm=parseInt(get_value(data[i]['mm_income']))
 			var y_mhh=parseInt(get_value(data[i]['mhh_income']))
 			var y_mf=parseInt(get_value(data[i]['mf_income']))
 
-			var x=parseInt(gxbounds2[0]+(i-1964)*((gxbounds2[1]-gxbounds2[0])/51))
+			var x=parseInt(gxbounds2[0]+(i-1948)*(yearinterval))
 
-			if(i==1964){
+			if(i==1948){
 				mm_path='M'+x+' '+y_mm
 				mhh_path='M'+x+' '+y_mhh
 				mf_path='M'+x+' '+y_mf
@@ -396,16 +478,38 @@ same user made the venus symbol
 			}
 		}
 
+		for(var i=1979;i<2015;i++){
+			var y_mm=parseInt(get_value(data[i]['mm_income']))
+			var y_mhh=parseInt(get_value(data[i]['mhh_income']))
+			var y_mf=parseInt(get_value(data[i]['mf_income']))
+
+			var x=parseInt(gxbounds2[0]+(i-1948)*(yearinterval))
+
+			if(i==1979){
+				mm_path2='M'+x+' '+y_mm
+				mhh_path2='M'+x+' '+y_mhh
+				mf_path2='M'+x+' '+y_mf
+			} else{
+				mm_path2=mm_path2+'L'+x+' '+y_mm
+				mhh_path2=mhh_path2+'L'+x+' '+y_mhh
+				mf_path2=mf_path2+'L'+x+' '+y_mf
+			}
+		}
+
 		linegroup=g.group()
 
 		// shaded recessions
-		rec1=g.rect(gxbounds2[0]+yearinterval*6,gybounds2[0]+30,yearinterval*(11/12),gybounds2[1]-gybounds2[0]-30).attr({fill:'#ddd','shape-rendering':'crispEdges'})
-		rec2=g.rect(gxbounds2[0]+yearinterval*9.917,gybounds2[0]+30,yearinterval*(1.33),gybounds2[1]-gybounds2[0]-30).attr({fill:'#ddd','shape-rendering':'crispEdges'})
-		rec3=g.rect(gxbounds2[0]+yearinterval*16.083,gybounds2[0]+30,yearinterval*(.5),gybounds2[1]-gybounds2[0]-30).attr({fill:'#ddd','shape-rendering':'crispEdges'})
-		rec4=g.rect(gxbounds2[0]+yearinterval*17.583,gybounds2[0]+30,yearinterval*(1.33),gybounds2[1]-gybounds2[0]-30).attr({fill:'#ddd','shape-rendering':'crispEdges'})
-		rec5=g.rect(gxbounds2[0]+yearinterval*26.583,gybounds2[0]+30,yearinterval*(.67),gybounds2[1]-gybounds2[0]-30).attr({fill:'#ddd','shape-rendering':'crispEdges'})
-		rec6=g.rect(gxbounds2[0]+yearinterval*37.25,gybounds2[0]+30,yearinterval*(.67),gybounds2[1]-gybounds2[0]-30).attr({fill:'#ddd','shape-rendering':'crispEdges'})
-		rec7=g.rect(gxbounds2[0]+yearinterval*44,gybounds2[0]+30,yearinterval*(1.5),gybounds2[1]-gybounds2[0]-30).attr({fill:'#ddd','shape-rendering':'crispEdges'})
+		rec1=g.rect(gxbounds2[0]+yearinterval*22,get_value(75000),yearinterval*(.917),get_value(0)-get_value(75000)).attr({fill:'#eee','shape-rendering':'crispEdges',class:'recessions'})
+		rec2=g.rect(gxbounds2[0]+yearinterval*25.917,get_value(75000),yearinterval*(1.333),get_value(0)-get_value(75000)).attr({fill:'#eee','shape-rendering':'crispEdges',class:'recessions'})
+		rec3=g.rect(gxbounds2[0]+yearinterval*32.083,get_value(75000),yearinterval*(.5),get_value(0)-get_value(75000)).attr({fill:'#eee','shape-rendering':'crispEdges',class:'recessions'})
+		rec4=g.rect(gxbounds2[0]+yearinterval*33.583,get_value(75000),yearinterval*(1.333),get_value(0)-get_value(75000)).attr({fill:'#eee','shape-rendering':'crispEdges',class:'recessions'})
+		rec5=g.rect(gxbounds2[0]+yearinterval*42.583,get_value(75000),yearinterval*(.667),get_value(0)-get_value(75000)).attr({fill:'#eee','shape-rendering':'crispEdges',class:'recessions'})
+		rec6=g.rect(gxbounds2[0]+yearinterval*53.25,get_value(75000),yearinterval*(.667),get_value(0)-get_value(75000)).attr({fill:'#eee','shape-rendering':'crispEdges',class:'recessions'})
+		rec7=g.rect(gxbounds2[0]+yearinterval*60,get_value(75000),yearinterval*(1.5),get_value(0)-get_value(75000)).attr({fill:'#eee','shape-rendering':'crispEdges',class:'recessions'})
+		rec8=g.rect(gxbounds2[0]+yearinterval*.917,get_value(75000),yearinterval*(.917),get_value(0)-get_value(75000)).attr({fill:'#eee','shape-rendering':'crispEdges',class:'recessions'})
+		rec9=g.rect(gxbounds2[0]+yearinterval*5.583,get_value(75000),yearinterval*(.833),get_value(0)-get_value(75000)).attr({fill:'#eee','shape-rendering':'crispEdges',class:'recessions'})
+		rec10=g.rect(gxbounds2[0]+yearinterval*9.667,get_value(75000),yearinterval*(.667),get_value(0)-get_value(75000)).attr({fill:'#eee','shape-rendering':'crispEdges',class:'recessions'})
+		rec11=g.rect(gxbounds2[0]+yearinterval*12.333,get_value(75000),yearinterval*(.833),get_value(0)-get_value(75000)).attr({fill:'#eee','shape-rendering':'crispEdges',class:'recessions'})
 
 		linegroup.append(rec1)
 		linegroup.append(rec2)
@@ -414,15 +518,24 @@ same user made the venus symbol
 		linegroup.append(rec5)
 		linegroup.append(rec6)
 		linegroup.append(rec7)
+		linegroup.append(rec8)
+		linegroup.append(rec9)
+		linegroup.append(rec10)
+		linegroup.append(rec11)
 
-		var mm_income_path=g.path(mm_path).attr({fill:'none','stroke-width':'4px','stroke':'#e18942','id':'mm_income_path'})
-		var rmhh_income_path=g.path(mhh_path).attr({fill:'none','stroke-width':'4px','stroke':'#3d3242','id':'mhh_income_path'})
-		var mf_income_path=g.path(mf_path).attr({fill:'none','stroke-width':'4px','stroke':'#b95835','id':'mf_income_path'})
+		var mm_income_path=g.path(mm_path).attr({fill:'none','stroke-width':'4px','stroke':'#fc8d62','id':'mm_income_path','stroke-linecap':'round'})
+		var rmhh_income_path=g.path(mhh_path).attr({fill:'none','stroke-width':'4px','stroke':'#3d3242','id':'mhh_income_path','stroke-linecap':'round'})
+		var mf_income_path=g.path(mf_path).attr({fill:'none','stroke-width':'4px','stroke':'#67c2a5','id':'mf_income_path','stroke-linecap':'round'})
+		var mm_income_path2=g.path(mm_path2).attr({fill:'none','stroke-width':'4px','stroke':'#fc8d62','id':'mm_income_path2','stroke-linecap':'round'})
+		var rmhh_income_path2=g.path(mhh_path2).attr({fill:'none','stroke-width':'4px','stroke':'#3d3242','id':'mhh_income_path2','stroke-linecap':'round'})
+		var mf_income_path2=g.path(mf_path2).attr({fill:'none','stroke-width':'4px','stroke':'#67c2a5','id':'mf_income_path2','stroke-linecap':'round'})
 		linegroup.append(mm_income_path)
 		linegroup.append(mhh_income_path)
 		linegroup.append(mf_income_path)
+		linegroup.append(mm_income_path2)
+		linegroup.append(mhh_income_path2)
+		linegroup.append(mf_income_path2)
 
-		
 		var mask=g.rect(gxbounds2[0],gybounds2[0],0,gybounds2[1]-gybounds2[0]+50).attr({fill:'#fff',id:'mask'})
 		maskgroup=g.group(mask)
 		linegroup.attr({mask:maskgroup})
