@@ -15,7 +15,7 @@ same user made the venus symbol
 	<script src="lib/TweenMax.min.js"></script>
 	<script src="lib/animation.gsap.js"></script>
 	<style>
-		@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+		@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 		@-webkit-keyframes dash{to{stroke-dashoffset:-1000;}}
 
 		h1{font-family:sans-serif;width:700px;margin-left:auto;margin-right:auto;}
@@ -30,7 +30,7 @@ same user made the venus symbol
 		.headlinetext2{font-family:'Lato';font-size:3.5em;color:#3d3242;font-weight:700;position:absolute;line-height:100%;}
 		.headlinetext4{font-family:'Lato';font-size:2.5em;color:#3d3242;font-weight:700;position:absolute;line-height:100%;}
 		.headlinetext3{font-family:'Lato';font-size:1.4em;color:#999;font-weight:700;height:0;position:absolute;line-height:90%;}
-		.stoptext{font-family:'Lato';font-size:1.5em;color:#3d3242;font-weight:400;position:absolute;line-height:90%;opacity:0;margin:0;padding:0;}
+		.stoptext{font-family:'Lato';font-size:1.5em;color:#3d3242;font-weight:400;position:absolute;line-height:90%;opacity:0;margin:0;padding:0;transform:translate(0,-50%);}
 		.stoptext2{text-align:center;font-size:2em;}
 		.lftext{font-family:'Lato';font-size:1.3em;color:#3d3242;font-weight:400;position:absolute;line-height:90%;margin:0;padding:0;}
 		.pin{max-width:1045px;overflow:hidden;}
@@ -39,9 +39,12 @@ same user made the venus symbol
 		.hoursrow:not(:first-child){padding-top:2px;}
 		.hourstable{position:absolute;background-color:rgba(255,255,255,.9);border-radius:4px;opacity:0;}
 		.buffer{margin-left:35px;}
-		.lfbox{position:absolute;border:.5px solid black;background:#dddddd;padding:3px;font-family:'Lato';opacity:.8;}
+		.lfbox{position:absolute;border:.5px solid black;background:#dddddd;padding:3px;font-family:'Lato';opacity:.8;z-index:1000;}
+		.lfbox2{position:absolute;border:.5px solid black;background:#dddddd;padding:3px;font-family:'Lato';opacity:0;text-align:center;}
 		.male{color:#fc8d62;}
 		.female{color:#67c2a5}
+		.pointer{position:absolute;width:1px;background:black;height:10px;opacity:0;}
+		.recession{color:#ccc;}
 
 		#pininside{position:relative;}
 		#venus{position:absolute;}
@@ -67,12 +70,15 @@ same user made the venus symbol
 		<div id='mfmarker' class='headlinetext3' style='color:#67c2a5'>Females $9k</div>
 		<div id='male_lf_text' class='lfbox'>87%</div>
 		<div id='female_lf_text' class='lfbox'>33%</div>
+		<div id='male_lf_texthold' class='lfbox2'>1964<br>87%</div>
+		<div id='female_lf_texthold' class='lfbox2'>1964<br>33%</div>
+		<div id='pointer' class='pointer'></div>
 		<div id='graphlabel' class='headlinetext4'>Median Incomes, 2014 $</div>
 
 		<div id='lf1' class='lftext' style='opacity:100%'>Male labor force participation</div>
 		<div id='lf2' class='lftext' style='opacity:100%'>Female labor force participation</div>
 
-		<div id='stop0text' class='stoptext'>Scroll down to see how labor force participation and income has changed for <span class='male'>males</span> and <span class='female'>females</span> since 1948.</div>
+		<div id='stop0text' class='stoptext'>Scroll down to see how labor force participation and income has changed for <span class='male'>males</span> and <span class='female'>females</span> since 1948. <span class='recession'>Recessions</span> are shaded gray.</div>
 		<div id='stop1text' class='stoptext'>From 1948 to the 1990s, <span class='female'>female</span> participation in the labor force and <span class='female'>female</span> pay rose, and family income rose with it.</div>
 		<div id='stop2text1' class='stoptext'>But <span class='female'>female</span> labor force participation leveled off in the 90s.</div>
 		<div id='stop2text12' class='stoptext'><span class='male'>Male</span> labor force participation declined, and <span class='male'>male</span> median income has been stagnant since 1979.</div>
@@ -118,7 +124,8 @@ same user made the venus symbol
 	var gwidth=document.documentElement.clientWidth
 	var gheight=document.documentElement.clientHeight
 	if(gwidth>1045){gwidth=1045}
-	if(gheight>gwidth*1.3){gheight=gwidth*1.3}
+	tallflag=0
+	if(gheight>gwidth*1.3){tallflag=1}
 	var gcenter1=[gwidth/4,gheight/4]
 	var gcenter2=[3*gwidth/4,3*gheight/4]
 	var gxbounds2=[gwidth/16+10,gwidth-70]
@@ -127,7 +134,7 @@ same user made the venus symbol
 	var gydomain=gybounds2[1]-gybounds2[0]
 	var gxmiddle=gwidth/2
 	var gymiddle=gheight/2
-	var ymax=90000
+	var ymax=75000
 	var yearinterval=(gxbounds2[1]-gxbounds2[0])/66
 	var year=1964
 
@@ -152,12 +159,15 @@ same user made the venus symbol
 				.add(TweenMax.to($("#mmmarker"), 31, {marginLeft:gxbounds2[0]+(yearinterval)*31+4, ease:Linear.easeNone}),0)
 				.add(TweenMax.to($("#mfmarker"), 31, {marginLeft:gxbounds2[0]+(yearinterval)*31+4, ease:Linear.easeNone}),0)
 				.add(TweenMax.to($("rect#mask"), 31, {attr:{width:(yearinterval)*31}, ease:Linear.easeNone}),0)
+				.add(TweenMax.to($("#female_lf_texthold"), 2, {opacity:.8, ease:Linear.easeNone}),10)
+				.add(TweenMax.to($("#male_lf_texthold"), 2, {opacity:.8, ease:Linear.easeNone}),10)
+				.add(TweenMax.to($("#pointer"), 2, {opacity:.8, ease:Linear.easeNone}),10)
 
 				// first stop
-				tween.to($("line#familytrend1"), 0, {opacity:1, ease:Linear.easeNone},31)
-				tween.to($("line#familytrend1"), 0, {opacity:0, ease:Linear.easeNone},46)
-				tween.to($("path#mhh_income_path"), 0, {opacity:0, ease:Linear.easeNone},31)
-				tween.to($("path#mhh_income_path"), 0, {opacity:1, ease:Linear.easeNone},46)
+				tween.to($("line#familytrend1"), 3, {opacity:1, ease:Linear.easeNone},31)
+				tween.to($("line#familytrend1"), 3, {opacity:0, ease:Linear.easeNone},43)
+				tween.to($("path#mhh_income_path"), 3, {opacity:.3, ease:Linear.easeNone},31)
+				tween.to($("path#mhh_income_path"), 3, {opacity:1, ease:Linear.easeNone},43)
 				tween.to($("path#mhh_income_path2"), 0, {opacity:0, ease:Linear.easeNone},31)
 				tween.to($("path#mhh_income_path2"), 0, {opacity:1, ease:Linear.easeNone},46)
 				.add(TweenMax.to($("#stop1text"), 5, {opacity:1, ease:Linear.easeNone}),26)
@@ -168,16 +178,14 @@ same user made the venus symbol
 				.add(TweenMax.to($("#stop2text1"), 5, {opacity:0, ease:Linear.easeNone}),66)
 				.add(TweenMax.to($("#stop2text12"), 5, {opacity:1, ease:Linear.easeNone}),71)
 				.add(TweenMax.to($("#stop2text12"), 5, {opacity:0, ease:Linear.easeNone}),96)
-				tween.to($("line#maletrend"), 0, {opacity:1, ease:Linear.easeNone},81)
-				tween.to($("line#maletrend"), 0, {opacity:0, ease:Linear.easeNone},101)
-				tween.to($("path#mm_income_path2"), 0, {opacity:0, ease:Linear.easeNone},81)
-				tween.to($("path#mm_income_path2"), 0, {opacity:1, ease:Linear.easeNone},101)
-				tween.to($("line#familytrend2"), 0, {opacity:1, ease:Linear.easeNone},101)
-				tween.to($("line#familytrend2"), 0, {opacity:0, ease:Linear.easeNone},121)
-				tween.to($("path#mhh_income_path2"), 0, {opacity:0, ease:Linear.easeNone},101)
-				tween.to($("path#mhh_income_path2"), 0, {opacity:1, ease:Linear.easeNone},121)
-				// g2.select("path[type='grouppath'][column='"+(i+5)+"']").animate({path:path_list[i]},1000,function(){
-				// tween.to($("path#mhh_income_path2"), 10, {onStart:test,onComplete:test, onReverse:test, onReverseComplete:test, ease:Linear.easeNone},101)
+				tween.to($("line#maletrend"), 3, {opacity:1, ease:Linear.easeNone},81)
+				tween.to($("line#maletrend"), 3, {opacity:0, ease:Linear.easeNone},101)
+				tween.to($("path#mm_income_path2"), 3, {opacity:.3, ease:Linear.easeNone},81)
+				tween.to($("path#mm_income_path2"), 3, {opacity:1, ease:Linear.easeNone},101)
+				tween.to($("line#familytrend2"), 3, {opacity:1, ease:Linear.easeNone},101)
+				tween.to($("line#familytrend2"), 3, {opacity:0, ease:Linear.easeNone},121)
+				tween.to($("path#mhh_income_path2"), 3, {opacity:.3, ease:Linear.easeNone},101)
+				tween.to($("path#mhh_income_path2"), 3, {opacity:1, ease:Linear.easeNone},121)
 				.add(TweenMax.to($("#mhhmarker"), 35, {marginLeft:gxbounds2[1]+4, ease:Linear.easeNone}),46)
 				.add(TweenMax.to($("#mmmarker"), 35, {marginLeft:gxbounds2[1]+4, ease:Linear.easeNone}),46)
 				.add(TweenMax.to($("#mfmarker"), 35, {marginLeft:gxbounds2[1]+4, ease:Linear.easeNone}),46)
@@ -207,23 +215,6 @@ same user made the venus symbol
 				.add(TweenMax.to($("#stop2text5"), 5, {opacity:1, ease:Linear.easeNone}),208)
 				// .add(TweenMax.to($("#hourstable1"), 5, {opacity:1, ease:Linear.easeNone}),133)
 				// .add(TweenMax.to($("#hourstable2"), 5, {opacity:1, ease:Linear.easeNone}),133)
-
-			// function test(){
-			// 	if (morphed==0){
-			// 		item=Snap($("path#mhh_income_path2")[0])
-			// 		path='M'+(gxbounds2[0]+yearinterval*31)+','+get_value(59601)
-			// 		for(var i=1980;i<2015;i++){
-			// 			path=path+'L'+(gxbounds2[0]+yearinterval*(31+(i-1980)))+','+(get_value(59601)+(get_value(66632)-get_value(59601))/(2015-i))
-			// 		}
-
-			// 		item.animate({path:path},1000)
-			// 		morphed=1
-			// 	} else if (morphed==1){
-			// 		item=Snap($("path#mhh_income_path2")[0])
-			// 		item.animate({path:mhh_path2},1000)
-			// 		morphed=0
-			// 	}
-			// }
 
 			// yearmarker updates
 			for(var i=0;i<83;i++){
@@ -309,17 +300,6 @@ same user made the venus symbol
 
 	function setup(){
 		// use this function to position everything
-		// yearmarker setup
-		document.getElementById("yearmarker").style.marginTop=gybounds2[0];
-		document.getElementById("yearmarker").style.marginLeft=gxbounds2[0]
-		document.getElementById("yearmarker").style.width=140
-
-		var yearmarker_line=g.line(gxbounds2[0]+$('#yearmarker').width()+10,gybounds2[0],gxbounds2[0]+$('#yearmarker').width()+10,gybounds2[0]+$('#yearmarker').height()).attr({stroke:'#3d3242','stroke-width':1,'shape-rendering':'crispEdges'})
-
-		// graph label setup
-		document.getElementById("graphlabel").style.marginTop=gybounds2[0]+(gybounds2[1]-gybounds2[0])/2
-		document.getElementById("graphlabel").style.marginLeft=gxbounds2[0]+(gxbounds2[1]-gxbounds2[0])/3;
-		document.getElementById("graphlabel").style.width=480
 
 		// linemarkers
 		document.getElementById("mhhmarker").style.width=40
@@ -335,11 +315,17 @@ same user made the venus symbol
 		document.getElementById("mfmarker").style.marginLeft=gwidth/16+14
 
 		// stoptext positions
-		$('.stoptext').css({width:gxbounds2[1]-(gxbounds2[0]+$('#yearmarker').width()+30),left:gxbounds2[0]+$('#yearmarker').width()+30,top:gybounds2[0]-4})
-		a=$('.stoptext')
-		for(var i=0;i<a.length;i++){
-			$(a[i]).css({top:gybounds2[0]+$('#yearmarker').height()/2-$(a[i]).height()/2})
+		function sizes(callback){
+			$('.stoptext').css({width:gxbounds2[1]-(gxbounds2[0]+$('#yearmarker').width()+30),left:gxbounds2[0]+$('#yearmarker').width()+30})
+			callback()
 		}
+
+		sizes(function(){
+			a=$('.stoptext')
+			for(var i=0;i<a.length;i++){
+				$(a[i]).css({top:midline})
+			}
+		})
 
 		// stoptext2 positions
 		$('.stoptext2').css({width:6*gwidth/8,left:gwidth/2,top:gheight/8})
@@ -349,46 +335,48 @@ same user made the venus symbol
 		}	
 
 		// axes and graph title
+		var yaxis2=g.line(gxbounds2[0]-10,gybounds2[0],gxbounds2[1],gybounds2[0]).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
 		var yaxis2=g.line(gxbounds2[0]-10,get_value(75000),gxbounds2[1],get_value(75000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
 		var yaxis3=g.line(gxbounds2[0]-10,get_value(60000),gxbounds2[1],get_value(60000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
 		var yaxis4=g.line(gxbounds2[0]-10,get_value(45000),gxbounds2[1],get_value(45000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
 		var yaxis5=g.line(gxbounds2[0]-10,get_value(30000),gxbounds2[1],get_value(30000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
 		var yaxis6=g.line(gxbounds2[0]-10,get_value(15000),gxbounds2[1],get_value(15000)).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
 
-		var yamarker1=g.text(gxbounds2[0]-15,get_value(75000),'$75k').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
+		var yamarker1=g.text(gxbounds2[0]-15,get_value(75000),'$75k').attr({'font-family':'Lato','font-size':'20px',fill:'#3d3242','text-anchor':'end'})
 		ya1=yamarker1.getBBox()
 		yamarker1.attr({y:ya1.y+ya1.height})
-		var yamarker1=g.text(gxbounds2[0]-15,get_value(60000),'60').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
+		var yamarker1=g.text(gxbounds2[0]-15,get_value(60000),'60').attr({'font-family':'Lato','font-size':'20px',fill:'#3d3242','text-anchor':'end'})
 		ya1=yamarker1.getBBox()
 		yamarker1.attr({y:ya1.y+ya1.height})
-		var yamarker2=g.text(gxbounds2[0]-15,get_value(45000)+2,'45').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
+		var yamarker2=g.text(gxbounds2[0]-15,get_value(45000)+2,'45').attr({'font-family':'Lato','font-size':'20px',fill:'#3d3242','text-anchor':'end'})
 		ya2=yamarker2.getBBox()
 		yamarker2.attr({y:ya2.y+ya2.height})
-		var yamarker3=g.text(gxbounds2[0]-15,get_value(30000)+2,'30').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
+		var yamarker3=g.text(gxbounds2[0]-15,get_value(30000)+2,'30').attr({'font-family':'Lato','font-size':'20px',fill:'#3d3242','text-anchor':'end'})
 		ya3=yamarker3.getBBox()
 		yamarker3.attr({y:ya3.y+ya3.height})
-		var yamarker32=g.text(gxbounds2[0]-15,get_value(15000)+2,'15').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
+		var yamarker32=g.text(gxbounds2[0]-15,get_value(15000)+2,'15').attr({'font-family':'Lato','font-size':'20px',fill:'#3d3242','text-anchor':'end'})
 		ya32=yamarker32.getBBox()
 		yamarker32.attr({y:ya32.y+ya32.height})
-		var yamarker4=g.text(gxbounds2[0]-15,get_value(0),'0').attr({'font-family':'Lato','font-size':'20px',fill:'#999','text-anchor':'end'})
+		var yamarker4=g.text(gxbounds2[0]-15,get_value(0),'0').attr({'font-family':'Lato','font-size':'20px',fill:'#3d3242','text-anchor':'end'})
 		ya4=yamarker4.getBBox()
 		yamarker4.attr({y:ya4.y+ya4.height})
 
 		// recessions text
-		var rectext=g.text(gxbounds2[0]+yearinterval*5.583+yearinterval*(1.33)/2,gybounds2[1]+15,'recessions').attr({'font-family':'Lato',fill:'#ccc','font-weight':400,'text-anchor':'middle'})
-		linegroup.append(rectext)
+		// var rectext=g.text(gxbounds2[0]+yearinterval*5.583+yearinterval*(1.33)/2,gybounds2[1]+15,'recessions').attr({'font-family':'Lato',fill:'#ccc','font-weight':200,'text-anchor':'middle'})
+		// linegroup.append(rectext)
 
 		// pull paths to front
 		g.append(linegroup)
 
 		// add crawling ants arrows
-		var arrowhead=g.path('M0,6L3,3L0,0').attr({'stroke-width':1.4,fill:'none','stroke-linecap':'round'})
-		var arrowhead2=g.path('M0,6L3,3L0,0').attr({'stroke-width':1.4,fill:'none','stroke-linecap':'round'})
-		var amarker_male=arrowhead2.marker(0,0,6,6,0,3).attr({stroke:'#fc8d62'})
-		var amarker_family=arrowhead.marker(0,0,6,6,0,3).attr({stroke:'#3d3242'})
+		var arrowhead=g.path('M0,0 L0,3.5 L3.5,1.75 L0,0').attr({fill: '#3d3242'})
+		var arrowhead2=g.path('M0,0 L0,3.5 L3.5,1.75 L0,0').attr({fill: '#fc8d62'})
+		var amarker_male=arrowhead2.marker(0,0,3.5,3.5,0,1.75).attr({fill:'#fc8d62'})
+		var amarker_family=arrowhead.marker(0,0,3.5,3.5,0,1.75).attr({fill:'#3d3242'})
+		// var amarker = arrow.marker(0,0,6,4,0,2).attr({fill:'currentColor'});
 
-		var earlyfamilytrend=g.line(gxbounds2[0],get_value(27369),gxbounds2[0]+yearinterval*31-15,get_value(59601)).attr({class:'ants','stroke-width':4,'stroke-dasharray':[12,12],stroke:'#3d3242','marker-end':amarker_family,opacity:0,id:'familytrend1'})
-		var postvolcanofamilytrend=g.line(gxbounds2[0]+yearinterval*31,get_value(59601),gxbounds2[0]+yearinterval*66,get_value(66632)).attr({class:'ants','stroke-width':4,'stroke-dasharray':[12,12],stroke:'#3d3242','marker-end':amarker_family,opacity:0,id:'familytrend2'})
+		var earlyfamilytrend=g.line(gxbounds2[0],get_value(27369),gxbounds2[0]+yearinterval*31.2-15,get_value(58901)).attr({class:'ants','stroke-width':4,'stroke-dasharray':[12,12],stroke:'#3d3242','marker-end':amarker_family,opacity:0,id:'familytrend1'})
+		var postvolcanofamilytrend=g.line(gxbounds2[0]+yearinterval*31,get_value(59801),gxbounds2[0]+yearinterval*66,get_value(66632)).attr({class:'ants','stroke-width':4,'stroke-dasharray':[12,12],stroke:'#3d3242','marker-end':amarker_family,opacity:0,id:'familytrend2'})
 		var postvolcanomaletrend=g.line(gxbounds2[0]+yearinterval*31,get_value(35842),gxbounds2[0]+yearinterval*66,get_value(36302)).attr({class:'ants','stroke-width':4,'stroke-dasharray':[12,12],stroke:'#fc8d62','marker-end':amarker_male,opacity:0,id:'maletrend'})
 	}
 
@@ -397,11 +385,11 @@ same user made the venus symbol
 
 		// ares and venus setup
 		document.getElementById("ares").style.width=gydomain/5
-		var aheight=$('#ares').height()
-		document.getElementById("ares").style.marginLeft=gwidth/32
+		document.getElementById("ares").style.marginLeft=gwidth/60
 		document.getElementById("ares").style.marginTop=gheight/32
+		if(tallflag==1){document.getElementById("ares").style.marginLeft=gxmiddle-180}
 
-		document.getElementById("venus").style.width=aheight*.75
+		document.getElementById("venus").style.width=gydomain/5*.75
 		document.getElementById("venus").style.marginLeft=16*gwidth/32
 		document.getElementById("venus").style.marginTop=gheight/32-5
 
@@ -414,9 +402,9 @@ same user made the venus symbol
 			columns=maxcolumns
 		}
 
-		var aresheight=((gydomain/5)/400)*400
-		var venusheight=((gydomain/5)/266)*400
-		var starty=Math.max(aresheight,venusheight)
+		var aresheight=gydomain/5
+		var venusheight=(gydomain/5*.75)*(400/266)
+		var starty=Math.max(aresheight,venusheight)+gheight/32+10
 		var startx=gwidth/32
 
 		var maxmales=87
@@ -428,54 +416,127 @@ same user made the venus symbol
 		// males
 		var lrow=Math.ceil(maxmales/columns)-1
 		for(var i=maxmales;i>0;i--){
-			var x=startx+((i-1) % columns*(personwidth))
+			var x=startx+((i-1) % columns*(personwidth))+lrow*10
+			if(tallflag==1){var x=gxmiddle-180+((i-1) % columns*(personwidth))+lrow*10}
 			var y=starty+lrow*27-((i-1) % columns)*4
 			if((i-1) % columns==0){
 				lrow=lrow-1
 			}
 			document.getElementById('inner').insertAdjacentHTML('afterbegin',"<img id='micon"+i+"' class='icon' src='icons/maleperson.png' style='margin-top:"+y+";margin-left:"+x+"' />")
+			if(i>68){
+				document.getElementById('inner').insertAdjacentHTML('afterbegin',"<img id='fadeicon"+i+"' class='icon' src='icons/maleperson.png' style='margin-top:"+y+";margin-left:"+x+";opacity:"+.3+"' />")
+			}
 		}
+		var lrow=Math.ceil(maxmales/columns)-1
+		endy=20+starty+lrow*27-((i-maxmales) % columns)*4
 
 		// females
-		var lrow=Math.ceil(maxfemales/columns)-1
-		for(var i=maxfemales;i>0;i--){
-			var x=gxmiddle+((i-1) % columns*(personwidth))
-			var y=starty+lrow*27-((i-1) % columns)*4
-			if((i-1) % columns==0){
-				lrow=lrow-1
+		if(tallflag!=1){
+			var lrow=Math.ceil(maxfemales/columns)-1
+			for(var i=maxfemales;i>0;i--){
+				var x=gxmiddle+((i-1) % columns*(personwidth))+lrow*10
+				var y=starty+lrow*27-((i-1) % columns)*4
+				if((i-1) % columns==0){
+					lrow=lrow-1
+				}
+				if(i<startfemales+1){
+					document.getElementById('inner').insertAdjacentHTML('afterbegin',"<img id='ficon"+i+"' class='icon' src='icons/person.png' style='margin-top:"+y+";margin-left:"+x+"' />")
+				} else{
+					document.getElementById('inner').insertAdjacentHTML('afterbegin',"<img id='ficon"+i+"' class='icon' src='icons/person.png' style='margin-top:"+y+";margin-left:"+x+";transform: scale(0,0)' />")
+				}
 			}
-			if(i<startfemales+1){
-				document.getElementById('inner').insertAdjacentHTML('afterbegin',"<img id='ficon"+i+"' class='icon' src='icons/person.png' style='margin-top:"+y+";margin-left:"+x+"' />")
-			} else{
-				document.getElementById('inner').insertAdjacentHTML('afterbegin',"<img id='ficon"+i+"' class='icon' src='icons/person.png' style='margin-top:"+y+";margin-left:"+x+";transform: scale(0,0)' />")
+		} else{
+			// if screen is fairly narrow, stack male and female
+			document.getElementById("venus").style.marginLeft=gxmiddle-180
+			document.getElementById("venus").style.marginTop=endy
+			var preserve=endy
+
+			var starty=(gydomain/5*.75)*(400/266)+endy+10
+			var lrow=Math.ceil(maxfemales/columns)-1
+			for(var i=maxfemales;i>0;i--){
+				var x=gxmiddle-180+((i-1) % columns*(personwidth))+lrow*10
+				var y=starty+lrow*27-((i-1) % columns)*4
+				if((i-1) % columns==0){
+					lrow=lrow-1
+				}
+				if(i<startfemales+1){
+					document.getElementById('inner').insertAdjacentHTML('afterbegin',"<img id='ficon"+i+"' class='icon' src='icons/person.png' style='margin-top:"+y+";margin-left:"+x+"' />")
+				} else{
+					document.getElementById('inner').insertAdjacentHTML('afterbegin',"<img id='ficon"+i+"' class='icon' src='icons/person.png' style='margin-top:"+y+";margin-left:"+x+";transform: scale(0,0)' />")
+				}
 			}
+
+			var lrow=Math.ceil(maxfemales/columns)-1
+			endy=starty+lrow*27-((i-maxfemales) % columns)*4+55
 		}
 
 		// labor force participation markers
-		document.getElementById('male_lf_text').style.marginLeft=startx+((startmales+1) % columns*(personwidth))
-		var lrow=Math.ceil(startmales/columns)-1
-		document.getElementById('male_lf_text').style.marginTop=starty+lrow*27-((startmales+1) % columns)*4+$('#male_lf_text').height()/2
+		document.getElementById('male_lf_text').style.marginLeft=parseInt($('#micon87').css('margin-left'))+2*personwidth
+		document.getElementById('male_lf_text').style.marginTop=parseInt($('#micon87').css('margin-top'))-8+$('#female_lf_text').height()/2
 
-		document.getElementById('female_lf_text').style.marginLeft=gxmiddle+((startfemales+1) % columns*(personwidth))
-		var lrow=Math.ceil(startfemales/columns)-1
-		document.getElementById('female_lf_text').style.marginTop=starty+lrow*27-((startfemales+1) % columns)*4+$('#female_lf_text').height()/2
+		document.getElementById('female_lf_text').style.marginLeft=parseInt($('#ficon33').css('margin-left'))+2*personwidth
+		document.getElementById('female_lf_text').style.marginTop=parseInt($('#ficon33').css('margin-top'))-8+$('#female_lf_text').height()/2
+
+		document.getElementById('male_lf_texthold').style.marginLeft=parseInt($('#micon87').css('margin-left'))+2*personwidth
+		document.getElementById('male_lf_texthold').style.marginTop=parseInt($('#micon87').css('margin-top'))-8+$('#female_lf_text').height()/2
+
+		document.getElementById('female_lf_texthold').style.marginLeft=parseInt($('#ficon33').css('margin-left'))+2*personwidth-(1.9*personwidth)
+		document.getElementById('female_lf_texthold').style.marginTop=parseInt($('#ficon33').css('margin-top'))-28+$('#female_lf_text').height()/2-38
+
+		document.getElementById('pointer').style.marginLeft=parseInt($('#ficon33').css('margin-left'))+2*personwidth-(1.9*personwidth)+21
+		document.getElementById('pointer').style.marginTop=parseInt($('#ficon33').css('margin-top'))-28+$('#female_lf_text').height()/2+7
+
+		if(tallflag==1){
+			document.getElementById('female_lf_texthold').style.marginLeft=parseInt($('#ficon33').css('margin-left'))+2*personwidth-(1.9*personwidth)+210
+			document.getElementById('female_lf_texthold').style.marginTop=parseInt($('#ficon33').css('margin-top'))-18+$('#female_lf_text').height()/2
+
+			document.getElementById('pointer').style.width=185
+			document.getElementById('pointer').style.height=1
+			document.getElementById('pointer').style.marginLeft=parseInt($('#ficon33').css('margin-left'))+2*personwidth-(1.9*personwidth)+25
+			document.getElementById('pointer').style.marginTop=parseInt($('#ficon33').css('margin-top'))-28+$('#female_lf_text').height()/2+27		
+		}
 
 		// lf1 and lf2
 		document.getElementById("lf1").style.width=startx+columns*personwidth-$('#ares').width()-40
 		document.getElementById("lf1").style.marginLeft=startx+$('#ares').width()+10
 		document.getElementById("lf1").style.marginTop=gheight/32
+		if(tallflag==1){document.getElementById("lf1").style.marginLeft=gxmiddle-180+$('#ares').width()+10}
 
 		document.getElementById("lf2").style.width=startx+columns*personwidth-$('#venus').width()-40
 		document.getElementById("lf2").style.marginLeft=gxmiddle+$('#venus').width()+10
 		document.getElementById("lf2").style.marginTop=gheight/32
+		
+		if(tallflag==1){
+			document.getElementById("lf2").style.marginLeft=gxmiddle-180+$('#venus').width()+10
+			document.getElementById("lf2").style.marginTop=preserve+27
+			document.getElementById("lf1").style.marginTop=gheight/32+27
+			document.getElementById("lf2").style.fontSize='1.8em'
+			document.getElementById("lf1").style.fontSize='1.8em'
+		}
 
 		// update to the bounds for next part of graph to draw from
-		gybounds2[0]=(gheight/32)+starty+(Math.ceil(maxmales/columns))*27
+		gybounds2[0]=endy
 		callback()
 	}
 
 
 	function timeseries(callback){
+
+		// yearmarker setup
+		document.getElementById("yearmarker").style.marginTop=gybounds2[0];
+		document.getElementById("yearmarker").style.marginLeft=gxbounds2[0]-10
+		document.getElementById("yearmarker").style.width=140
+
+		var yearmarker_line=g.line(-5+gxbounds2[0]+$('#yearmarker').width()+10,gybounds2[0],-5+gxbounds2[0]+$('#yearmarker').width()+10,gybounds2[0]+$('#yearmarker').height()).attr({stroke:'#3d3242','stroke-width':1,'shape-rendering':'crispEdges'})
+		midline=gybounds2[0]+$('#yearmarker').height()/2
+
+		// graph label setup
+		document.getElementById("graphlabel").style.marginTop=gybounds2[0]+(gybounds2[1]-gybounds2[0])/2
+		document.getElementById("graphlabel").style.marginLeft=gxbounds2[0]+(gxbounds2[1]-gxbounds2[0])/3;
+		document.getElementById("graphlabel").style.width=480
+
+		gybounds2[0]=gybounds2[0]+85
+
 		var mm_path=''
 		var mhh_path=''
 		var mf_path=''
@@ -559,6 +620,23 @@ same user made the venus symbol
 		var mask=g.rect(gxbounds2[0],gybounds2[0],0,gybounds2[1]-gybounds2[0]+50).attr({fill:'#fff',id:'mask'})
 		maskgroup=g.group(mask)
 		linegroup.attr({mask:maskgroup})
+
+		// decade markers
+		var dec50=g.text(gxbounds2[0]+yearinterval*2,gybounds2[1]+15,'1950').attr({'font-family':'Lato','text-anchor':'middle','font-size':'.8em',fill:'#3d3242'})
+		var dec60=g.text(gxbounds2[0]+yearinterval*12,gybounds2[1]+15,'1960').attr({'font-family':'Lato','text-anchor':'middle','font-size':'.8em',fill:'#3d3242'})
+		var dec70=g.text(gxbounds2[0]+yearinterval*22,gybounds2[1]+15,'1970').attr({'font-family':'Lato','text-anchor':'middle','font-size':'.8em',fill:'#3d3242'})
+		var dec80=g.text(gxbounds2[0]+yearinterval*32,gybounds2[1]+15,'1980').attr({'font-family':'Lato','text-anchor':'middle','font-size':'.8em',fill:'#3d3242'})
+		var dec90=g.text(gxbounds2[0]+yearinterval*42,gybounds2[1]+15,'1990').attr({'font-family':'Lato','text-anchor':'middle','font-size':'.8em',fill:'#3d3242'})
+		var dec00=g.text(gxbounds2[0]+yearinterval*52,gybounds2[1]+15,'2000').attr({'font-family':'Lato','text-anchor':'middle','font-size':'.8em',fill:'#3d3242'})
+		var dec10=g.text(gxbounds2[0]+yearinterval*62,gybounds2[1]+15,'2010').attr({'font-family':'Lato','text-anchor':'middle','font-size':'.8em',fill:'#3d3242'})
+
+		var dec50tick=g.line(gxbounds2[0]+yearinterval*2,gybounds2[1],gxbounds2[0]+yearinterval*2,gybounds2[1]+3).attr({stroke:'#3d3242','stroke-width':1,'shape-rendering':'crispEdges'})
+		var dec60tick=g.line(gxbounds2[0]+yearinterval*12,gybounds2[1],gxbounds2[0]+yearinterval*12,gybounds2[1]+3).attr({stroke:'#3d3242','stroke-width':1,'shape-rendering':'crispEdges'})
+		var dec70tick=g.line(gxbounds2[0]+yearinterval*22,gybounds2[1],gxbounds2[0]+yearinterval*22,gybounds2[1]+3).attr({stroke:'#3d3242','stroke-width':1,'shape-rendering':'crispEdges'})
+		var dec80tick=g.line(gxbounds2[0]+yearinterval*32,gybounds2[1],gxbounds2[0]+yearinterval*32,gybounds2[1]+3).attr({stroke:'#3d3242','stroke-width':1,'shape-rendering':'crispEdges'})
+		var dec90tick=g.line(gxbounds2[0]+yearinterval*42,gybounds2[1],gxbounds2[0]+yearinterval*42,gybounds2[1]+3).attr({stroke:'#3d3242','stroke-width':1,'shape-rendering':'crispEdges'})
+		var dec00tick=g.line(gxbounds2[0]+yearinterval*52,gybounds2[1],gxbounds2[0]+yearinterval*52,gybounds2[1]+3).attr({stroke:'#3d3242','stroke-width':1,'shape-rendering':'crispEdges'})
+		var dec10tick=g.line(gxbounds2[0]+yearinterval*62,gybounds2[1],gxbounds2[0]+yearinterval*62,gybounds2[1]+3).attr({stroke:'#3d3242','stroke-width':1,'shape-rendering':'crispEdges'})
 
 		callback()
 	}
