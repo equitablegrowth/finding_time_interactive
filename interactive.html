@@ -21,6 +21,10 @@ same user made the venus symbol
 		h1{font-family:sans-serif;width:700px;margin-left:auto;margin-right:auto;}
 		h2{font-family:sans-serif;width:700px;margin-left:auto;margin-right:auto;font-size:1.2em;}
 		p{width:700px;margin-left:auto;margin-right:auto;}
+		html, body {
+		    max-width: 100% !important;
+		    overflow-x: hidden !important;
+		}
 
 		.ants{-webkit-animation: dash 30s linear infinite}
 		.constraint{position:relative;margin-left:auto;margin-right:auto;}
@@ -31,9 +35,8 @@ same user made the venus symbol
 		.headlinetext4{font-family:'Lato';font-size:2.5em;color:#3d3242;font-weight:700;position:absolute;line-height:100%;}
 		.headlinetext3{font-family:'Lato';font-size:1.4em;color:#999;font-weight:700;height:0;position:absolute;line-height:90%;}
 		.stoptext{font-family:'Lato';font-size:1.5em;color:#3d3242;font-weight:400;position:absolute;line-height:90%;opacity:0;margin:0;padding:0;transform:translate(0,-50%);}
-		.stoptext2{text-align:center;font-size:2em;}
+		.stoptext2{text-align:center;font-size:2.2em;}
 		.lftext{font-family:'Lato';font-size:1.3em;color:#3d3242;font-weight:400;position:absolute;line-height:90%;margin:0;padding:0;}
-		.pin{max-width:1045px;overflow:hidden;}
 		.timeicons{padding-left:35px;}
 		.hoursrow{position:relative;font-family:'Lato';font-size:1.5em;color:#666;font-weight:700;line-height:90%;padding:13px;}
 		.hoursrow:not(:first-child){padding-top:2px;}
@@ -43,13 +46,13 @@ same user made the venus symbol
 		.lfbox2{position:absolute;border:.5px solid black;background:#dddddd;padding:3px;font-family:'Lato';opacity:0;text-align:center;}
 		.male{color:#fc8d62;}
 		.female{color:#67c2a5}
-		.pointer{position:absolute;width:1px;background:black;height:10px;opacity:0;}
+		.pointer{position:absolute;width:1px;background:black;height:40px;opacity:0;}
 		.recession{color:#ccc;}
 
-		#pininside{position:relative;}
 		#venus{position:absolute;}
 		#ares{position:absolute;}
-		#inners{opacity:0;}
+		/*#graph2{position:absolute;}*/
+		#graph3{position:absolute;}
 	</style>
 </head>
 <body>
@@ -70,8 +73,8 @@ same user made the venus symbol
 		<div id='mfmarker' class='headlinetext3' style='color:#67c2a5'>Females $9k</div>
 		<div id='male_lf_text' class='lfbox'>87%</div>
 		<div id='female_lf_text' class='lfbox'>33%</div>
-		<div id='male_lf_texthold' class='lfbox2'>1964<br>87%</div>
-		<div id='female_lf_texthold' class='lfbox2'>1964<br>33%</div>
+		<div id='male_lf_texthold' class='lfbox2'>1948</div>
+		<div id='female_lf_texthold' class='lfbox2'>1948</div>
 		<div id='pointer' class='pointer'></div>
 		<div id='graphlabel' class='headlinetext4'>Median Incomes, 2014 $</div>
 
@@ -79,40 +82,37 @@ same user made the venus symbol
 		<div id='lf2' class='lftext' style='opacity:100%'>Female labor force participation</div>
 
 		<div id='stop0text' class='stoptext'>Scroll down to see how labor force participation and income has changed for <span class='male'>males</span> and <span class='female'>females</span> since 1948. <span class='recession'>Recessions</span> are shaded gray.</div>
-		<div id='stop1text' class='stoptext'>From 1948 to the 1990s, <span class='female'>female</span> participation in the labor force and <span class='female'>female</span> pay rose, and family income rose with it.</div>
+		<div id='stop1text' class='stoptext'>Up until the 1990s, <span class='female'>female</span> participation in the labor force and <span class='female'>female</span> pay rose, and family income rose with it.</div>
 		<div id='stop2text1' class='stoptext'>But <span class='female'>female</span> labor force participation leveled off in the 90s.</div>
 		<div id='stop2text12' class='stoptext'><span class='male'>Male</span> labor force participation declined, and <span class='male'>male</span> median income has been stagnant since 1979.</div>
-		<div id='stop2text2' class='stoptext'>Family incomes grew quickly before 1979, but have risen slowly since.</div>
-		<div id='stop2text3' class='stoptext'>But it's not just that incomes are stagnant.</div>
+		<div id='stop2text2' class='stoptext'>The result is that family incomes grew quickly before 1979, but have risen slowly since.</div>
+		<div id='stop2text3' class='stoptext'>But the problem isn't just that incomes are stagnant.</div>
 		<svg id='graph1'></svg>
 	</div>
+</div>
 
+<div id='trigger2'></div>
+<div id='pin2'>
 	<div class='constraint' id='inner2'>
-		<div id='stop2text32' class='stoptext stoptext2'>Unlike in 1964, both parents (or a single parent) work. So we spend more time making less money.</div>
-		<div id='stop2text4' class='stoptext stoptext2'>This isn't just a problem for families. It's a problem for our economy.</div>
-		<div id='stop2text5' class='stoptext stoptext2'>With less time, workers are less productive, and worker turnover is higher.</div>
-
-		<div class='hourstable' id='hourstable1'>
-			<div class='hoursrow' style='text-align:center'>1965</div>
-			<div class='hoursrow' id='1965workicon'><span class='buffer'>35 hours work</span></div>
-			<div class='hoursrow' id='1965homeicon'><span class='buffer'>20 hours housework</span></div>
-			<div class='hoursrow' id='1965careicon'><span class='buffer'>12 hours childcare</span></div>
-			<div class='hoursrow' id='1965careicon'><span class='buffer'>67 hours/week</span></div>
-		</div>
-
-		<div class='hourstable' id='hourstable2'>
-			<div class='hoursrow' style='text-align:center'>2012</div>
-			<div class='hoursrow' id='1965workicon'><span class='buffer'>40 hours work</span></div>
-			<div class='hoursrow' id='1965homeicon'><span class='buffer'>15 hours housework</span></div>
-			<div class='hoursrow' id='1965careicon'><span class='buffer'>25 hours childcare</span></div>
-			<div class='hoursrow' id='1965careicon'><span class='buffer'>80 hours/week</span></div>
-		</div>
+		<div id='stop3text1' class='stoptext stoptext2'>Unlike in 1948, both parents (or a single parent) work.</div>
+		<div id='stop3text2' class='stoptext stoptext2'>Mothers are doing more paid work and more child care. Fathers are doing more housework and child care.</div>
+		<div id='stop3text3' class='stoptext stoptext2'>So families are working more but incomes are flat.</div>
+		<div id='stop3text4' class='stoptext stoptext2'>This isn't just a problem for families. It's a problem for our economy.</div>
+		<div id='stop3text5' class='stoptext stoptext2'>With less time, workers are less productive, and worker turnover is higher.</div>
+		<div id='stop3text6' class='stoptext stoptext2'>Our workplaces and our labor laws weren't designed with modern families in mind.</div>
+		<svg id='graph2'></svg>
+		<svg id='graph3'></svg>
 	</div>
 </div>
 
 <p>Austin raw denim art party tattooed. Vinyl williamsburg microdosing thundercats vegan. Banh mi poutine truffaut, migas before they sold out waistcoat photo booth paleo vice sartorial banjo. Chicharrones DIY pinterest, tacos blue bottle kitsch banjo vinyl ethical kale chips blog salvia pitchfork. Man bun godard pop-up twee, heirloom listicle master cleanse artisan 90's flexitarian tilde. Organic lumbersexual chia tote bag small batch, pabst mlkshk street art food truck paleo ramps. Jean shorts heirloom polaroid direct trade viral.</p>
+<p>Austin raw denim art party tattooed. Vinyl williamsburg microdosing thundercats vegan. Banh mi poutine truffaut, migas before they sold out waistcoat photo booth paleo vice sartorial banjo. Chicharrones DIY pinterest, tacos blue bottle kitsch banjo vinyl ethical kale chips blog salvia pitchfork. Man bun godard pop-up twee, heirloom listicle master cleanse artisan 90's flexitarian tilde. Organic lumbersexual chia tote bag small batch, pabst mlkshk street art food truck paleo ramps. Jean shorts heirloom polaroid direct trade viral.</p>
+<p>Austin raw denim art party tattooed. Vinyl williamsburg microdosing thundercats vegan. Banh mi poutine truffaut, migas before they sold out waistcoat photo booth paleo vice sartorial banjo. Chicharrones DIY pinterest, tacos blue bottle kitsch banjo vinyl ethical kale chips blog salvia pitchfork. Man bun godard pop-up twee, heirloom listicle master cleanse artisan 90's flexitarian tilde. Organic lumbersexual chia tote bag small batch, pabst mlkshk street art food truck paleo ramps. Jean shorts heirloom polaroid direct trade viral.</p>
+<p>Austin raw denim art party tattooed. Vinyl williamsburg microdosing thundercats vegan. Banh mi poutine truffaut, migas before they sold out waistcoat photo booth paleo vice sartorial banjo. Chicharrones DIY pinterest, tacos blue bottle kitsch banjo vinyl ethical kale chips blog salvia pitchfork. Man bun godard pop-up twee, heirloom listicle master cleanse artisan 90's flexitarian tilde. Organic lumbersexual chia tote bag small batch, pabst mlkshk street art food truck paleo ramps. Jean shorts heirloom polaroid direct trade viral.</p>
+<p>Austin raw denim art party tattooed. Vinyl williamsburg microdosing thundercats vegan. Banh mi poutine truffaut, migas before they sold out waistcoat photo booth paleo vice sartorial banjo. Chicharrones DIY pinterest, tacos blue bottle kitsch banjo vinyl ethical kale chips blog salvia pitchfork. Man bun godard pop-up twee, heirloom listicle master cleanse artisan 90's flexitarian tilde. Organic lumbersexual chia tote bag small batch, pabst mlkshk street art food truck paleo ramps. Jean shorts heirloom polaroid direct trade viral.</p>
+<p>Austin raw denim art party tattooed. Vinyl williamsburg microdosing thundercats vegan. Banh mi poutine truffaut, migas before they sold out waistcoat photo booth paleo vice sartorial banjo. Chicharrones DIY pinterest, tacos blue bottle kitsch banjo vinyl ethical kale chips blog salvia pitchfork. Man bun godard pop-up twee, heirloom listicle master cleanse artisan 90's flexitarian tilde. Organic lumbersexual chia tote bag small batch, pabst mlkshk street art food truck paleo ramps. Jean shorts heirloom polaroid direct trade viral.</p>
+<p>Austin raw denim art party tattooed. Vinyl williamsburg microdosing thundercats vegan. Banh mi poutine truffaut, migas before they sold out waistcoat photo booth paleo vice sartorial banjo. Chicharrones DIY pinterest, tacos blue bottle kitsch banjo vinyl ethical kale chips blog salvia pitchfork. Man bun godard pop-up twee, heirloom listicle master cleanse artisan 90's flexitarian tilde. Organic lumbersexual chia tote bag small batch, pabst mlkshk street art food truck paleo ramps. Jean shorts heirloom polaroid direct trade viral.</p>
 
-</div>
 </div>
 
 </body>
@@ -121,6 +121,8 @@ same user made the venus symbol
 	var data={1948: {'lf_female': 32.7, 'mm_income': 20576, 'mhh_income': 27369, 'mf_income': 8665, 'lf_male': 86.6}, 1949: {'lf_female': 33.2, 'mm_income': 20398, 'mhh_income': 27015, 'mf_income': 8347, 'lf_male': 86.6}, 1950: {'lf_female': 33.8, 'mm_income': 22070, 'mhh_income': 28502, 'mf_income': 8184, 'lf_male': 86.3}, 1951: {'lf_female': 34.6, 'mm_income': 23494, 'mhh_income': 29519, 'mf_income': 8317, 'lf_male': 86.5}, 1952: {'lf_female': 34.7, 'mm_income': 24268, 'mhh_income': 30403, 'mf_income': 8965, 'lf_male': 86.3}, 1953: {'lf_female': 34.5, 'mm_income': 25006, 'mhh_income': 32932, 'mf_income': 9052, 'lf_male': 86.0}, 1954: {'lf_female': 34.6, 'mm_income': 24569, 'mhh_income': 32064, 'mf_income': 8926, 'lf_male': 85.6}, 1955: {'lf_female': 35.6, 'mm_income': 25954, 'mhh_income': 34146, 'mf_income': 8656, 'lf_male': 85.3}, 1956: {'lf_female': 36.8, 'mm_income': 27405, 'mhh_income': 36378, 'mf_income': 8744, 'lf_male': 85.5}, 1957: {'lf_female': 36.9, 'mm_income': 27095, 'mhh_income': 36593, 'mf_income': 8842, 'lf_male': 84.8}, 1958: {'lf_female': 37.1, 'mm_income': 26842, 'mhh_income': 36480, 'mf_income': 8433, 'lf_male': 84.3}, 1959: {'lf_female': 37.1, 'mm_income': 28429, 'mhh_income': 38528, 'mf_income': 8699, 'lf_male': 83.7}, 1960: {'lf_female': 37.8, 'mm_income': 28552, 'mhh_income': 39329, 'mf_income': 8824, 'lf_male': 83.4}, 1961: {'lf_female': 38.1, 'mm_income': 29023, 'mhh_income': 39734, 'mf_income': 8861, 'lf_male': 82.9}, 1962: {'lf_female': 37.9, 'mm_income': 29992, 'mhh_income': 40858, 'mf_income': 9206, 'lf_male': 82.0}, 1963: {'lf_female': 38.3, 'mm_income': 30524, 'mhh_income': 42284, 'mf_income': 9284, 'lf_male': 81.3}, 1964: {'lf_female': 38.7, 'mm_income': 31022, 'mhh_income': 43852, 'mf_income': 9673, 'lf_male': 81.0}, 1965: {'lf_female': 39.2, 'mm_income': 33025, 'mhh_income': 45740, 'mf_income': 10000, 'lf_male': 80.7}, 1966: {'lf_female': 40.3, 'mm_income': 33923, 'mhh_income': 48155, 'mf_income': 10472, 'lf_male': 80.4}, 1967: {'lf_female': 41.1, 'mm_income': 34427, 'mhh_income': 49182, 'mf_income': 11166, 'lf_male': 80.4}, 1968: {'lf_female': 41.6, 'mm_income': 35675, 'mhh_income': 51496, 'mf_income': 12045, 'lf_male': 80.1}, 1969: {'lf_female': 42.7, 'mm_income': 36716, 'mhh_income': 53872, 'mf_income': 12176, 'lf_male': 79.8}, 1970: {'lf_female': 43.4, 'mm_income': 36304, 'mhh_income': 53705, 'mf_income': 12176, 'lf_male': 79.7}, 1971: {'lf_female': 43.4, 'mm_income': 35995, 'mhh_income': 53630, 'mf_income': 12556, 'lf_male': 79.1}, 1972: {'lf_female': 43.9, 'mm_income': 37716, 'mhh_income': 56276, 'mf_income': 13158, 'lf_male': 78.9}, 1973: {'lf_female': 44.7, 'mm_income': 38382, 'mhh_income': 57416, 'mf_income': 13321, 'lf_male': 78.8}, 1974: {'lf_female': 45.7, 'mm_income': 36608, 'mhh_income': 55882, 'mf_income': 13349, 'lf_male': 78.7}, 1975: {'lf_female': 46.4, 'mm_income': 35432, 'mhh_income': 54908, 'mf_income': 13548, 'lf_male': 77.9}, 1976: {'lf_female': 47.3, 'mm_income': 35673, 'mhh_income': 56609, 'mf_income': 13534, 'lf_male': 77.5}, 1977: {'lf_female': 48.4, 'mm_income': 36037, 'mhh_income': 56990, 'mf_income': 14029, 'lf_male': 77.6}, 1978: {'lf_female': 50.0, 'mm_income': 36429, 'mhh_income': 58766, 'mf_income': 13552, 'lf_male': 77.8}, 1979: {'lf_female': 50.9, 'mm_income': 35842, 'mhh_income': 59601, 'mf_income': 13243, 'lf_male': 77.8}, 1980: {'lf_female': 51.5, 'mm_income': 34287, 'mhh_income': 57528, 'mf_income': 13463, 'lf_male': 77.5}, 1981: {'lf_female': 52.1, 'mm_income': 33663, 'mhh_income': 55938, 'mf_income': 13637, 'lf_male': 77.0}, 1982: {'lf_female': 52.6, 'mm_income': 32871, 'mhh_income': 55217, 'mf_income': 13872, 'lf_male': 76.7}, 1983: {'lf_female': 52.9, 'mm_income': 33086, 'mhh_income': 55585, 'mf_income': 14290, 'lf_male': 76.3}, 1984: {'lf_female': 53.6, 'mm_income': 33868, 'mhh_income': 57387, 'mf_income': 14911, 'lf_male': 76.3}, 1985: {'lf_female': 54.5, 'mm_income': 34236, 'mhh_income': 58215, 'mf_income': 15148, 'lf_male': 76.3}, 1986: {'lf_female': 55.3, 'mm_income': 35283, 'mhh_income': 60732, 'mf_income': 15689, 'lf_male': 76.2}, 1987: {'lf_female': 56.0, 'mm_income': 35470, 'mhh_income': 61762, 'mf_income': 16542, 'lf_male': 76.2}, 1988: {'lf_female': 56.6, 'mm_income': 36373, 'mhh_income': 61925, 'mf_income': 17090, 'lf_male': 76.2}, 1989: {'lf_female': 57.4, 'mm_income': 36685, 'mhh_income': 63093, 'mf_income': 17748, 'lf_male': 76.4}, 1990: {'lf_female': 57.5, 'mm_income': 35664, 'mhh_income': 62131, 'mf_income': 17698, 'lf_male': 76.4}, 1991: {'lf_female': 57.4, 'mm_income': 34710, 'mhh_income': 60944, 'mf_income': 17765, 'lf_male': 75.8}, 1992: {'lf_female': 57.8, 'mm_income': 33829, 'mhh_income': 60485, 'mf_income': 17719, 'lf_male': 75.8}, 1993: {'lf_female': 57.9, 'mm_income': 34057, 'mhh_income': 59649, 'mf_income': 17827, 'lf_male': 75.4}, 1994: {'lf_female': 58.8, 'mm_income': 34337, 'mhh_income': 61311, 'mf_income': 18127, 'lf_male': 75.0}, 1995: {'lf_female': 59.0, 'mm_income': 34829, 'mhh_income': 62692, 'mf_income': 18725, 'lf_male': 75.0}, 1996: {'lf_female': 59.3, 'mm_income': 35823, 'mhh_income': 63578, 'mf_income': 19261, 'lf_male': 74.9}, 1997: {'lf_female': 59.8, 'mm_income': 37093, 'mhh_income': 65570, 'mf_income': 20160, 'lf_male': 75.0}, 1998: {'lf_female': 59.9, 'mm_income': 38455, 'mhh_income': 67843, 'mf_income': 20946, 'lf_male': 74.9}, 1999: {'lf_female': 60.0, 'mm_income': 38792, 'mhh_income': 69405, 'mf_income': 21752, 'lf_male': 74.7}, 2000: {'lf_female': 59.9, 'mm_income': 38963, 'mhh_income': 69741, 'mf_income': 22082, 'lf_male': 74.8}, 2001: {'lf_female': 59.8, 'mm_income': 38913, 'mhh_income': 68740, 'mf_income': 22216, 'lf_male': 74.5}, 2002: {'lf_female': 59.6, 'mm_income': 38475, 'mhh_income': 68007, 'mf_income': 22123, 'lf_male': 74.1}, 2003: {'lf_female': 59.5, 'mm_income': 38527, 'mhh_income': 67809, 'mf_income': 22216, 'lf_male': 73.5}, 2004: {'lf_female': 59.2, 'mm_income': 38247, 'mhh_income': 67756, 'mf_income': 22143, 'lf_male': 73.3}, 2005: {'lf_female': 59.2, 'mm_income': 37914, 'mhh_income': 68122, 'mf_income': 22519, 'lf_male': 73.3}, 2006: {'lf_female': 59.4, 'mm_income': 37886, 'mhh_income': 68582, 'mf_income': 23501, 'lf_male': 73.5}, 2007: {'lf_female': 59.3, 'mm_income': 37904, 'mhh_income': 70057, 'mf_income': 23889, 'lf_male': 73.2}, 2008: {'lf_female': 59.5, 'mm_income': 36463, 'mhh_income': 67648, 'mf_income': 22945, 'lf_male': 73.0}, 2009: {'lf_female': 59.2, 'mm_income': 35513, 'mhh_income': 66303, 'mf_income': 23125, 'lf_male': 72.0}, 2010: {'lf_female': 58.6, 'mm_income': 34970, 'mhh_income': 65408, 'mf_income': 22559, 'lf_male': 71.2}, 2011: {'lf_female': 58.1, 'mm_income': 34723, 'mhh_income': 64185, 'mf_income': 22213, 'lf_male': 70.5}, 2012: {'lf_female': 57.7, 'mm_income': 34959, 'mhh_income': 64179, 'mf_income': 22190, 'lf_male': 70.2}, 2013: {'lf_female': 57.2, 'mm_income': 36213, 'mhh_income': 66542, 'mf_income': 22488, 'lf_male': 69.7}, 2014: {'lf_female': 57.0, 'mm_income': 36302, 'mhh_income': 66632, 'mf_income': 22240, 'lf_male': 69.2}}
 	var morphed=0
 	var g=Snap('#graph1')
+	var g2=Snap('#graph2')
+	var g3=Snap('#graph3')
 	var gwidth=document.documentElement.clientWidth
 	var gheight=document.documentElement.clientHeight
 	if(gwidth>1045){gwidth=1045}
@@ -130,6 +132,7 @@ same user made the venus symbol
 	var gcenter2=[3*gwidth/4,3*gheight/4]
 	var gxbounds2=[gwidth/16+10,gwidth-70]
 	var gybounds2=[parseInt(70+(gheight-160)/2),gheight-30]
+	var gybounds3=[0,(2/3)*gheight-50]
 	var gxdomain=gxbounds2[1]-gxbounds2[0]
 	var gydomain=gybounds2[1]-gybounds2[0]
 	var gxmiddle=gwidth/2
@@ -140,9 +143,26 @@ same user made the venus symbol
 
 	document.getElementById('graph1').setAttribute('width',gwidth)
 	document.getElementById('graph1').setAttribute('height',gheight)
-	document.getElementById('trigger').setAttribute('width',gwidth)
-	document.getElementById('trigger').setAttribute('height',gheight)
+	document.getElementById('pin2').setAttribute('width',gwidth)
+	document.getElementById('pin2').setAttribute('height',gheight)
+	document.getElementById('graph2').setAttribute('width',gwidth*(7/16)+10)
+	document.getElementById('graph2').setAttribute('height',gheight*(2/3))
+	document.getElementById('graph2').style.marginTop=(gheight*(1/3))
+	document.getElementById('graph3').setAttribute('width',gwidth*(7/16)+10)
+	document.getElementById('graph3').setAttribute('height',gheight*(2/3))
+	document.getElementById('graph3').style.marginTop=(gheight*(1/3))
+	// document.getElementById('graph3').style.marginLeft=(gwidth*(8/16))
 	var num=1
+
+	if(tallflag==1){
+		document.getElementById('graph2').setAttribute('width',gwidth)
+		document.getElementById('graph2').setAttribute('height',gheight*(2/6))
+		document.getElementById('graph3').setAttribute('width',gwidth)
+		document.getElementById('graph3').setAttribute('height',gheight*(2/6))
+		document.getElementById('graph3').style.marginTop=0
+		$("#graph3").css({position: 'static'});		
+		var gybounds3=[0,(2/6)*gheight-50]
+	}
 
 	var controller=new ScrollMagic.Controller({container:'#examplewrapper'})
 
@@ -150,6 +170,7 @@ same user made the venus symbol
 		// main control function, very slight callback hell
 		timeseries(function(){
 			setup()
+			setup2()
 
 			tween = new TimelineMax()
 				// animate up until the first stop
@@ -200,21 +221,35 @@ same user made the venus symbol
 				.add(TweenMax.to($("#stop2text2"), 5, {opacity:1, ease:Linear.easeNone}),101)
 				.add(TweenMax.to($("#stop2text2"), 5, {opacity:0, ease:Linear.easeNone}),116)
 				.add(TweenMax.to($("#stop2text3"), 5, {opacity:1, ease:Linear.easeNone}),121)
+				.add(TweenMax.to($("#stop2text3"), 5, {opacity:1, ease:Linear.easeNone}),156)
 
-				// stoptext done, scroll up everrrrything
-				.add(TweenMax.to($("#inner"), 15, {marginTop:-gheight, ease:Linear.easeNone}),131)
-				.add(TweenMax.to($("#inner2"), 0, {opacity:1, ease:Linear.easeNone}),131)
-				.add(TweenMax.to($("#inner2"), 15, {marginTop:0, ease:Linear.easeNone}),131)
+			tween2 = new TimelineMax()
+				// continue with story after scroll
+				.add(TweenMax.to($("#stop3text1"), 0, {opacity:1, ease:Linear.easeNone}),0)
+				.add(TweenMax.to($("#stop3text1"), 5, {opacity:0, ease:Linear.easeNone}),25)
+				.add(TweenMax.to($("#stop3text2"), 5, {opacity:1, ease:Linear.easeNone}),30)
+				.add(TweenMax.to($("#stop3text2"), 5, {opacity:0, ease:Linear.easeNone}),55)
+				.add(TweenMax.to($("#stop3text3"), 5, {opacity:1, ease:Linear.easeNone}),60)
+				.add(TweenMax.to($("#stop3text3"), 5, {opacity:0, ease:Linear.easeNone}),85)
+				.add(TweenMax.to($("#stop3text4"), 5, {opacity:1, ease:Linear.easeNone}),90)
+				.add(TweenMax.to($("#stop3text4"), 5, {opacity:0, ease:Linear.easeNone}),115)
+				.add(TweenMax.to($("#stop3text5"), 5, {opacity:1, ease:Linear.easeNone}),120)
+				.add(TweenMax.to($("#stop3text5"), 5, {opacity:0, ease:Linear.easeNone}),145)
+				.add(TweenMax.to($("#stop3text6"), 5, {opacity:1, ease:Linear.easeNone}),150)
+				.add(TweenMax.to($("#stop3text6"), 5, {opacity:1, ease:Linear.easeNone}),175)
 
-				// continue with story
-				.add(TweenMax.to($("#stop2text32"), 5, {opacity:1, ease:Linear.easeNone}),126)
-				.add(TweenMax.to($("#stop2text32"), 5, {opacity:0, ease:Linear.easeNone}),153)
-				.add(TweenMax.to($("#stop2text4"), 5, {opacity:1, ease:Linear.easeNone}),158)
-				.add(TweenMax.to($("#stop2text4"), 5, {opacity:0, ease:Linear.easeNone}),173)
-				.add(TweenMax.to($("#stop2text5"), 5, {opacity:1, ease:Linear.easeNone}),178)
-				.add(TweenMax.to($("#stop2text5"), 5, {opacity:1, ease:Linear.easeNone}),208)
-				// .add(TweenMax.to($("#hourstable1"), 5, {opacity:1, ease:Linear.easeNone}),133)
-				// .add(TweenMax.to($("#hourstable2"), 5, {opacity:1, ease:Linear.easeNone}),133)
+				// bars
+				.add(TweenMax.from($("rect#mpaid2"), 45, {attr:{height:0,y:get_value2(0)}, ease:Linear.easeOut}),0)
+				.add(TweenMax.from($("rect#mhouse2"), 45, {attr:{height:0,y:get_value2(0)}, ease:Linear.easeOut}),0)
+				.add(TweenMax.from($("rect#mcare2"), 45, {attr:{height:0,y:get_value2(0)}, ease:Linear.easeOut}),0)
+
+				.add(TweenMax.from($("rect#fpaid2"), 45, {attr:{height:0,y:get_value2(0)}, ease:Linear.easeOut}),0)
+				.add(TweenMax.from($("rect#fhouse2"), 45, {attr:{height:0,y:get_value2(0)}, ease:Linear.easeOut}),0)
+				.add(TweenMax.from($("rect#fcare2"), 45, {attr:{height:0,y:get_value2(0)}, ease:Linear.easeOut}),0)
+
+				// tags
+				.add(TweenMax.from($("text#mtag2"), 15, {opacity:0, ease:Linear.easeOut}),25)
+				.add(TweenMax.from($("text#ftag2"), 15, {opacity:0, ease:Linear.easeOut}),25)				
 
 			// yearmarker updates
 			for(var i=0;i<83;i++){
@@ -290,9 +325,14 @@ same user made the venus symbol
 				}
 			}
 
-			new ScrollMagic.Scene({offset:document.getElementById('trigger').offsetTop,duration:10000,})
+			new ScrollMagic.Scene({offset:document.getElementById('trigger').offsetTop,duration:8000,})
 				.setPin('#pin')
 				.setTween(tween)
+				.addTo(controller)
+
+			new ScrollMagic.Scene({offset:document.getElementById('trigger2').offsetTop,duration:8000*(180/126),})
+				.setPin('#pin2')
+				.setTween(tween2)
 				.addTo(controller)
 		})
 	})
@@ -328,11 +368,7 @@ same user made the venus symbol
 		})
 
 		// stoptext2 positions
-		$('.stoptext2').css({width:6*gwidth/8,left:gwidth/2,top:gheight/8})
-		a=$('.stoptext2')
-		for(var i=0;i<a.length;i++){
-			$(a[i]).css({left:parseInt($(a[i]).css('left'))-$(a[i]).width()/2,top:gybounds2[0]+$('#yearmarker').height()/2-$(a[i]).height()/2})
-		}	
+		$('.stoptext2').css({width:6*gwidth/8,left:gwidth/8,top:gheight/6})	
 
 		// axes and graph title
 		var yaxis2=g.line(gxbounds2[0]-10,gybounds2[0],gxbounds2[1],gybounds2[0]).attr({stroke:'#ddd','stroke-width':1,'shape-rendering':'crispEdges'})
@@ -378,6 +414,74 @@ same user made the venus symbol
 		var earlyfamilytrend=g.line(gxbounds2[0],get_value(27369),gxbounds2[0]+yearinterval*31.2-15,get_value(58901)).attr({class:'ants','stroke-width':4,'stroke-dasharray':[12,12],stroke:'#3d3242','marker-end':amarker_family,opacity:0,id:'familytrend1'})
 		var postvolcanofamilytrend=g.line(gxbounds2[0]+yearinterval*31,get_value(59801),gxbounds2[0]+yearinterval*66,get_value(66632)).attr({class:'ants','stroke-width':4,'stroke-dasharray':[12,12],stroke:'#3d3242','marker-end':amarker_family,opacity:0,id:'familytrend2'})
 		var postvolcanomaletrend=g.line(gxbounds2[0]+yearinterval*31,get_value(35842),gxbounds2[0]+yearinterval*66,get_value(36302)).attr({class:'ants','stroke-width':4,'stroke-dasharray':[12,12],stroke:'#fc8d62','marker-end':amarker_male,opacity:0,id:'maletrend'})
+	}
+
+	function setup2(){
+		// setup for the 2nd graph (bar graph)
+		// baseline and text
+		var ninths=(gwidth-100)/16
+		var thirds=(7*ninths)/4
+		barwidth=(50+.5*thirds)/2
+
+		if(tallflag==1){
+			var ninths=(gwidth-100)/8
+			var thirds=(7*ninths)/4
+			barwidth=(50+.5*thirds)/2
+		}
+
+		g2.line(45,get_value2(10),7*ninths+50,get_value2(10)).attr({'stroke-width':1,'stroke':'#ddd','shape-rendering':'crispEdges'})
+		g2.line(45,get_value2(20),7*ninths+50,get_value2(20)).attr({'stroke-width':1,'stroke':'#ddd','shape-rendering':'crispEdges'})
+		g2.line(45,get_value2(30),7*ninths+50,get_value2(30)).attr({'stroke-width':1,'stroke':'#ddd','shape-rendering':'crispEdges'})
+		g2.line(45,get_value2(40),7*ninths+50,get_value2(40)).attr({'stroke-width':1,'stroke':'#ddd','shape-rendering':'crispEdges'})
+
+		g3.line(45,get_value2(10),7*ninths+50,get_value2(10)).attr({'stroke-width':1,'stroke':'#ddd','shape-rendering':'crispEdges'})
+		g3.line(45,get_value2(20),7*ninths+50,get_value2(20)).attr({'stroke-width':1,'stroke':'#ddd','shape-rendering':'crispEdges'})
+		g3.line(45,get_value2(30),7*ninths+50,get_value2(30)).attr({'stroke-width':1,'stroke':'#ddd','shape-rendering':'crispEdges'})
+		g3.line(45,get_value2(40),7*ninths+50,get_value2(40)).attr({'stroke-width':1,'stroke':'#ddd','shape-rendering':'crispEdges'})
+
+		g2.text(40,get_value2(10)+6,'10').attr({'font-family':'Lato',fill:'#3d3242','text-anchor':'end'})
+		g2.text(40,get_value2(20)+6,'20').attr({'font-family':'Lato',fill:'#3d3242','text-anchor':'end'})
+		g2.text(40,get_value2(30)+6,'30').attr({'font-family':'Lato',fill:'#3d3242','text-anchor':'end'})
+		g2.text(40,get_value2(40)+6,'40').attr({'font-family':'Lato',fill:'#3d3242','text-anchor':'end'})
+
+		g2.text(50+2*thirds-.5*barwidth,get_value2(31.9)-3,'1948').attr({'font-family':'Lato','fill':'#33836A','text-anchor':'middle','font-weight':700})
+		g3.text(50+.5*thirds-.5*barwidth,get_value2(42)-3,'1948').attr({'font-family':'Lato','fill':'#c63f26','text-anchor':'middle','font-weight':700})
+		g2.text(50+2*thirds+.5*barwidth,get_value2(17.6)-3,'2012').attr({'font-family':'Lato','fill':'#67c2a5','text-anchor':'middle','font-weight':700,id:'mtag2'})
+		g3.text(50+.5*thirds+.5*barwidth,get_value2(38.5)-3,'2012').attr({'font-family':'Lato','fill':'#fc8d62','text-anchor':'middle','font-weight':700,id:'ftag2'})
+
+		g2.text(50+.5*thirds,get_value2(0)+18,'Paid Work').attr({'font-family':'Lato','font-size':'1em','fill':'#3d3242','text-anchor':'middle'})
+		g2.text(50+2*thirds,get_value2(0)+18,'Housework').attr({'font-family':'Lato','font-size':'1em','fill':'#3d3242','text-anchor':'middle'})
+		g2.text(50+3.5*thirds,get_value2(0)+18,'Child Care').attr({'font-family':'Lato','font-size':'1em','fill':'#3d3242','text-anchor':'middle'})
+
+		g3.text(50+.5*thirds,get_value2(0)+18,'Paid Work').attr({'font-family':'Lato','font-size':'1em','fill':'#3d3242','text-anchor':'middle'})
+		g3.text(50+2*thirds,get_value2(0)+18,'Housework').attr({'font-family':'Lato','font-size':'1em','fill':'#3d3242','text-anchor':'middle'})
+		g3.text(50+3.5*thirds,get_value2(0)+18,'Child Care').attr({'font-family':'Lato','font-size':'1em','fill':'#3d3242','text-anchor':'middle'})
+
+		// bars
+		g2.rect(50+.5*thirds-barwidth,get_value2(8.4),barwidth,get_value2(0)-get_value2(8.4)).attr({id:'mpaid1',fill:'#33836A','shape-rendering':'crispEdges'})
+		g2.rect(50+.5*thirds,get_value2(21.7),barwidth,get_value2(0)-get_value2(21.7)).attr({id:'mpaid2',fill:'#67c2a5','shape-rendering':'crispEdges'})
+		g2.rect(50+2*thirds-barwidth,get_value2(31.9),barwidth,get_value2(0)-get_value2(31.9)).attr({id:'mhouse1',fill:'#33836A','shape-rendering':'crispEdges'})
+		g2.rect(50+2*thirds,get_value2(17.6),barwidth,get_value2(0)-get_value2(17.6)).attr({id:'mhouse2',fill:'#67c2a5','shape-rendering':'crispEdges'})
+		g2.rect(50+3.5*thirds-barwidth,get_value2(10.2),barwidth,get_value2(0)-get_value2(10.2)).attr({id:'mcare1',fill:'#33836A','shape-rendering':'crispEdges'})
+		g2.rect(50+3.5*thirds,get_value2(11.8),barwidth,get_value2(0)-get_value2(11.8)).attr({id:'mcare2',fill:'#67c2a5','shape-rendering':'crispEdges'})
+
+		g3.rect(50+.5*thirds-barwidth,get_value2(42),barwidth,get_value2(0)-get_value2(42)).attr({id:'fpaid1',fill:'#c63f26','shape-rendering':'crispEdges'})
+		g3.rect(50+.5*thirds,get_value2(38.5),barwidth,get_value2(0)-get_value2(38.5)).attr({id:'fpaid2',fill:'#fc8d62','shape-rendering':'crispEdges'})
+		g3.rect(50+2*thirds-barwidth,get_value2(4.4),barwidth,get_value2(0)-get_value2(4.4)).attr({id:'fhouse1',fill:'#c63f26','shape-rendering':'crispEdges'})
+		g3.rect(50+2*thirds,get_value2(8.8),barwidth,get_value2(0)-get_value2(8.8)).attr({id:'fhouse2',fill:'#fc8d62','shape-rendering':'crispEdges'})
+		g3.rect(50+3.5*thirds-barwidth,get_value2(2.5),barwidth,get_value2(0)-get_value2(2.5)).attr({id:'fcare1',fill:'#c63f26','shape-rendering':'crispEdges'})
+		g3.rect(50+3.5*thirds,get_value2(7.1),barwidth,get_value2(0)-get_value2(7.1)).attr({id:'fcare2',fill:'#fc8d62','shape-rendering':'crispEdges'})
+
+		g2.line(50,get_value2(0),7*ninths+50,get_value2(0)).attr({'stroke-width':2,'stroke':'black','shape-rendering':'crispEdges'})
+		g3.line(50,get_value2(0),7*ninths+50,get_value2(0)).attr({'stroke-width':2,'stroke':'black','shape-rendering':'crispEdges'})
+
+		g2.text(7*ninths+50,get_value2(40),'Mothers').attr({'font-family':'Lato','font-size':'1.5em','fill':'#67c2a5','font-weight':700,'text-anchor':'end'})
+		g3.text(7*ninths+50,get_value2(40),'Fathers').attr({'font-family':'Lato','font-size':'1.5em','fill':'#fc8d62','font-weight':700,'text-anchor':'end'})
+		g2.text(60,get_value2(40),'Hours per week').attr({'font-family':'Lato','font-size':'1.4em','font-weight':700,'fill':'#777'})
+	}
+
+	function get_value2(y){
+		return gybounds3[1]-(y/45)*(gybounds3[1]-gybounds3[0])
 	}
 
 	// setup for the labor force people
@@ -484,7 +588,7 @@ same user made the venus symbol
 		document.getElementById('female_lf_texthold').style.marginTop=parseInt($('#ficon33').css('margin-top'))-28+$('#female_lf_text').height()/2-38
 
 		document.getElementById('pointer').style.marginLeft=parseInt($('#ficon33').css('margin-left'))+2*personwidth-(1.9*personwidth)+21
-		document.getElementById('pointer').style.marginTop=parseInt($('#ficon33').css('margin-top'))-28+$('#female_lf_text').height()/2+7
+		document.getElementById('pointer').style.marginTop=parseInt($('#ficon33').css('margin-top'))-46+$('#female_lf_text').height()/2+7
 
 		if(tallflag==1){
 			document.getElementById('female_lf_texthold').style.marginLeft=parseInt($('#ficon33').css('margin-left'))+2*personwidth-(1.9*personwidth)+210
@@ -493,7 +597,7 @@ same user made the venus symbol
 			document.getElementById('pointer').style.width=185
 			document.getElementById('pointer').style.height=1
 			document.getElementById('pointer').style.marginLeft=parseInt($('#ficon33').css('margin-left'))+2*personwidth-(1.9*personwidth)+25
-			document.getElementById('pointer').style.marginTop=parseInt($('#ficon33').css('margin-top'))-28+$('#female_lf_text').height()/2+27		
+			document.getElementById('pointer').style.marginTop=parseInt($('#ficon33').css('margin-top'))-32+$('#female_lf_text').height()/2+27		
 		}
 
 		// lf1 and lf2
