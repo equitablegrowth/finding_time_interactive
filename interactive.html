@@ -95,11 +95,11 @@ same user made the venus symbol
 <div id='pin2'>
 	<div class='constraint' id='inner2'>
 		<div id='stop3text1' class='stoptext stoptext2'>Unlike in 1948, both parents (or a single parent) work.</div>
-		<div id='stop3text2' class='stoptext stoptext2'>Mothers are doing more paid work and more child care. Fathers are doing more housework and child care.</div>
+		<div id='stop3text2' class='stoptext stoptext2'><span class='female'>Mothers</span> are doing more paid work and more child care. <span class='male'>Fathers</span> are doing more housework and child care.</div>
 		<div id='stop3text3' class='stoptext stoptext2'>So families are working more but incomes are flat.</div>
 		<div id='stop3text4' class='stoptext stoptext2'>This isn't just a problem for families. It's a problem for our economy.</div>
 		<div id='stop3text5' class='stoptext stoptext2'>With less time, workers are less productive, and worker turnover is higher.</div>
-		<div id='stop3text6' class='stoptext stoptext2'>Our workplaces and our labor laws weren't designed with modern families in mind.</div>
+		<div id='stop3text6' class='stoptext stoptext2'>The problem is that our workplaces and our labor laws weren't designed with modern families in mind.</div>
 		<svg id='graph2'></svg>
 		<svg id='graph3'></svg>
 	</div>
@@ -429,6 +429,11 @@ same user made the venus symbol
 			barwidth=(50+.5*thirds)/2
 		}
 
+		c1='#67c2a5'
+		c2='#fc8d62'
+		c3='#b7dfd1'
+		c4='#fbcdbb'
+
 		g2.line(45,get_value2(10),7*ninths+50,get_value2(10)).attr({'stroke-width':1,'stroke':'#ddd','shape-rendering':'crispEdges'})
 		g2.line(45,get_value2(20),7*ninths+50,get_value2(20)).attr({'stroke-width':1,'stroke':'#ddd','shape-rendering':'crispEdges'})
 		g2.line(45,get_value2(30),7*ninths+50,get_value2(30)).attr({'stroke-width':1,'stroke':'#ddd','shape-rendering':'crispEdges'})
@@ -444,10 +449,10 @@ same user made the venus symbol
 		g2.text(40,get_value2(30)+6,'30').attr({'font-family':'Lato',fill:'#3d3242','text-anchor':'end'})
 		g2.text(40,get_value2(40)+6,'40').attr({'font-family':'Lato',fill:'#3d3242','text-anchor':'end'})
 
-		g2.text(50+2*thirds-.5*barwidth,get_value2(31.9)-3,'1948').attr({'font-family':'Lato','fill':'#33836A','text-anchor':'middle','font-weight':700})
-		g3.text(50+.5*thirds-.5*barwidth,get_value2(42)-3,'1948').attr({'font-family':'Lato','fill':'#c63f26','text-anchor':'middle','font-weight':700})
-		g2.text(50+2*thirds+.5*barwidth,get_value2(17.6)-3,'2012').attr({'font-family':'Lato','fill':'#67c2a5','text-anchor':'middle','font-weight':700,id:'mtag2'})
-		g3.text(50+.5*thirds+.5*barwidth,get_value2(38.5)-3,'2012').attr({'font-family':'Lato','fill':'#fc8d62','text-anchor':'middle','font-weight':700,id:'ftag2'})
+		g2.text(50+2*thirds-.5*barwidth,get_value2(31.9)-3,'1948').attr({'font-family':'Lato','fill':c1,'text-anchor':'middle','font-weight':700})
+		g3.text(50+.5*thirds-.5*barwidth,get_value2(42)-3,'1948').attr({'font-family':'Lato','fill':c2,'text-anchor':'middle','font-weight':700})
+		g2.text(50+2*thirds+.5*barwidth,get_value2(17.6)-3,'2012').attr({'font-family':'Lato','fill':c3,'text-anchor':'middle','font-weight':700,id:'mtag2'})
+		g3.text(50+.5*thirds+.5*barwidth,get_value2(38.5)-3,'2012').attr({'font-family':'Lato','fill':c4,'text-anchor':'middle','font-weight':700,id:'ftag2'})
 
 		g2.text(50+.5*thirds,get_value2(0)+18,'Paid Work').attr({'font-family':'Lato','font-size':'1em','fill':'#3d3242','text-anchor':'middle'})
 		g2.text(50+2*thirds,get_value2(0)+18,'Housework').attr({'font-family':'Lato','font-size':'1em','fill':'#3d3242','text-anchor':'middle'})
@@ -458,19 +463,19 @@ same user made the venus symbol
 		g3.text(50+3.5*thirds,get_value2(0)+18,'Child Care').attr({'font-family':'Lato','font-size':'1em','fill':'#3d3242','text-anchor':'middle'})
 
 		// bars
-		g2.rect(50+.5*thirds-barwidth,get_value2(8.4),barwidth,get_value2(0)-get_value2(8.4)).attr({id:'mpaid1',fill:'#33836A','shape-rendering':'crispEdges'})
-		g2.rect(50+.5*thirds,get_value2(21.7),barwidth,get_value2(0)-get_value2(21.7)).attr({id:'mpaid2',fill:'#67c2a5','shape-rendering':'crispEdges'})
-		g2.rect(50+2*thirds-barwidth,get_value2(31.9),barwidth,get_value2(0)-get_value2(31.9)).attr({id:'mhouse1',fill:'#33836A','shape-rendering':'crispEdges'})
-		g2.rect(50+2*thirds,get_value2(17.6),barwidth,get_value2(0)-get_value2(17.6)).attr({id:'mhouse2',fill:'#67c2a5','shape-rendering':'crispEdges'})
-		g2.rect(50+3.5*thirds-barwidth,get_value2(10.2),barwidth,get_value2(0)-get_value2(10.2)).attr({id:'mcare1',fill:'#33836A','shape-rendering':'crispEdges'})
-		g2.rect(50+3.5*thirds,get_value2(11.8),barwidth,get_value2(0)-get_value2(11.8)).attr({id:'mcare2',fill:'#67c2a5','shape-rendering':'crispEdges'})
+		g2.rect(50+.5*thirds-barwidth,get_value2(8.4),barwidth,get_value2(0)-get_value2(8.4)).attr({id:'mpaid1',fill:c1,'shape-rendering':'crispEdges'})
+		g2.rect(50+.5*thirds,get_value2(21.7),barwidth,get_value2(0)-get_value2(21.7)).attr({id:'mpaid2',fill:c3,'shape-rendering':'crispEdges'})
+		g2.rect(50+2*thirds-barwidth,get_value2(31.9),barwidth,get_value2(0)-get_value2(31.9)).attr({id:'mhouse1',fill:c1,'shape-rendering':'crispEdges'})
+		g2.rect(50+2*thirds,get_value2(17.6),barwidth,get_value2(0)-get_value2(17.6)).attr({id:'mhouse2',fill:c3,'shape-rendering':'crispEdges'})
+		g2.rect(50+3.5*thirds-barwidth,get_value2(10.2),barwidth,get_value2(0)-get_value2(10.2)).attr({id:'mcare1',fill:c1,'shape-rendering':'crispEdges'})
+		g2.rect(50+3.5*thirds,get_value2(11.8),barwidth,get_value2(0)-get_value2(11.8)).attr({id:'mcare2',fill:c3,'shape-rendering':'crispEdges'})
 
-		g3.rect(50+.5*thirds-barwidth,get_value2(42),barwidth,get_value2(0)-get_value2(42)).attr({id:'fpaid1',fill:'#c63f26','shape-rendering':'crispEdges'})
-		g3.rect(50+.5*thirds,get_value2(38.5),barwidth,get_value2(0)-get_value2(38.5)).attr({id:'fpaid2',fill:'#fc8d62','shape-rendering':'crispEdges'})
-		g3.rect(50+2*thirds-barwidth,get_value2(4.4),barwidth,get_value2(0)-get_value2(4.4)).attr({id:'fhouse1',fill:'#c63f26','shape-rendering':'crispEdges'})
-		g3.rect(50+2*thirds,get_value2(8.8),barwidth,get_value2(0)-get_value2(8.8)).attr({id:'fhouse2',fill:'#fc8d62','shape-rendering':'crispEdges'})
-		g3.rect(50+3.5*thirds-barwidth,get_value2(2.5),barwidth,get_value2(0)-get_value2(2.5)).attr({id:'fcare1',fill:'#c63f26','shape-rendering':'crispEdges'})
-		g3.rect(50+3.5*thirds,get_value2(7.1),barwidth,get_value2(0)-get_value2(7.1)).attr({id:'fcare2',fill:'#fc8d62','shape-rendering':'crispEdges'})
+		g3.rect(50+.5*thirds-barwidth,get_value2(42),barwidth,get_value2(0)-get_value2(42)).attr({id:'fpaid1',fill:c2,'shape-rendering':'crispEdges'})
+		g3.rect(50+.5*thirds,get_value2(38.5),barwidth,get_value2(0)-get_value2(38.5)).attr({id:'fpaid2',fill:c4,'shape-rendering':'crispEdges'})
+		g3.rect(50+2*thirds-barwidth,get_value2(4.4),barwidth,get_value2(0)-get_value2(4.4)).attr({id:'fhouse1',fill:c2,'shape-rendering':'crispEdges'})
+		g3.rect(50+2*thirds,get_value2(8.8),barwidth,get_value2(0)-get_value2(8.8)).attr({id:'fhouse2',fill:c4,'shape-rendering':'crispEdges'})
+		g3.rect(50+3.5*thirds-barwidth,get_value2(2.5),barwidth,get_value2(0)-get_value2(2.5)).attr({id:'fcare1',fill:c2,'shape-rendering':'crispEdges'})
+		g3.rect(50+3.5*thirds,get_value2(7.1),barwidth,get_value2(0)-get_value2(7.1)).attr({id:'fcare2',fill:c4,'shape-rendering':'crispEdges'})
 
 		g2.line(50,get_value2(0),7*ninths+50,get_value2(0)).attr({'stroke-width':2,'stroke':'black','shape-rendering':'crispEdges'})
 		g3.line(50,get_value2(0),7*ninths+50,get_value2(0)).attr({'stroke-width':2,'stroke':'black','shape-rendering':'crispEdges'})
