@@ -13,14 +13,15 @@ same user made the venus symbol
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/plugins/TextPlugin.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 	<style>
 		@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 		@-webkit-keyframes dash{to{stroke-dashoffset:-1000;}}
-		/*body{overflow-y:scroll;overflow-x:hidden;width:100%;height:100%;margin:auto;}*/
-
+		body{overflow-y:scroll;overflow-x:hidden;width:100%;height:100%;padding:0;margin:0;}
 		.ants{-webkit-animation: dash 30s linear infinite}
-		.constraint{position:relative;margin-left:auto;margin-right:auto;}
-		/*.scrollcontainer{overflow-y:scroll;height:100%}*/
+		.constraint{position:relative;}
+		.scrollcontainer{overflow-y:scroll;overflow-x:hidden;height:100%}
 		.icon{position:absolute;width:32px;height:32px}
 		.headlinetext0{font-family:'Lato';font-size:2em;color:#999;font-weight:700;position:absolute;}
 		.headlinetext2{font-family:'Lato';font-size:3.5em;color:#3d3242;font-weight:700;position:absolute;line-height:100%;}
@@ -29,92 +30,96 @@ same user made the venus symbol
 		.stoptext{font-family:'Lato';font-size:1.5em;color:#3d3242;font-weight:400;position:absolute;line-height:90%;opacity:0;margin:0;padding:0;transform:translate(0,-50%);}
 		.stoptext2{text-align:center;font-size:2em;z-index:99;}
 		.lftext{font-family:'Lato';font-size:1.3em;color:#3d3242;font-weight:400;position:absolute;line-height:90%;margin:0;padding:0;}
-		.timeicons{padding-left:35px;}
-		.hoursrow{position:relative;font-family:'Lato';font-size:1.5em;color:#666;font-weight:700;line-height:90%;padding:13px;}
-		.hoursrow:not(:first-child){padding-top:2px;}
-		.hourstable{position:absolute;background-color:rgba(255,255,255,.9);border-radius:4px;opacity:0;}
-		.buffer{margin-left:35px;}
 		.lfbox{position:absolute;border:.5px solid black;background:#dddddd;padding:3px;font-family:'Lato';opacity:.8;z-index:1000;}
 		.lfbox2{position:absolute;border:.5px solid black;background:#dddddd;padding:3px;font-family:'Lato';opacity:0;text-align:center;}
 		.male{color:#fc8d62;}
 		.female{color:#67c2a5}
 		.pointer{position:absolute;width:1px;background:black;height:40px;opacity:0;}
 		.recession{color:#ccc;}
+		.f2{position:static;background-color:#082412;padding:35px;margin-top:0px;color:white;font-family:sans-serif;z-index:99;}
 
 		#scrollsecond{position:relative;}
 		#venus{position:absolute;}
 		#ares{position:absolute;}
-		#graph3{position:absolute;}
+		#graph3{position:absolute;z-index:3;}
 	</style>
 </head>
 <body>
 
+<!-- <div class='nav'>
+	<span class='navitem'><img src="http://equitablegrowth.org/wp-content/themes/wceg/img/logo-round.png" height='40px'></span>
+	<span class='navitem'>ABOUT</span>
+	<span class='navitem'>EQUITABLOG</span>
+	<span class='navitem'>RESEARCH & ANALYSIS</span>
+	<span class='navitem'>DATA RESOURCE CENTER</span>
+	<span class='navitem'>GRANT PROGRAM</span>
+	<span class='navitem'>FINDING TIME</span>
+	<span class='navitem'>PRESS</span>
+</div> -->
+
 <div class='scrollcontainer' id='wrapper'>
 
-<div id='trigger'></div>
-<div id='pin'>
-	<div class='constraint' id='inner'>
-		<div id='ares'><svg id='ares_svg' viewbox='0 0 400 402' xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:version="0.32" inkscape:version="0.46" version="1.0" sodipodi:docname="Male black symbol.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape"><metadata id="metadata7"><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs id="defs5"><inkscape:perspective sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 526.18109 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="744.09448 : 526.18109 : 1" inkscape:persp3d-origin="372.04724 : 350.78739 : 1" id="perspective9" /><inkscape:perspective id="perspective11" inkscape:persp3d-origin="105 : 70 : 1" inkscape:vp_z="210 : 105 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_x="0 : 105 : 1" sodipodi:type="inkscape:persp3d" /></defs><sodipodi:namedview inkscape:window-height="712" inkscape:window-width="1024" inkscape:pageshadow="2" inkscape:pageopacity="0.0" guidetolerance="10.0" gridtolerance="10.0" objecttolerance="10.0" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff" id="base" showgrid="false" inkscape:zoom="1.155" inkscape:cx="200" inkscape:cy="200" inkscape:window-x="-4" inkscape:window-y="-4" inkscape:current-layer="svg2" /><path style="fill:#fc8d62;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" id="path4" stroke-miterlimit="4" d="M 313.08211,1.8287384e-06 L 296.52632,28.972622 L 337.91579,28.972622 L 261.34529,105.54314 C 192.66194,54.224462 96.00127,64.683002 39.884171,129.5049 C -16.232929,194.32679 -12.740749,291.48886 47.885186,352.11481 C 108.51112,412.74073 205.67319,416.23294 270.49511,360.11583 C 335.31699,303.99873 345.77552,207.33806 294.45685,138.65472 L 371.02735,62.084202 L 371.02735,103.47367 L 400,86.917881 L 400,1.8287384e-06 L 313.08211,1.8287384e-06 z M 164.08003,117.95998 C 229.22753,117.95998 282.04002,170.77246 282.04002,235.91997 C 282.04002,301.06747 229.22753,353.87996 164.08003,353.87996 C 98.93253,353.87996 46.120045,301.06747 46.120045,235.91997 C 46.120045,170.77246 98.93253,117.95998 164.08003,117.95998 L 164.08003,117.95998 z" /></svg></div>
-		<div id='venus'><svg viewbox='0 0 268 400' xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><metadata><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:title>Female black symbol</dc:title><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/></cc:Work></rdf:RDF></metadata><ellipse fill="none" stroke-width="34.5396" stroke="#67c2a5" cx="133" cy="130.785" rx="115.7302" ry="113.5152"/><path d="M109.47,257V303.505H56.2729V345.722H109.47V400H156.53V345.722H207.681V303.505H156.53V257Z" fill="#67c2a5"/></svg></div>
-		<div id='yearmarker' class='headlinetext2'>1948</div>
-		<div id='mhhmarker' class='headlinetext3' style='color:#3d3242'>Families $27k</div>
-		<div id='mmmarker' class='headlinetext3' style='color:#fc8d62'>Males $21k</div>
-		<div id='mfmarker' class='headlinetext3' style='color:#67c2a5'>Females $9k</div>
-		<div id='male_lf_text' class='lfbox'>87%</div>
-		<div id='female_lf_text' class='lfbox'>33%</div>
-		<div id='male_lf_texthold' class='lfbox2'>1948</div>
-		<div id='female_lf_texthold' class='lfbox2'>1948</div>
-		<div id='pointer' class='pointer'></div>
-		<div id='graphlabel' class='headlinetext4'>Median Incomes, 2014 $</div>
+	<div id='trigger'></div>
+	<div id='pin'>
+		<div class='constraint' id='inner'>
+			<div id='ares'><svg id='ares_svg' viewbox='0 0 400 402' xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:version="0.32" inkscape:version="0.46" version="1.0" sodipodi:docname="Male black symbol.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape"><metadata id="metadata7"><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs id="defs5"><inkscape:perspective sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 526.18109 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="744.09448 : 526.18109 : 1" inkscape:persp3d-origin="372.04724 : 350.78739 : 1" id="perspective9" /><inkscape:perspective id="perspective11" inkscape:persp3d-origin="105 : 70 : 1" inkscape:vp_z="210 : 105 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_x="0 : 105 : 1" sodipodi:type="inkscape:persp3d" /></defs><sodipodi:namedview inkscape:window-height="712" inkscape:window-width="1024" inkscape:pageshadow="2" inkscape:pageopacity="0.0" guidetolerance="10.0" gridtolerance="10.0" objecttolerance="10.0" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff" id="base" showgrid="false" inkscape:zoom="1.155" inkscape:cx="200" inkscape:cy="200" inkscape:window-x="-4" inkscape:window-y="-4" inkscape:current-layer="svg2" /><path style="fill:#fc8d62;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" id="path4" stroke-miterlimit="4" d="M 313.08211,1.8287384e-06 L 296.52632,28.972622 L 337.91579,28.972622 L 261.34529,105.54314 C 192.66194,54.224462 96.00127,64.683002 39.884171,129.5049 C -16.232929,194.32679 -12.740749,291.48886 47.885186,352.11481 C 108.51112,412.74073 205.67319,416.23294 270.49511,360.11583 C 335.31699,303.99873 345.77552,207.33806 294.45685,138.65472 L 371.02735,62.084202 L 371.02735,103.47367 L 400,86.917881 L 400,1.8287384e-06 L 313.08211,1.8287384e-06 z M 164.08003,117.95998 C 229.22753,117.95998 282.04002,170.77246 282.04002,235.91997 C 282.04002,301.06747 229.22753,353.87996 164.08003,353.87996 C 98.93253,353.87996 46.120045,301.06747 46.120045,235.91997 C 46.120045,170.77246 98.93253,117.95998 164.08003,117.95998 L 164.08003,117.95998 z" /></svg></div>
+			<div id='venus'><svg viewbox='0 0 268 400' xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><metadata><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:title>Female black symbol</dc:title><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/></cc:Work></rdf:RDF></metadata><ellipse fill="none" stroke-width="34.5396" stroke="#67c2a5" cx="133" cy="130.785" rx="115.7302" ry="113.5152"/><path d="M109.47,257V303.505H56.2729V345.722H109.47V400H156.53V345.722H207.681V303.505H156.53V257Z" fill="#67c2a5"/></svg></div>
+			<div id='yearmarker' class='headlinetext2'>1948</div>
+			<div id='mhhmarker' class='headlinetext3' style='color:#3d3242'>Families $27k</div>
+			<div id='mmmarker' class='headlinetext3' style='color:#fc8d62'>Males $21k</div>
+			<div id='mfmarker' class='headlinetext3' style='color:#67c2a5'>Females $9k</div>
+			<div id='male_lf_text' class='lfbox'>87%</div>
+			<div id='female_lf_text' class='lfbox'>33%</div>
+			<div id='male_lf_texthold' class='lfbox2'>1948</div>
+			<div id='female_lf_texthold' class='lfbox2'>1948</div>
+			<div id='pointer' class='pointer'></div>
+			<div id='graphlabel' class='headlinetext4'>Median Incomes, 2014 $</div>
 
-		<div id='lf1' class='lftext' style='opacity:100%'>Male labor force participation</div>
-		<div id='lf2' class='lftext' style='opacity:100%'>Female labor force participation</div>
+			<div id='lf1' class='lftext' style='opacity:100%'>Male labor force participation</div>
+			<div id='lf2' class='lftext' style='opacity:100%'>Female labor force participation</div>
 
-		<div id='stop0text' class='stoptext'>Scroll down to see how labor force participation and income has changed for <span class='male'>males</span> and <span class='female'>females</span> since 1948. <span class='recession'>Recessions</span> are shaded gray.</div>
-		<div id='stop1text' class='stoptext'>For decades, <span class='female'>female</span> participation in the labor force and <span class='female'>female</span> pay rose, and family income rose with it.</div>
-		<div id='stop2text1' class='stoptext'>But <span class='male'>male</span> labor force participation declined over this same period.</div>
-		<div id='stop2text12' class='stoptext'>Worse yet, <span class='male'>male</span> median income has been stagnant since 1979.</div>
-		<div id='stop2text2' class='stoptext'>The result is that family incomes grew quickly before 1979, but have risen slowly since.</div>
-		<div id='stop2text3' class='stoptext'>But the problem isn't just that incomes are stagnant.</div>
-		<svg id='graph1'></svg>
+			<div id='stop0text' class='stoptext'>Scroll down to see how labor force participation and income has changed for <span class='male'>males</span> and <span class='female'>females</span> since 1948. <span class='recession'>Recessions</span> are shaded gray.</div>
+			<div id='stop1text' class='stoptext'>For decades, <span class='female'>female</span> participation in the labor force and <span class='female'>female</span> pay rose, and family income rose with it.</div>
+			<div id='stop2text1' class='stoptext'>But <span class='male'>Male</span> labor force participation declined over this same period.</div>
+			<div id='stop2text12' class='stoptext'>Worse yet, <span class='male'>male</span> median income has been stagnant since 1979.</div>
+			<div id='stop2text2' class='stoptext'>The result is that family incomes grew quickly before 1979, but have risen slowly since.</div>
+			<div id='stop2text3' class='stoptext'>But the problem isn't just that incomes are stagnant.</div>
+			<svg id='graph1'></svg>
+		</div>
+	</div>
+
+	<div id='trigger2'></div>
+	<div id='pin2'>
+		<div class='constraint' id='inner2'>
+			<div id='stop3text1' class='stoptext stoptext2'>Unlike in 1948, both parents (or a single parent) work.</div>
+			<div id='stop3text2' class='stoptext stoptext2'><span class='female'>Mothers</span> are doing more paid work and more child care. <span class='male'>Fathers</span> are doing more housework and child care.</div>
+			<div id='stop3text3' class='stoptext stoptext2'>So families are working more but incomes are flat.</div>
+			<div id='stop3text4' class='stoptext stoptext2'>This isn't just a problem for families. It's a problem for our economy.</div>
+			<div id='stop3text5' class='stoptext stoptext2'>With less time, workers are less productive, and worker turnover is higher.</div>
+			<div id='stop3text6' class='stoptext stoptext2'>The problem is that our workplaces and our labor laws weren't designed with modern families in mind.</div>
+		</div>
+		<div id='scrollfirst'>
+			<svg id='graph15'></svg>
+		</div>
+		<svg id='graph2'></svg>
+		<svg id='graph3'></svg>
+	</div>
+
+	<div class="f2" id="foot">
+		<!-- <address> -->
+		&copy; 2016 The Washington Center for Equitable Growth
+		<br>1500 K Street, NW
+		<br>8th Floor,
+		<br>Washington DC 20005
+		<br>Phone: 202.545.6002
+		<!-- </address> -->
 	</div>
 </div>
 
-<div id='trigger2'></div>
-<div id='pin2'>
-	<div class='constraint' id='inner2'>
-		<div id='stop3text1' class='stoptext stoptext2'>Unlike in 1948, both parents (or a single parent) work.</div>
-		<div id='stop3text2' class='stoptext stoptext2'><span class='female'>Mothers</span> are doing more paid work and more child care. <span class='male'>Fathers</span> are doing more housework and child care.</div>
-		<div id='stop3text3' class='stoptext stoptext2'>So families are working more but incomes are flat.</div>
-		<div id='stop3text4' class='stoptext stoptext2'>This isn't just a problem for families. It's a problem for our economy.</div>
-		<div id='stop3text5' class='stoptext stoptext2'>With less time, workers are less productive, and worker turnover is higher.</div>
-		<div id='stop3text6' class='stoptext stoptext2'>The problem is that our workplaces and our labor laws weren't designed with modern families in mind.</div>
-	</div>
-	<div id='scrollfirst'>
-		<svg id='graph15'></svg>
-	</div>
-	<svg id='graph2'></svg>
-	<svg id='graph3'></svg>
-</div>
-</div>
 
-<div id='popout'><a href='http://assets.equitablegrowth.org/ft_ani/interactive-popout.html' target="_blank"><img src='http://assets.equitablegrowth.org/ft_ani/interactive.jpg'></a></div>
 
 </body>
 <script>
-
-	function mobilecheck(){
-	  var check = false;
-	  (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))check = true})(navigator.userAgent||navigator.vendor||window.opera);
-	  return check;
-	}
-
-	if(mobilecheck()==true){
-		console.log('check')
-		jQuery('#wrapper').remove()
-	} else{
-		jQuery('#popout').hide()
-	}
 
 	// census data from tables p2 and f7 and participation data from FRED
 	var data={1948: {'lf_female': 32.7, 'mm_income': 20576, 'mhh_income': 27369, 'mf_income': 8665, 'lf_male': 86.6}, 1949: {'lf_female': 33.2, 'mm_income': 20398, 'mhh_income': 27015, 'mf_income': 8347, 'lf_male': 86.6}, 1950: {'lf_female': 33.8, 'mm_income': 22070, 'mhh_income': 28502, 'mf_income': 8184, 'lf_male': 86.3}, 1951: {'lf_female': 34.6, 'mm_income': 23494, 'mhh_income': 29519, 'mf_income': 8317, 'lf_male': 86.5}, 1952: {'lf_female': 34.7, 'mm_income': 24268, 'mhh_income': 30403, 'mf_income': 8965, 'lf_male': 86.3}, 1953: {'lf_female': 34.5, 'mm_income': 25006, 'mhh_income': 32932, 'mf_income': 9052, 'lf_male': 86.0}, 1954: {'lf_female': 34.6, 'mm_income': 24569, 'mhh_income': 32064, 'mf_income': 8926, 'lf_male': 85.6}, 1955: {'lf_female': 35.6, 'mm_income': 25954, 'mhh_income': 34146, 'mf_income': 8656, 'lf_male': 85.3}, 1956: {'lf_female': 36.8, 'mm_income': 27405, 'mhh_income': 36378, 'mf_income': 8744, 'lf_male': 85.5}, 1957: {'lf_female': 36.9, 'mm_income': 27095, 'mhh_income': 36593, 'mf_income': 8842, 'lf_male': 84.8}, 1958: {'lf_female': 37.1, 'mm_income': 26842, 'mhh_income': 36480, 'mf_income': 8433, 'lf_male': 84.3}, 1959: {'lf_female': 37.1, 'mm_income': 28429, 'mhh_income': 38528, 'mf_income': 8699, 'lf_male': 83.7}, 1960: {'lf_female': 37.8, 'mm_income': 28552, 'mhh_income': 39329, 'mf_income': 8824, 'lf_male': 83.4}, 1961: {'lf_female': 38.1, 'mm_income': 29023, 'mhh_income': 39734, 'mf_income': 8861, 'lf_male': 82.9}, 1962: {'lf_female': 37.9, 'mm_income': 29992, 'mhh_income': 40858, 'mf_income': 9206, 'lf_male': 82.0}, 1963: {'lf_female': 38.3, 'mm_income': 30524, 'mhh_income': 42284, 'mf_income': 9284, 'lf_male': 81.3}, 1964: {'lf_female': 38.7, 'mm_income': 31022, 'mhh_income': 43852, 'mf_income': 9673, 'lf_male': 81.0}, 1965: {'lf_female': 39.2, 'mm_income': 33025, 'mhh_income': 45740, 'mf_income': 10000, 'lf_male': 80.7}, 1966: {'lf_female': 40.3, 'mm_income': 33923, 'mhh_income': 48155, 'mf_income': 10472, 'lf_male': 80.4}, 1967: {'lf_female': 41.1, 'mm_income': 34427, 'mhh_income': 49182, 'mf_income': 11166, 'lf_male': 80.4}, 1968: {'lf_female': 41.6, 'mm_income': 35675, 'mhh_income': 51496, 'mf_income': 12045, 'lf_male': 80.1}, 1969: {'lf_female': 42.7, 'mm_income': 36716, 'mhh_income': 53872, 'mf_income': 12176, 'lf_male': 79.8}, 1970: {'lf_female': 43.4, 'mm_income': 36304, 'mhh_income': 53705, 'mf_income': 12176, 'lf_male': 79.7}, 1971: {'lf_female': 43.4, 'mm_income': 35995, 'mhh_income': 53630, 'mf_income': 12556, 'lf_male': 79.1}, 1972: {'lf_female': 43.9, 'mm_income': 37716, 'mhh_income': 56276, 'mf_income': 13158, 'lf_male': 78.9}, 1973: {'lf_female': 44.7, 'mm_income': 38382, 'mhh_income': 57416, 'mf_income': 13321, 'lf_male': 78.8}, 1974: {'lf_female': 45.7, 'mm_income': 36608, 'mhh_income': 55882, 'mf_income': 13349, 'lf_male': 78.7}, 1975: {'lf_female': 46.4, 'mm_income': 35432, 'mhh_income': 54908, 'mf_income': 13548, 'lf_male': 77.9}, 1976: {'lf_female': 47.3, 'mm_income': 35673, 'mhh_income': 56609, 'mf_income': 13534, 'lf_male': 77.5}, 1977: {'lf_female': 48.4, 'mm_income': 36037, 'mhh_income': 56990, 'mf_income': 14029, 'lf_male': 77.6}, 1978: {'lf_female': 50.0, 'mm_income': 36429, 'mhh_income': 58766, 'mf_income': 13552, 'lf_male': 77.8}, 1979: {'lf_female': 50.9, 'mm_income': 35842, 'mhh_income': 59601, 'mf_income': 13243, 'lf_male': 77.8}, 1980: {'lf_female': 51.5, 'mm_income': 34287, 'mhh_income': 57528, 'mf_income': 13463, 'lf_male': 77.5}, 1981: {'lf_female': 52.1, 'mm_income': 33663, 'mhh_income': 55938, 'mf_income': 13637, 'lf_male': 77.0}, 1982: {'lf_female': 52.6, 'mm_income': 32871, 'mhh_income': 55217, 'mf_income': 13872, 'lf_male': 76.7}, 1983: {'lf_female': 52.9, 'mm_income': 33086, 'mhh_income': 55585, 'mf_income': 14290, 'lf_male': 76.3}, 1984: {'lf_female': 53.6, 'mm_income': 33868, 'mhh_income': 57387, 'mf_income': 14911, 'lf_male': 76.3}, 1985: {'lf_female': 54.5, 'mm_income': 34236, 'mhh_income': 58215, 'mf_income': 15148, 'lf_male': 76.3}, 1986: {'lf_female': 55.3, 'mm_income': 35283, 'mhh_income': 60732, 'mf_income': 15689, 'lf_male': 76.2}, 1987: {'lf_female': 56.0, 'mm_income': 35470, 'mhh_income': 61762, 'mf_income': 16542, 'lf_male': 76.2}, 1988: {'lf_female': 56.6, 'mm_income': 36373, 'mhh_income': 61925, 'mf_income': 17090, 'lf_male': 76.2}, 1989: {'lf_female': 57.4, 'mm_income': 36685, 'mhh_income': 63093, 'mf_income': 17748, 'lf_male': 76.4}, 1990: {'lf_female': 57.5, 'mm_income': 35664, 'mhh_income': 62131, 'mf_income': 17698, 'lf_male': 76.4}, 1991: {'lf_female': 57.4, 'mm_income': 34710, 'mhh_income': 60944, 'mf_income': 17765, 'lf_male': 75.8}, 1992: {'lf_female': 57.8, 'mm_income': 33829, 'mhh_income': 60485, 'mf_income': 17719, 'lf_male': 75.8}, 1993: {'lf_female': 57.9, 'mm_income': 34057, 'mhh_income': 59649, 'mf_income': 17827, 'lf_male': 75.4}, 1994: {'lf_female': 58.8, 'mm_income': 34337, 'mhh_income': 61311, 'mf_income': 18127, 'lf_male': 75.0}, 1995: {'lf_female': 59.0, 'mm_income': 34829, 'mhh_income': 62692, 'mf_income': 18725, 'lf_male': 75.0}, 1996: {'lf_female': 59.3, 'mm_income': 35823, 'mhh_income': 63578, 'mf_income': 19261, 'lf_male': 74.9}, 1997: {'lf_female': 59.8, 'mm_income': 37093, 'mhh_income': 65570, 'mf_income': 20160, 'lf_male': 75.0}, 1998: {'lf_female': 59.9, 'mm_income': 38455, 'mhh_income': 67843, 'mf_income': 20946, 'lf_male': 74.9}, 1999: {'lf_female': 60.0, 'mm_income': 38792, 'mhh_income': 69405, 'mf_income': 21752, 'lf_male': 74.7}, 2000: {'lf_female': 59.9, 'mm_income': 38963, 'mhh_income': 69741, 'mf_income': 22082, 'lf_male': 74.8}, 2001: {'lf_female': 59.8, 'mm_income': 38913, 'mhh_income': 68740, 'mf_income': 22216, 'lf_male': 74.5}, 2002: {'lf_female': 59.6, 'mm_income': 38475, 'mhh_income': 68007, 'mf_income': 22123, 'lf_male': 74.1}, 2003: {'lf_female': 59.5, 'mm_income': 38527, 'mhh_income': 67809, 'mf_income': 22216, 'lf_male': 73.5}, 2004: {'lf_female': 59.2, 'mm_income': 38247, 'mhh_income': 67756, 'mf_income': 22143, 'lf_male': 73.3}, 2005: {'lf_female': 59.2, 'mm_income': 37914, 'mhh_income': 68122, 'mf_income': 22519, 'lf_male': 73.3}, 2006: {'lf_female': 59.4, 'mm_income': 37886, 'mhh_income': 68582, 'mf_income': 23501, 'lf_male': 73.5}, 2007: {'lf_female': 59.3, 'mm_income': 37904, 'mhh_income': 70057, 'mf_income': 23889, 'lf_male': 73.2}, 2008: {'lf_female': 59.5, 'mm_income': 36463, 'mhh_income': 67648, 'mf_income': 22945, 'lf_male': 73.0}, 2009: {'lf_female': 59.2, 'mm_income': 35513, 'mhh_income': 66303, 'mf_income': 23125, 'lf_male': 72.0}, 2010: {'lf_female': 58.6, 'mm_income': 34970, 'mhh_income': 65408, 'mf_income': 22559, 'lf_male': 71.2}, 2011: {'lf_female': 58.1, 'mm_income': 34723, 'mhh_income': 64185, 'mf_income': 22213, 'lf_male': 70.5}, 2012: {'lf_female': 57.7, 'mm_income': 34959, 'mhh_income': 64179, 'mf_income': 22190, 'lf_male': 70.2}, 2013: {'lf_female': 57.2, 'mm_income': 36213, 'mhh_income': 66542, 'mf_income': 22488, 'lf_male': 69.7}, 2014: {'lf_female': 57.0, 'mm_income': 36302, 'mhh_income': 66632, 'mf_income': 22240, 'lf_male': 69.2}}
@@ -124,7 +129,7 @@ same user made the venus symbol
 	var g2=Snap('#graph2')
 	var g3=Snap('#graph3')
 	var gwidth=jQuery(window).width()
-	var gheight=jQuery(window).height()-73
+	var gheight=jQuery(window).height()
 	if(gwidth>1045){gwidth=1045}
 	tallflag=0
 	if(gheight>gwidth*1.3){tallflag=1}
@@ -141,6 +146,7 @@ same user made the venus symbol
 	var yearinterval=(gxbounds2[1]-gxbounds2[0])/66
 	var year=1964
 
+	// jQuery('#foot').css('marginTop',150)
 	jQuery('#graph1').width(gwidth)
 	jQuery('#graph1').height(gheight)
 	jQuery('#pin2').width(gwidth)
@@ -166,7 +172,7 @@ same user made the venus symbol
 		var gybounds3=[0,(2/6)*gheight-50]
 	}
 
-	var controller=new ScrollMagic.Controller()
+	var controller=new ScrollMagic.Controller({container:'#wrapper'})
 
 	drawpeopleicons(function(){
 		// main control function, very slight callback hell
@@ -333,12 +339,12 @@ same user made the venus symbol
 				}
 			}
 
-			new ScrollMagic.Scene({offset:jQuery('#trigger').offset()['top']-253,duration:8000,})
+			new ScrollMagic.Scene({offset:jQuery('#trigger').offset()['top'],duration:8000,})
 				.setPin('#pin')
 				.setTween(tween)
 				.addTo(controller)
 
-			new ScrollMagic.Scene({offset:jQuery('#trigger2').offset()['top']-253,duration:8000*(205/126),})
+			new ScrollMagic.Scene({offset:jQuery('#trigger2').offset()['top'],duration:8000*(205/126),})
 				.setPin('#pin2')
 				.setTween(tween2)
 				.addTo(controller)
